@@ -12,9 +12,24 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        getAllData()
     }
 
+    func getAllData() {
+        do {
+            try URLSession.shared.dataTask(with:
+            TrombiApiRequests.getPersons.asURLRequest()) { (data, response, error) in
+                if let error = error {
+                    // TODO: error handling
+                }  else if let data = data {
+                    // TODO: data came case
+                } else {
+                    // TODO: else case
+                }
+            }
+        } catch {
+            print("Shit something went wrong")
+        }
+    }
 
 }
-

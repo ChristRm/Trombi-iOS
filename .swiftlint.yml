@@ -1,0 +1,13 @@
+disabled_rules: # rule identifiers to exclude from running
+  - trailing_whitespace
+  - vertical_whitespace
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+  - SwiftLint
+  - extern
+
+line_length:
+  warning: 160
+  ignores_comments: true
