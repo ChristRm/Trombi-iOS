@@ -1,0 +1,38 @@
+[
+    {
+        "arrival": 1395270000,
+        "surname": "O'Neil",
+        "name": "Jack",
+        "team_id": 2,
+        "email": "oneil@sg1.com",
+        "job": "Colonel",
+        "birthday": 0,
+        "login": "joneil",
+        "id": 2,
+        "picture": "/photo/joneil"
+    },
+    {
+        "arrival": 1395270000,
+        "surname": "Carter",
+        "name": "Samantha",
+        "team_id": 2,
+        "email": "sam@sg1.com",
+        "job": "Major",
+        "birthday": 0,
+        "login": "scarter",
+        "id": 3,
+        "picture": "/photo/scarter"
+    },
+    {
+        "arrival": 1395270000,
+        "surname": "",
+        "name": "Teal'c",
+        "team_id": 2,
+        "email": "tealc@sg1.com",
+        "job": "Jaffa",
+        "birthday": 0,
+        "login": "tealc",
+        "id": 4,
+        "picture": "/photo/tealc",
+    }
+]

@@ -1,0 +1,46 @@
+import Foundation
+
+guard let personsapiUrl = Bundle.main.url(forResource: "personsapi", withExtension: "json") else {
+    fatalError()
+}
+
+guard let linksapiUrl = Bundle.main.url(forResource: "linksapi", withExtension: "json") else {
+    fatalError()
+}
+
+guard let teamsapiUrl = Bundle.main.url(forResource: "teamsapi", withExtension: "json") else {
+    fatalError()
+}
+
+guard let personsData = try? Data(contentsOf: personsapiUrl) else {
+    fatalError()
+}
+
+guard let linksData = try? Data(contentsOf: linksapiUrl) else {
+    fatalError()
+}
+
+guard let teamsData = try? Data(contentsOf: teamsapiUrl) else {
+    fatalError()
+}
+
+let decoder = JSONDecoder()
+
+do {
+    let personsResponse = try decoder.decode(Array<Employee>.self, from: personsData)
+
+    let linksResponse = try decoder.decode(Array<UsefulLink>.self, from: linksData)
+
+    let teamsResponse = try decoder.decode(Array<Team>.self, from:teamsData)
+
+    print("==================Persons==================")
+    personsResponse.forEach { print($0) }
+
+    print("==================Links==================")
+    linksResponse.forEach { print($0) }
+
+    print("==================Teams==================")
+    teamsResponse.forEach { print($0) }
+} catch {
+    print(error)
+}

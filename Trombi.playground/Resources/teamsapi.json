@@ -1,0 +1,19 @@
+[
+    {
+        "persons": ["ghammond"],
+        "id": 1,
+        "name": "SGC"
+    },
+    {
+        "persons": [
+            "joneil",
+            "scarter",
+            "tealc",
+            "djackson",
+            "jquinn"
+        ],
+        "higher_teaml_id": 1,
+        "id": 2,
+        "name": "SG1"
+    }
+]

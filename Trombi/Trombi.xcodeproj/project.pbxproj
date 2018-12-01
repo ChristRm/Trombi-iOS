@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		4BA3CFB321A6DA6E003358E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB221A6DA6E003358E6 /* AppDelegate.swift */; };
-		4BA3CFB521A6DA6E003358E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB421A6DA6E003358E6 /* ViewController.swift */; };
 		4BA3CFB821A6DA6E003358E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB621A6DA6E003358E6 /* Main.storyboard */; };
 		4BA3CFBA21A6DA6F003358E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */; };
 		4BA3CFBD21A6DA6F003358E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFBB21A6DA6F003358E6 /* LaunchScreen.storyboard */; };
+		9DAFB58C21B332CC0038C680 /* UsefulLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAFB58921B332CC0038C680 /* UsefulLink.swift */; };
+		9DAFB58D21B332CC0038C680 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAFB58A21B332CC0038C680 /* Employee.swift */; };
+		9DAFB58E21B332CC0038C680 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAFB58B21B332CC0038C680 /* Team.swift */; };
 		9DE90CCD21A9FB5400AF8DF3 /* TrombiApiRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE90CCC21A9FB5400AF8DF3 /* TrombiApiRequests.swift */; };
+		9DF9590921B2F74E005F024E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9590821B2F74E005F024E /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4BA3CFAF21A6DA6E003358E6 /* Trombi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trombi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA3CFB221A6DA6E003358E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4BA3CFB421A6DA6E003358E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4BA3CFB721A6DA6E003358E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BA3CFBC21A6DA6F003358E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BA3CFBE21A6DA6F003358E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DAFB58921B332CC0038C680 /* UsefulLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsefulLink.swift; sourceTree = "<group>"; };
+		9DAFB58A21B332CC0038C680 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		9DAFB58B21B332CC0038C680 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		9DE90CCC21A9FB5400AF8DF3 /* TrombiApiRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiApiRequests.swift; sourceTree = "<group>"; };
+		9DF9590821B2F74E005F024E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +64,6 @@
 			children = (
 				9DE90CCA21A9F9C300AF8DF3 /* Common */,
 				4BA3CFB221A6DA6E003358E6 /* AppDelegate.swift */,
-				4BA3CFB421A6DA6E003358E6 /* ViewController.swift */,
 				4BA3CFB621A6DA6E003358E6 /* Main.storyboard */,
 				4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */,
 				4BA3CFBB21A6DA6F003358E6 /* LaunchScreen.storyboard */,
@@ -70,6 +75,7 @@
 		9DE90CCA21A9F9C300AF8DF3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9DF9590121B2F248005F024E /* Application */,
 				9DE90CCB21A9FA6900AF8DF3 /* Network */,
 			);
 			path = Common;
@@ -82,6 +88,42 @@
 			);
 			name = Network;
 			path = Services/Network;
+			sourceTree = "<group>";
+		};
+		9DF9590121B2F248005F024E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				9DF9590421B2F459005F024E /* Modules */,
+				9DF9590221B2F25B005F024E /* Models */,
+			);
+			name = Application;
+			path = Trombi/Application;
+			sourceTree = SOURCE_ROOT;
+		};
+		9DF9590221B2F25B005F024E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9DAFB58A21B332CC0038C680 /* Employee.swift */,
+				9DAFB58B21B332CC0038C680 /* Team.swift */,
+				9DAFB58921B332CC0038C680 /* UsefulLink.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9DF9590421B2F459005F024E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9DF9590521B2F459005F024E /* Employees */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9DF9590521B2F459005F024E /* Employees */ = {
+			isa = PBXGroup;
+			children = (
+				9DF9590821B2F74E005F024E /* ViewController.swift */,
+			);
+			path = Employees;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,8 +219,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BA3CFB521A6DA6E003358E6 /* ViewController.swift in Sources */,
+				9DAFB58E21B332CC0038C680 /* Team.swift in Sources */,
 				9DE90CCD21A9FB5400AF8DF3 /* TrombiApiRequests.swift in Sources */,
+				9DAFB58C21B332CC0038C680 /* UsefulLink.swift in Sources */,
+				9DF9590921B2F74E005F024E /* ViewController.swift in Sources */,
+				9DAFB58D21B332CC0038C680 /* Employee.swift in Sources */,
 				4BA3CFB321A6DA6E003358E6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

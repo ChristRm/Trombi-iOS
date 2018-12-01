@@ -19,9 +19,17 @@ class ViewController: UIViewController {
         do {
             try URLSession.shared.dataTask(with:
             TrombiApiRequests.getPersons.asURLRequest()) { (data, response, error) in
-                if let error = error {
+                if let _ = error {
                     // TODO: error handling
-                }  else if let data = data {
+                } else if let personsData = data {
+                    do {
+                        let decoder = JSONDecoder()
+                        let _ = try decoder.decode(Array<Employee>.self,
+                                                   from: personsData)// TODO: employees list to handle
+                    } catch {
+
+                    }
+
                     // TODO: data came case
                 } else {
                     // TODO: else case
