@@ -25,15 +25,15 @@ enum HTTPMethod: String {
 
 enum TrombiApiRequests {
 
-    fileprivate static var baseURL: String {
-        return ""
+    fileprivate static var baseUrl: String {
+        return "https://trombi.mogmi.fr"
     }
 
     fileprivate static var defaultRequestTimeout: TimeInterval = TimeInterval(5.0)// 5 seconds
 
     case getPersons
     case getUsefulLinks
-    case getTeams(teamId: String)
+    case getTeams
 
     func asURLRequest() throws -> URLRequest {
 
@@ -43,12 +43,12 @@ enum TrombiApiRequests {
                     return (.get, EndpointsHelper.Resource.getPersons, nil)
                 case .getUsefulLinks:
                     return (.get, EndpointsHelper.Resource.getUsefulLinks, nil)
-                case .getTeams(let teamId):
-                    return (.get, EndpointsHelper.Resource.getTeams + teamId, nil)
+                case .getTeams:
+                    return (.get, EndpointsHelper.Resource.getTeams, nil)
                 }
         }()
 
-        guard let requestUrl = URL(string: requestData.path) else {
+        guard let requestUrl = URL(string: TrombiApiRequests.baseUrl + requestData.path) else {
             fatalError("Unable to genreate URL from invalid string")
         }
 
@@ -67,8 +67,8 @@ struct EndpointsHelper {
     static let prefix = ""
 
     enum Resource {
-        static let getPersons = "/api/persons/"
-        static let getUsefulLinks = "/api/links/"
-        static let getTeams = "/api/teams/"
+        static let getPersons = "/api/persons"
+        static let getUsefulLinks = "/api/links"
+        static let getTeams = "/api/teams"
     }
 }
