@@ -12,9 +12,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var mainViewModel = MainTabBarViewViewModel()
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        guard let mainTabBarViewController =
+            UIStoryboard.main.instantiateInitialViewController() as? MainTabBarViewController else {
+                fatalError("Could not load MainTabBarViewViewModel")
+        }
+
+        mainTabBarViewController.viewModel = mainViewModel
+        window?.rootViewController = mainTabBarViewController
+
         return true
     }
 
