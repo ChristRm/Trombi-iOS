@@ -17,10 +17,11 @@ struct Employee: Codable {
         case arrival = "arrival"
         case surname = "surname"
         case name = "name"
+        case avatarUrl = "picture"
 
         case email = "email"
         case job = "job"
-        case birthday  = "birthday"
+        case birthday = "birthday"
         case login = "login"
     }
 
@@ -30,6 +31,8 @@ struct Employee: Codable {
     var arrival: Date
     var surname: String
     var name: String
+
+    var avatarUrl: String
 
     var email: String
     var job: String

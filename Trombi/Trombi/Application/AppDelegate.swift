@@ -16,6 +16,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        prepareNavigationBarProxy()
+
         guard let mainTabBarViewController =
             UIStoryboard.main.instantiateInitialViewController() as? MainTabBarViewController else {
                 fatalError("Could not load MainTabBarViewViewModel")
@@ -39,4 +41,22 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) { }
 
     func applicationWillTerminate(_ application: UIApplication) { }
+
+    // MARK: - Private
+    fileprivate func prepareNavigationBarProxy() {
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = UIColor.mainWhiteColor
+        UINavigationBar.appearance().backgroundColor = UIColor.clear
+        UINavigationBar.appearance().titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: UIColor.mainBlackColor,
+             NSAttributedString.Key.font: UIFont.semiBoldAppFontOf(size: 17)]
+
+        if #available(iOS 11.0, *) {
+            UINavigationBar.appearance().largeTitleTextAttributes =
+                [NSAttributedString.Key.foregroundColor: UIColor.mainBlackColor,
+                 NSAttributedString.Key.font: UIFont.semiBoldAppFontOf(size: 28)]
+        } else {
+            // Fallback on earlier versions
+        }
+    }
 }

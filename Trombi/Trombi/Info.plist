@@ -35,5 +35,11 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Muli-Bold.ttf</string>
+		<string>Muli-ExtraBold.ttf</string>
+		<string>Muli-SemiBold.ttf</string>
+	</array>
 </dict>
 </plist>

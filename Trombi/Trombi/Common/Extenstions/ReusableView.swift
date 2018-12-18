@@ -10,16 +10,18 @@ import UIKit
 
 protocol ReusableView {
 
-    static var reuseIdentifier: String { get }
+    static var staticReuseIdentifier: String { get }
 
 }
 
 extension ReusableView {
 
-    static var reuseIdentifier: String {
+    static var staticReuseIdentifier: String {
         return String(describing: self)
     }
 
 }
 
 extension UITableViewCell: ReusableView {}
+
+extension UICollectionViewCell: ReusableView {}

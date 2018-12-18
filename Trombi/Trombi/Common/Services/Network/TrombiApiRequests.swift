@@ -25,7 +25,7 @@ enum HTTPMethod: String {
 
 enum TrombiApiRequests {
 
-    fileprivate static var baseUrl: String {
+    static var baseUrl: String {
         return "https://trombi.mogmi.fr"
     }
 

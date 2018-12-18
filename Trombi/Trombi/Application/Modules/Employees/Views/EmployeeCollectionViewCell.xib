@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-Bold.ttf">
+            <string>Muli-Bold</string>
+        </array>
+        <array key="Muli-SemiBold.ttf">
+            <string>Muli-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="EmployeeCollectionViewCell" customModule="Trombi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="347" height="443"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="347" height="443"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gg-PM-Oud">
+                        <rect key="frame" x="0.0" y="0.0" width="347" height="335.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dmj-pJ-1X7">
+                                <rect key="frame" x="0.0" y="0.0" width="347" height="335.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Dmj-pJ-1X7" secondAttribute="bottom" id="8Gb-9H-Vtm"/>
+                            <constraint firstAttribute="trailing" secondItem="Dmj-pJ-1X7" secondAttribute="trailing" id="coh-PD-K9F"/>
+                            <constraint firstItem="Dmj-pJ-1X7" firstAttribute="leading" secondItem="3gg-PM-Oud" secondAttribute="leading" id="l2z-ON-ydL"/>
+                            <constraint firstItem="Dmj-pJ-1X7" firstAttribute="top" secondItem="3gg-PM-Oud" secondAttribute="top" id="ztJ-jh-rGK"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vak-t2-aai">
+                        <rect key="frame" x="0.0" y="0.0" width="347" height="335.5"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwq-6x-1lH">
+                        <rect key="frame" x="0.0" y="335.5" width="347" height="107.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VE3-SO-UZM">
+                                <rect key="frame" x="0.0" y="17" width="52.5" height="25.5"/>
+                                <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="20"/>
+                                <color key="textColor" red="0.27058823529411763" green="0.27843137254901962" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DET-Sa-73b">
+                                <rect key="frame" x="0.0" y="63" width="38.5" height="19"/>
+                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.42745098039215684" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="DET-Sa-73b" firstAttribute="centerY" secondItem="qwq-6x-1lH" secondAttribute="centerY" multiplier="1.35" id="lgE-Ji-341"/>
+                            <constraint firstItem="VE3-SO-UZM" firstAttribute="centerY" secondItem="qwq-6x-1lH" secondAttribute="centerY" multiplier="0.55" id="rnC-rw-DAZ"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-bZ-tNB">
+                        <rect key="frame" x="10" y="306.5" width="38.5" height="19"/>
+                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="15"/>
+                        <color key="textColor" red="1" green="1" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="DET-Sa-73b" firstAttribute="leading" secondItem="Vak-t2-aai" secondAttribute="leading" id="0lt-UL-b13"/>
+                <constraint firstItem="3gg-PM-Oud" firstAttribute="leading" secondItem="Vak-t2-aai" secondAttribute="leading" id="9Ge-Ji-urg"/>
+                <constraint firstItem="3gg-PM-Oud" firstAttribute="bottom" secondItem="Vak-t2-aai" secondAttribute="bottom" id="BOT-l9-CGn"/>
+                <constraint firstItem="qwq-6x-1lH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Nph-1e-V4w"/>
+                <constraint firstItem="Vak-t2-aai" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Nq6-cI-7wq"/>
+                <constraint firstItem="cLT-bZ-tNB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="QYc-Wy-BPe"/>
+                <constraint firstAttribute="trailing" secondItem="qwq-6x-1lH" secondAttribute="trailing" id="RIN-QH-f8U"/>
+                <constraint firstItem="Vak-t2-aai" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="175/231" id="Ydo-aX-Hns"/>
+                <constraint firstItem="3gg-PM-Oud" firstAttribute="top" secondItem="Vak-t2-aai" secondAttribute="top" id="eMp-h7-ECm"/>
+                <constraint firstItem="qwq-6x-1lH" firstAttribute="top" secondItem="Vak-t2-aai" secondAttribute="bottom" id="eYq-JY-E2u"/>
+                <constraint firstItem="VE3-SO-UZM" firstAttribute="leading" secondItem="Vak-t2-aai" secondAttribute="leading" id="ega-BE-ZCL"/>
+                <constraint firstAttribute="trailing" secondItem="Vak-t2-aai" secondAttribute="trailing" id="fk4-xb-JWN"/>
+                <constraint firstAttribute="bottom" secondItem="qwq-6x-1lH" secondAttribute="bottom" id="j87-c0-BrP"/>
+                <constraint firstItem="qwq-6x-1lH" firstAttribute="top" secondItem="cLT-bZ-tNB" secondAttribute="bottom" constant="10" id="klJ-Wt-eXt"/>
+                <constraint firstItem="3gg-PM-Oud" firstAttribute="trailing" secondItem="Vak-t2-aai" secondAttribute="trailing" id="uBF-Fl-9qX"/>
+                <constraint firstItem="Vak-t2-aai" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xYh-a5-46Q"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="347" height="443"/>
+            <connections>
+                <outlet property="imageShadowInnerView" destination="Dmj-pJ-1X7" id="Rog-wR-4lw"/>
+                <outlet property="imageShadowView" destination="3gg-PM-Oud" id="gSG-oT-hHE"/>
+                <outlet property="imageView" destination="Vak-t2-aai" id="UW7-nS-S8J"/>
+                <outlet property="nameLabel" destination="VE3-SO-UZM" id="g5F-Nw-aEA"/>
+                <outlet property="positionLabel" destination="DET-Sa-73b" id="2DN-Qf-qFg"/>
+                <outlet property="teamLabel" destination="cLT-bZ-tNB" id="6OZ-d9-05Z"/>
+            </connections>
+            <point key="canvasLocation" x="386.39999999999998" y="313.49325337331339"/>
+        </collectionViewCell>
+    </objects>
+</document>

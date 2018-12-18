@@ -11,7 +11,14 @@
 		4BA3CFB821A6DA6E003358E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB621A6DA6E003358E6 /* Main.storyboard */; };
 		4BA3CFBA21A6DA6F003358E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */; };
 		4BA3CFBD21A6DA6F003358E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFBB21A6DA6F003358E6 /* LaunchScreen.storyboard */; };
+		9D06DDBB21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D06DDBA21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift */; };
 		9D110BA521B5E91200AB0A36 /* TrombiDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D110BA421B5E91200AB0A36 /* TrombiDAO.swift */; };
+		9D1D067621C9950A00B2A56A /* EmployeeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D067521C9950A00B2A56A /* EmployeeSearchViewController.swift */; };
+		9D3967B421CEE07A0087CEA7 /* UIColor+Trombi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3967B321CEE07A0087CEA7 /* UIColor+Trombi.swift */; };
+		9D3967B821CEE12E0087CEA7 /* UIColor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3967B721CEE12E0087CEA7 /* UIColor+Convenience.swift */; };
+		9D55DF5321C91F7C009A983F /* EmployeeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D55DF5221C91F7C009A983F /* EmployeeTableViewCell.xib */; };
+		9D55DF5821C9205C009A983F /* EmployeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55DF5621C9205C009A983F /* EmployeeCollectionViewCell.swift */; };
+		9D55DF5921C9205C009A983F /* EmployeeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D55DF5721C9205C009A983F /* EmployeeCollectionViewCell.xib */; };
 		9DAC757621BC3C7800BA791D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC757521BC3C7800BA791D /* MainTabBarViewController.swift */; };
 		9DAC757821BC3C9700BA791D /* Employees.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DAC757721BC3C9700BA791D /* Employees.storyboard */; };
 		9DAC757C21BC409400BA791D /* UIViewController+Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC757A21BC409400BA791D /* UIViewController+Storyboards.swift */; };
@@ -27,7 +34,11 @@
 		9DAFB58C21B332CC0038C680 /* UsefulLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAFB58921B332CC0038C680 /* UsefulLink.swift */; };
 		9DAFB58D21B332CC0038C680 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAFB58A21B332CC0038C680 /* Employee.swift */; };
 		9DAFB58E21B332CC0038C680 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAFB58B21B332CC0038C680 /* Team.swift */; };
+		9DBA8CA521D2640A009FF7B5 /* UIFont+Trombi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA8CA421D2640A009FF7B5 /* UIFont+Trombi.swift */; };
 		9DE90CCD21A9FB5400AF8DF3 /* TrombiApiRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE90CCC21A9FB5400AF8DF3 /* TrombiApiRequests.swift */; };
+		9DEEF2ED21D2693B00509063 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D29BBFE21D2604000EDBCA0 /* Muli-Bold.ttf */; };
+		9DEEF2EE21D2693E00509063 /* Muli-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D29BBFD21D2604000EDBCA0 /* Muli-ExtraBold.ttf */; };
+		9DEEF2EF21D2694000509063 /* Muli-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D29BBFF21D2604000EDBCA0 /* Muli-SemiBold.ttf */; };
 		9DF9590921B2F74E005F024E /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9590821B2F74E005F024E /* EmployeesViewController.swift */; };
 		FE975D3EDB857291C4B33C91 /* libPods-Trombi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A3D3B164CBEE12469D7207 /* libPods-Trombi.a */; };
 /* End PBXBuildFile section */
@@ -40,7 +51,17 @@
 		4BA3CFBC21A6DA6F003358E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BA3CFBE21A6DA6F003358E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52A3D3B164CBEE12469D7207 /* libPods-Trombi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Trombi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D06DDBA21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeueReusableCell.swift"; sourceTree = "<group>"; };
 		9D110BA421B5E91200AB0A36 /* TrombiDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiDAO.swift; sourceTree = "<group>"; };
+		9D1D067521C9950A00B2A56A /* EmployeeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSearchViewController.swift; sourceTree = "<group>"; };
+		9D29BBFD21D2604000EDBCA0 /* Muli-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraBold.ttf"; sourceTree = "<group>"; };
+		9D29BBFE21D2604000EDBCA0 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
+		9D29BBFF21D2604000EDBCA0 /* Muli-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-SemiBold.ttf"; sourceTree = "<group>"; };
+		9D3967B321CEE07A0087CEA7 /* UIColor+Trombi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Trombi.swift"; sourceTree = "<group>"; };
+		9D3967B721CEE12E0087CEA7 /* UIColor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Convenience.swift"; sourceTree = "<group>"; };
+		9D55DF5221C91F7C009A983F /* EmployeeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeTableViewCell.xib; sourceTree = "<group>"; };
+		9D55DF5621C9205C009A983F /* EmployeeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D55DF5721C9205C009A983F /* EmployeeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeCollectionViewCell.xib; sourceTree = "<group>"; };
 		9DAC757521BC3C7800BA791D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		9DAC757721BC3C9700BA791D /* Employees.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Employees.storyboard; sourceTree = "<group>"; };
 		9DAC757A21BC409400BA791D /* UIViewController+Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboards.swift"; sourceTree = "<group>"; };
@@ -56,6 +77,7 @@
 		9DAFB58921B332CC0038C680 /* UsefulLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsefulLink.swift; sourceTree = "<group>"; };
 		9DAFB58A21B332CC0038C680 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		9DAFB58B21B332CC0038C680 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		9DBA8CA421D2640A009FF7B5 /* UIFont+Trombi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Trombi.swift"; sourceTree = "<group>"; };
 		9DE90CCC21A9FB5400AF8DF3 /* TrombiApiRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiApiRequests.swift; sourceTree = "<group>"; };
 		9DF9590821B2F74E005F024E /* EmployeesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
 		BBDA1B0C183DCF3EAE7FA4F1 /* Pods-Trombi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trombi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trombi/Pods-Trombi.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,10 +119,7 @@
 			children = (
 				9DF9590121B2F248005F024E /* Application */,
 				9DE90CCA21A9F9C300AF8DF3 /* Common */,
-				4BA3CFB221A6DA6E003358E6 /* AppDelegate.swift */,
-				4BA3CFB621A6DA6E003358E6 /* Main.storyboard */,
-				4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */,
-				4BA3CFBB21A6DA6F003358E6 /* LaunchScreen.storyboard */,
+				9D29BBFC21D25EEF00EDBCA0 /* Resources */,
 				4BA3CFBE21A6DA6F003358E6 /* Info.plist */,
 			);
 			path = Trombi;
@@ -114,6 +133,17 @@
 			);
 			name = Pods;
 			sourceTree = "<group>";
+		};
+		9D29BBFC21D25EEF00EDBCA0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */,
+				9D29BBFE21D2604000EDBCA0 /* Muli-Bold.ttf */,
+				9D29BBFD21D2604000EDBCA0 /* Muli-ExtraBold.ttf */,
+				9D29BBFF21D2604000EDBCA0 /* Muli-SemiBold.ttf */,
+			);
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
 		};
 		9DAC757421BC3BE700BA791D /* MainTabBar */ = {
 			isa = PBXGroup;
@@ -131,7 +161,11 @@
 				9DAC757B21BC409400BA791D /* UIStoryboard+StoryboardsList.swift */,
 				9DAC757A21BC409400BA791D /* UIViewController+Storyboards.swift */,
 				9DAC758221BC458900BA791D /* UITableView+dequeueReusableCell.swift */,
+				9D06DDBA21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift */,
 				9DAC758021BC453500BA791D /* ReusableView.swift */,
+				9D3967B321CEE07A0087CEA7 /* UIColor+Trombi.swift */,
+				9DBA8CA421D2640A009FF7B5 /* UIFont+Trombi.swift */,
+				9D3967B721CEE12E0087CEA7 /* UIColor+Convenience.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -140,6 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				9DAC758721BC469600BA791D /* EmployeeTableViewCell.swift */,
+				9D55DF5221C91F7C009A983F /* EmployeeTableViewCell.xib */,
+				9D55DF5621C9205C009A983F /* EmployeeCollectionViewCell.swift */,
+				9D55DF5721C9205C009A983F /* EmployeeCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +212,9 @@
 		9DF9590121B2F248005F024E /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				4BA3CFBB21A6DA6F003358E6 /* LaunchScreen.storyboard */,
+				4BA3CFB221A6DA6E003358E6 /* AppDelegate.swift */,
+				4BA3CFB621A6DA6E003358E6 /* Main.storyboard */,
 				9DF9590421B2F459005F024E /* Modules */,
 				9DF9590221B2F25B005F024E /* Models */,
 			);
@@ -208,6 +248,7 @@
 				9DAC758421BC463C00BA791D /* Views */,
 				9DF9590821B2F74E005F024E /* EmployeesViewController.swift */,
 				9DAC758921BC4B3000BA791D /* EmployeesViewViewModel.swift */,
+				9D1D067521C9950A00B2A56A /* EmployeeSearchViewController.swift */,
 				9DAC757721BC3C9700BA791D /* Employees.storyboard */,
 			);
 			path = Employees;
@@ -281,10 +322,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DEEF2EF21D2694000509063 /* Muli-SemiBold.ttf in Resources */,
 				4BA3CFBD21A6DA6F003358E6 /* LaunchScreen.storyboard in Resources */,
+				9D55DF5321C91F7C009A983F /* EmployeeTableViewCell.xib in Resources */,
 				4BA3CFBA21A6DA6F003358E6 /* Assets.xcassets in Resources */,
 				9DAC757821BC3C9700BA791D /* Employees.storyboard in Resources */,
+				9D55DF5921C9205C009A983F /* EmployeeCollectionViewCell.xib in Resources */,
+				9DEEF2ED21D2693B00509063 /* Muli-Bold.ttf in Resources */,
 				4BA3CFB821A6DA6E003358E6 /* Main.storyboard in Resources */,
+				9DEEF2EE21D2693E00509063 /* Muli-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,14 +385,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DAFB58E21B332CC0038C680 /* Team.swift in Sources */,
+				9D55DF5821C9205C009A983F /* EmployeeCollectionViewCell.swift in Sources */,
+				9D1D067621C9950A00B2A56A /* EmployeeSearchViewController.swift in Sources */,
 				9DAC759321BC66EF00BA791D /* LoadsChain.swift in Sources */,
 				9DAC759521BC686A00BA791D /* StartRequest.swift in Sources */,
 				9DAC757621BC3C7800BA791D /* MainTabBarViewController.swift in Sources */,
 				9DAC757C21BC409400BA791D /* UIViewController+Storyboards.swift in Sources */,
 				9DE90CCD21A9FB5400AF8DF3 /* TrombiApiRequests.swift in Sources */,
 				9DAC758121BC453500BA791D /* ReusableView.swift in Sources */,
+				9D3967B421CEE07A0087CEA7 /* UIColor+Trombi.swift in Sources */,
+				9D3967B821CEE12E0087CEA7 /* UIColor+Convenience.swift in Sources */,
+				9DBA8CA521D2640A009FF7B5 /* UIFont+Trombi.swift in Sources */,
 				9DAC758321BC458900BA791D /* UITableView+dequeueReusableCell.swift in Sources */,
 				9DAFB58C21B332CC0038C680 /* UsefulLink.swift in Sources */,
+				9D06DDBB21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift in Sources */,
 				9DF9590921B2F74E005F024E /* EmployeesViewController.swift in Sources */,
 				9DAC757D21BC409400BA791D /* UIStoryboard+StoryboardsList.swift in Sources */,
 				9DAC758C21BC4C2F00BA791D /* MainTabBarViewViewModel.swift in Sources */,
