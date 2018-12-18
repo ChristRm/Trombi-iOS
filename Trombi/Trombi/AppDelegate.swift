@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var mainViewModel = MainTabBarViewViewModel()
@@ -21,8 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Could not load MainTabBarViewViewModel")
         }
 
+        window = UIWindow(frame: UIScreen.main.bounds)
+
         mainTabBarViewController.viewModel = mainViewModel
         window?.rootViewController = mainTabBarViewController
+        window?.makeKeyAndVisible()
 
         return true
     }

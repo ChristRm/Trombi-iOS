@@ -1,0 +1,6 @@
+module Pods_Trombi {
+  umbrella header "Pods-Trombi-umbrella.h"
+
+  export *
+  module * { export * }
+}

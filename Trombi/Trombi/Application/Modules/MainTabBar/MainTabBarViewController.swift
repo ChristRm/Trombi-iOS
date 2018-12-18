@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTabBarViewController: UITabBarController {
+final class MainTabBarViewController: UITabBarController {
 
     // MARK: - Properties
 
@@ -28,5 +28,12 @@ class MainTabBarViewController: UITabBarController {
     }
 
     // MARK: - ViewModel setup
-    func bindViewModel(_ viewModel: MainTabBarViewViewModel) { }
+    private func bindViewModel(_ viewModel: MainTabBarViewViewModel) { }
+
+    // MARK: - Tabs init
+    private func initTabs() {
+        if let employeesViewController = viewControllers?.first as? EmployeesViewController {
+//            employeesViewController.viewMod
+        }
+    }
 }

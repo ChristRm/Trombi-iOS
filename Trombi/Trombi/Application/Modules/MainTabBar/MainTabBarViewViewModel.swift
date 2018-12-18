@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
-class MainTabBarViewViewModel {
+final class MainTabBarViewViewModel {
 
-    // MARK: - Public properties
-//    private(set) var applicationData: (ApplicationData) -> Void
+    // MARK: - Properties
+
+    private(set) var employeesViewViewModel: EmployeesViewViewModel = EmployeesViewViewModel()
 
     // MARK: - Private properties
     private let employeesChainLoading = EmployeesChainLoading()
@@ -22,14 +25,18 @@ class MainTabBarViewViewModel {
     func loadAppData() {
         let loadsChain = LoadsChain(chain: [employeesChainLoading, teamsChainLoading, usefulLinksLoading])
 
-        loadsChain.executeChain({ (succeededLoads) in
-            var applicationData = ApplicationData()
-            applicationData.employees = self.employeesChainLoading.employees ?? []
-            applicationData.teams = self.teamsChainLoading.teams ?? []
-            applicationData.usefuleLinks = self.usefulLinksLoading.usefulLinks ?? []
+        loadsChain.executeChain({ [weak self] succeededLoads in
+            guard let strongSelf = self else { return }
+
+            let result = ApplicationData()
+            result.employees = strongSelf.employeesChainLoading.employees ?? []
+            result.teams = strongSelf.teamsChainLoading.teams ?? []
+            result.usefuleLinks = strongSelf.usefulLinksLoading.usefulLinks ?? []
+
+            strongSelf.employeesViewViewModel.applicationData = result
 
         }) { (succeededLoads, error) in
-            //TODO: handle
+            //TODO: handle errors
         }
     }
 }

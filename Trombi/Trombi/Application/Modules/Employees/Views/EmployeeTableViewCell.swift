@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmployeeTableViewCell: UITableViewCell {
+final class EmployeeTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet weak var avatarImageView: UIImageView?

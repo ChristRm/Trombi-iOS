@@ -14,7 +14,7 @@ protocol ChainLoadingProtocol {
     func loadData(_ resultHandler: LoadingResultHandler)
 }
 
-class LoadsChain {
+final class LoadsChain {
     var loadsToExecute: [ChainLoadingProtocol]
     fileprivate var succeedLoads: [ChainLoadingProtocol] = []
 

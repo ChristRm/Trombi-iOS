@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TrombiDAO {
+final class TrombiDAO {
 
     static func getEmployees(success: @escaping ([Employee]) -> Void, failure: @escaping (Error) -> Void) {
         do {
@@ -29,7 +29,6 @@ class TrombiDAO {
                         let employees = try decoder.decode(Array<Employee>.self,
                                                          from: personsData)
 
-                        print(employees)
                         success(employees)
                     } catch {
                         print("Unable to Decode JSON Response \(error)")
@@ -63,7 +62,6 @@ class TrombiDAO {
                         let teams = try decoder.decode(Array<Team>.self,
                                                          from: personsData)
 
-                        print(teams)
                         success(teams)
                     } catch {
                         print("Unable to Decode JSON Response \(error)")
@@ -96,7 +94,6 @@ class TrombiDAO {
                         let usefulLinks = try decoder.decode(Array<UsefulLink>.self,
                                                          from: personsData)
 
-                        print(usefulLinks)
                         success(usefulLinks)
                     } catch {
                         print("Unable to Decode JSON Response \(error)")

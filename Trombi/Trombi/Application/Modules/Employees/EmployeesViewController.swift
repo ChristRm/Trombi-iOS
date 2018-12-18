@@ -8,13 +8,23 @@
 
 import UIKit
 
-class EmployeesViewController: UIViewController {
+final class EmployeesViewController: UIViewController {
 
+    var viewModel: EmployeesViewViewModel? {
+        didSet {
+            if let viewModel = viewModel {
+                bindViewModel(viewModel)
+            }
+        }
+    }
+
+    // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView?
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "People"
         setupTableView()
     }
 
@@ -22,6 +32,10 @@ class EmployeesViewController: UIViewController {
     private func setupTableView() {
         tableView?.delegate = self
         tableView?.dataSource = self
+    }
+
+    private func bindViewModel(_ viewModel: EmployeesViewViewModel) {
+        
     }
 }
 
@@ -33,7 +47,7 @@ extension EmployeesViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 extension EmployeesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 100
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

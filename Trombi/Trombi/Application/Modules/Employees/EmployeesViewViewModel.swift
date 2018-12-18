@@ -8,4 +8,11 @@
 
 import Foundation
 
-class EmployeesViewViewModel { }
+final class EmployeesViewViewModel {
+
+    var applicationData: ApplicationData = ApplicationData() {
+        didSet {
+            print("Got it babe: Employees:\(applicationData.employees.count) Teams:\(applicationData.teams.count) Usefule links:\(applicationData.usefuleLinks.count)")
+        }
+    }
+}

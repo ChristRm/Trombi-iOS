@@ -8,7 +8,7 @@
 
 import Foundation
 
-class EmployeesChainLoading: ChainLoadingProtocol {
+final class EmployeesChainLoading: ChainLoadingProtocol {
     var employees: [Employee]?
 
     func loadData(_ resultHandler: LoadingResultHandler) {
@@ -21,7 +21,7 @@ class EmployeesChainLoading: ChainLoadingProtocol {
     }
 }
 
-class TeamsChainLoading: ChainLoadingProtocol {
+final class TeamsChainLoading: ChainLoadingProtocol {
     var teams: [Team]?
 
     func loadData(_ resultHandler: LoadingResultHandler) {
@@ -34,7 +34,7 @@ class TeamsChainLoading: ChainLoadingProtocol {
     }
 }
 
-class UsefulLinksChainLoading: ChainLoadingProtocol {
+final class UsefulLinksChainLoading: ChainLoadingProtocol {
     var usefulLinks: [UsefulLink]?
 
     func loadData(_ resultHandler: LoadingResultHandler) {
