@@ -33,7 +33,7 @@ final class MainTabBarViewController: UITabBarController {
 
     // MARK: - Tabs init
     private func initTabs() {
-        if let navigationController = viewControllers?.first as? UINavigationController{
+        if let navigationController = viewControllers?.first as? UINavigationController {
             if let employeesViewController = navigationController.viewControllers.first as? EmployeesViewController {
                 employeesViewController.viewModel = viewModel?.employeesViewViewModel
             }

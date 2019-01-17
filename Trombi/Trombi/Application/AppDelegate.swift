@@ -17,6 +17,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         prepareNavigationBarProxy()
+        prepareTabBarProxy()
 
         guard let mainTabBarViewController =
             UIStoryboard.main.instantiateInitialViewController() as? MainTabBarViewController else {
@@ -43,7 +44,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) { }
 
     // MARK: - Private
-    fileprivate func prepareNavigationBarProxy() {
+    private func prepareNavigationBarProxy() {
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barTintColor = UIColor.mainWhiteColor
         UINavigationBar.appearance().backgroundColor = UIColor.clear
@@ -58,5 +59,19 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             // Fallback on earlier versions
         }
+    }
+
+    private func prepareTabBarProxy() {
+        let normalTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor(redInt: 142, greenInt: 142, blueInt: 147, alpha: 1.0),
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10.0)
+        ]
+        let selectedTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor(redInt: 33, greenInt: 33, blueInt: 33, alpha: 1.0),
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10.0)
+        ]
+
+        UITabBarItem.appearance().setTitleTextAttributes(normalTextAttributes, for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes(selectedTextAttributes, for: .selected)
     }
 }
