@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Team: Codable {
+struct Team: Codable, Equatable, Hashable {
 
     enum CodingKeys: String, CodingKey {
 
@@ -25,4 +25,6 @@ struct Team: Codable {
     var members: [String]
 
     var higherTeamlId: Int64?
+
+    
 }

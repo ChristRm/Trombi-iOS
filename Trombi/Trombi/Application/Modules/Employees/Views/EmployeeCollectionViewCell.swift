@@ -28,7 +28,8 @@ final class EmployeeCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var imageView: UIImageView?
     @IBOutlet private weak var imageShadowView: UIView?
-    @IBOutlet private weak var imageShadowInnerView: UIView?// to fill content of shadow view(shen shadow view is transparent and has no content it does not draw the shadow)
+    // to fill content of shadow view(shen shadow view is transparent and has no content it does not draw the shadow)
+    @IBOutlet private weak var imageShadowInnerView: UIView?
     @IBOutlet private weak var nameLabel: UILabel?
     @IBOutlet private weak var positionLabel: UILabel?
     @IBOutlet private weak var teamLabel: UILabel?

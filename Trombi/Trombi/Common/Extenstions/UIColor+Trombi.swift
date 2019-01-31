@@ -20,4 +20,8 @@ extension UIColor {
     static var mainOrangeColor: UIColor {
         return UIColor(redInt: 255, greenInt: 109, blueInt: 29, alpha: 1.0)
     }
+
+    static var additionalGoldColor: UIColor {
+        return UIColor(redInt: 250, greenInt: 171, blueInt: 22, alpha: 1.0)
+    }
 }

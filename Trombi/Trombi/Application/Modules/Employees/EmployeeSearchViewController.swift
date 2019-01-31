@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmployeeSearchViewController: UIViewController {
+final class EmployeeSearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView?
 

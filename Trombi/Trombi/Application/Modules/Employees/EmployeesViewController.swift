@@ -50,11 +50,23 @@ final class EmployeesViewController: UIViewController {
         setupCollectionView()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        if segue.identifier == String(describing: FiltersPanelViewController.self) {
+            if let filetsPanelViewController = segue.destination as? FiltersPanelViewController {
+                filetsPanelViewController.filtersViewViewModel = viewModel?.filtersViewViewModel
+            }
+        }
+    }
+
     // MARK: - IBAction
 
     @IBAction func searchButtonTouched(_ sender: Any) { }
 
-    @IBAction func filterButtonTouched(_ sender: Any) { }
+    @IBAction func filterButtonTouched(_ sender: Any) {
+        performSegue(withIdentifier: String(describing: FiltersPanelViewController.self), sender: nil)
+    }
 
     // MARK: - binding ViewModel
     private func bindViewModel(_ viewModel: EmployeesViewViewModel) {

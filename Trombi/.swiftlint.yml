@@ -11,3 +11,7 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
 line_length:
   warning: 160
   ignores_comments: true
+
+variable_name:
+    min_length: 3
+    max_length: 50

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-Bold.ttf">
+            <string>Muli-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FiltersCollectionViewHeader" id="BpN-ab-1u5">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BY PEOPLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClL-gp-Anm">
+                    <rect key="frame" x="10" y="33.5" width="71" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="13"/>
+                    <color key="textColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="CeZ-Db-FJx" firstAttribute="bottom" secondItem="ClL-gp-Anm" secondAttribute="bottom" id="9n7-Rc-o0y"/>
+                <constraint firstItem="ClL-gp-Anm" firstAttribute="width" relation="lessThanOrEqual" secondItem="BpN-ab-1u5" secondAttribute="width" multiplier="0.9" id="WoT-6I-aJC"/>
+                <constraint firstItem="ClL-gp-Anm" firstAttribute="leading" secondItem="CeZ-Db-FJx" secondAttribute="leading" constant="10" id="ZS3-Zh-FcC"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="CeZ-Db-FJx"/>
+            <point key="canvasLocation" x="351.5" y="54"/>
+        </collectionReusableView>
+    </objects>
+</document>
