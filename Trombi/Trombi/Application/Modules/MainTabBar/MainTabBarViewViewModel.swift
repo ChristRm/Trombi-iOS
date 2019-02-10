@@ -22,6 +22,16 @@ final class MainTabBarViewViewModel {
     private let usefulLinksLoading = UsefulLinksChainLoading()
 
     // MARK: - Public interface
+
+    var employees: Driver<[Employee]> { return _employees.asDriver() }
+
+    var randomUser: Employee {
+        return _employees.value.first!
+    }
+
+    private let _employees = BehaviorRelay<[Employee]>(value: [])
+
+
     func loadAppData() {
         let loadsChain = LoadsChain(chain: [employeesChainLoading, teamsChainLoading, usefulLinksLoading])
 
@@ -35,6 +45,7 @@ final class MainTabBarViewViewModel {
 
             strongSelf.employeesViewViewModel.applicationData = result
 
+            self?._employees.accept(result.employees)
         }) { (succeededLoads, error) in
             //TODO: handle errors
         }

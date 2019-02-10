@@ -39,8 +39,8 @@ final class FiltersViewController: UIViewController, BottomPanel {
 
         let screenHeight = UIScreen.main.bounds.height
         let headerCollectionViewHeight = headerCollectionViewHeightConstraint.constant
-        let collectionViewHeight = screenHeight * 350.0/812.0 - headerCollectionViewHeight
-        let bottomViewHeight = screenHeight * 92.0/812.0
+        let collectionViewHeight = screenHeight * 320.0/812.0 - headerCollectionViewHeight
+        let bottomViewHeight: CGFloat = 70.0
 
         filtersCollectionViewHeightConstraint?.constant = collectionViewHeight
         bottomViewHeightConstraint?.constant = bottomViewHeight

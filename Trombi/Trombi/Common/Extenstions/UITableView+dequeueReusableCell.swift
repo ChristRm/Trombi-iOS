@@ -10,7 +10,7 @@ import UIKit
 
 extension UITableView {
 
-    func registerReusableCell<T: UITableViewCell>(type: T) {
+    func registerReusableCell<T: UITableViewCell>(type: T.Type) {
         register(UINib(nibName: T.staticReuseIdentifier, bundle: nil), forCellReuseIdentifier: T.staticReuseIdentifier)
     }
 

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-SemiBold.ttf">
+            <string>Muli-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="UserInfoTableViewCell" customModule="Trombi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="410" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="410" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IAt-3Q-vh2">
+                        <rect key="frame" x="20" y="27.5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="GoZ-se-55W"/>
+                            <constraint firstAttribute="height" constant="25" id="oxi-4V-0Ln"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZD5-LL-LqI">
+                        <rect key="frame" x="67" y="18.5" width="39" height="19"/>
+                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="15"/>
+                        <color key="textColor" red="0.71372549019607845" green="0.71372549019607845" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="andy.baker@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWt-q0-OAg">
+                        <rect key="frame" x="67" y="42" width="164.5" height="19"/>
+                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FaF-XW-pOT">
+                        <rect key="frame" x="67" y="78.5" width="323" height="1"/>
+                        <color key="backgroundColor" red="0.88627450980392153" green="0.87058823529411766" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="VxL-0o-JNX"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZD5-LL-LqI" secondAttribute="trailing" constant="20" id="9eO-JO-UKc"/>
+                    <constraint firstItem="FaF-XW-pOT" firstAttribute="leading" secondItem="ZD5-LL-LqI" secondAttribute="leading" id="DLJ-7u-Yj7"/>
+                    <constraint firstItem="ZD5-LL-LqI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.7" id="G5t-Ge-XT2"/>
+                    <constraint firstItem="HWt-q0-OAg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="1.3" id="GYG-bb-egU"/>
+                    <constraint firstItem="IAt-3Q-vh2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="LFl-na-Ie9"/>
+                    <constraint firstAttribute="trailing" secondItem="FaF-XW-pOT" secondAttribute="trailing" constant="20" id="MZ9-l8-UEv"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HWt-q0-OAg" secondAttribute="trailing" constant="20" id="XaP-bu-DhT"/>
+                    <constraint firstAttribute="bottom" secondItem="FaF-XW-pOT" secondAttribute="bottom" id="eWX-JL-VmW"/>
+                    <constraint firstItem="IAt-3Q-vh2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="kU1-xh-fg6"/>
+                    <constraint firstItem="ZD5-LL-LqI" firstAttribute="leading" secondItem="IAt-3Q-vh2" secondAttribute="trailing" constant="22" id="nuy-IR-3i6"/>
+                    <constraint firstItem="HWt-q0-OAg" firstAttribute="leading" secondItem="ZD5-LL-LqI" secondAttribute="leading" id="o3J-0d-Mcz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="1" green="1" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="iconImageView" destination="IAt-3Q-vh2" id="3hc-WX-z3U"/>
+                <outlet property="infoLabel" destination="HWt-q0-OAg" id="bz2-Tk-YFZ"/>
+                <outlet property="titleLabel" destination="ZD5-LL-LqI" id="SKX-Bh-GuJ"/>
+            </connections>
+            <point key="canvasLocation" x="209.59999999999999" y="181.70914542728636"/>
+        </tableViewCell>
+    </objects>
+</document>

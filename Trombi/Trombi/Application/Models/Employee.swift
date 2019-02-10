@@ -32,10 +32,17 @@ struct Employee: Codable {
     var surname: String
     var name: String
 
+    var skype: String = ""
+    var phone: String = ""
+
     var avatarUrl: String
 
     var email: String
     var job: String
     var birthday: Date
     var login: String
+
+    var fullName: String {
+        return "\(name) \(surname)"
+    }
 }

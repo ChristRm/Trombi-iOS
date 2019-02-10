@@ -7,18 +7,13 @@
 //
 
 import UIKit
+import RxSwift
 
 final class MainTabBarViewController: UITabBarController {
 
     // MARK: - Properties
 
-    var viewModel: MainTabBarViewViewModel? {
-        didSet {
-            if let viewModel = viewModel {
-                bindViewModel(viewModel)
-            }
-        }
-    }
+    var viewModel: MainTabBarViewViewModel?
 
     // MARK: - Lifecycle
 
@@ -28,15 +23,20 @@ final class MainTabBarViewController: UITabBarController {
         viewModel?.loadAppData()
     }
 
-    // MARK: - ViewModel setup
-    private func bindViewModel(_ viewModel: MainTabBarViewViewModel) { }
+    // MARK: - RxSwift
+
+    private let disposeBag = DisposeBag()
 
     // MARK: - Tabs init
     private func initTabs() {
-        if let navigationController = viewControllers?.first as? UINavigationController {
-            if let employeesViewController = navigationController.viewControllers.first as? EmployeesViewController {
-                employeesViewController.viewModel = viewModel?.employeesViewViewModel
+
+        viewControllers?.forEach({ tabViewController in
+            if let navigationController = tabViewController as? UINavigationController {
+                if let employeesViewController = navigationController.viewControllers.first as? EmployeesViewController {
+                    employeesViewController.viewModel = viewModel?.employeesViewViewModel
+                }
             }
-        }
+        })
+
     }
 }
