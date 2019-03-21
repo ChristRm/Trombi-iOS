@@ -36,7 +36,8 @@ final class EmployeesViewController: UIViewController {
     }
 
     // MARK: - IBOutlet
-    @IBOutlet weak var collectionView: UICollectionView?
+    @IBOutlet private weak var collectionView: UICollectionView?
+    @IBOutlet private weak var filterBarButtonItem: UIBarButtonItem?
 
     // MARK: - RxSwift
 
@@ -50,12 +51,24 @@ final class EmployeesViewController: UIViewController {
         setupCollectionView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
         if segue.identifier == String(describing: FiltersPanelViewController.self) {
             if let filetsPanelViewController = segue.destination as? FiltersPanelViewController {
                 filetsPanelViewController.filtersViewViewModel = viewModel?.filtersViewViewModel
+            }
+        } else if segue.identifier == String(describing: EmployeeProfileViewController.self) {
+            if let userProfileViewController = segue.destination as? EmployeeProfileViewController {
+                if let data = sender as? (user: Employee, team: Team) {
+                    userProfileViewController.team = data.team
+                    userProfileViewController.employee = data.user
+                }
             }
         }
     }
@@ -70,7 +83,7 @@ final class EmployeesViewController: UIViewController {
 
     // MARK: - binding ViewModel
     private func bindViewModel(_ viewModel: EmployeesViewViewModel) {
-        viewModel.employees.drive(onNext: { [weak self] (_) in
+        viewModel.employees.drive(onNext: { [weak self] _ in
             self?.collectionView?.reloadData()
         }).disposed(by: disposeBag)
     }
@@ -151,5 +164,11 @@ extension EmployeesViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension EmployeesViewController: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let data = viewModel?.dataForEmployee(at: indexPath.row) {
+            performSegue(withIdentifier: String(describing: EmployeeProfileViewController.self), sender: data)
+        } else {
+            fatalError("EmployeesViewModel is nil")
+        }
+    }
 }

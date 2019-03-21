@@ -85,7 +85,7 @@ final class FiltersPanelViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        barContainer?.roundCorners([.topLeft, .topRight], radius: 17.0)
+        barContainer?.roundCorners([.topLeft, .topRight], radius: 19.0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

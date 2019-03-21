@@ -58,6 +58,12 @@ final class EmployeesViewViewModel {
     }
 
     // MARK: Public methods
+
+    func dataForEmployee(at index: Int) -> (user: Employee, team: Team) {
+        let employee = applicationData.employees[index]
+        let team = applicationData.teams.first(where: { $0.identifier == employee.teamId })!
+        return (user: applicationData.employees[index], team: team)
+    }
     
     func viewModelForEmployee(at index: Int) -> EmployeeCellViewModel {
         return _employees.value[index]
