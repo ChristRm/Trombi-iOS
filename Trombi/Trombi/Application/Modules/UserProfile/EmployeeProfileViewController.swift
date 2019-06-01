@@ -87,7 +87,7 @@ final class EmployeeProfileViewController: UIViewController {
             fatalError("Employee is not setup in EmployeeProfileViewController")
         }
 
-        let eventStore : EKEventStore = EKEventStore()
+        let eventStore: EKEventStore = EKEventStore()
 
         eventStore.requestAccess(to: .event) { (granted, error) in
 
@@ -180,7 +180,7 @@ extension EmployeeProfileViewController: UITableViewDataSource {
         var rows: [UserProfileRow] {
             switch self {
             case .userInfo:
-                return [.email, .skype, .phone]
+                return [.email]//, .skype, .phone]
             case .additionalInfo:
                 return [.birthday, .arrival]
             }
@@ -189,8 +189,8 @@ extension EmployeeProfileViewController: UITableViewDataSource {
 
     enum UserProfileRow: String {
         case email = "Email"
-        case skype = "Skype"
-        case phone = "Phone"
+//        case skype = "Skype"
+//        case phone = "Phone"
         case birthday = "Birthday"
         case arrival = "Arrival"
 
@@ -198,10 +198,10 @@ extension EmployeeProfileViewController: UITableViewDataSource {
             switch self {
             case .email:
                 return UIImage(named: "icEmail")
-            case .skype:
-                return UIImage(named: "icSkype")
-            case .phone:
-                return UIImage(named: "icPhone")
+//            case .skype:
+//                return UIImage(named: "icSkype")
+//            case .phone:
+//                return UIImage(named: "icPhone")
             case .birthday:
                 return UIImage(named: "icBirthday")
             case .arrival:
@@ -296,13 +296,13 @@ extension EmployeeProfileViewController: UITableViewDelegate {
 
         let row = section.rows[indexPath.row]
         switch row {
-        case .phone:
-            if let phone = user[row] {
-                guard let numberUrl = URL(string: "tel://" + phone) else { return }
-                UIApplication.shared.open(numberUrl, options: [:], completionHandler: { _ in
-                    tableView.deselectRow(at: indexPath, animated: true)
-                })
-            }
+//        case .phone:
+//            if let phone = user[row] {
+//                guard let numberUrl = URL(string: "tel://" + phone) else { return }
+//                UIApplication.shared.open(numberUrl, options: [:], completionHandler: { _ in
+//                    tableView.deselectRow(at: indexPath, animated: true)
+//                })
+//            }
 
         case .email:
             if let email = user[row] {
@@ -331,8 +331,8 @@ extension Employee {
     private func value(for row: EmployeeProfileViewController.UserProfileRow) -> String? {
         switch row {
         case .email: return email
-        case .skype: return skype
-        case .phone: return phone
+//        case .skype: return skype
+//        case .phone: return phone
         case .birthday:
             let dateFormatter = DateFormatter()
             dateFormatter.locale = .current
