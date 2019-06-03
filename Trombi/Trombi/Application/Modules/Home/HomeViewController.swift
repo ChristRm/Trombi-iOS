@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-final class EmployeesViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
     // MARK: - Constants
 
@@ -98,7 +98,7 @@ final class EmployeesViewController: UIViewController {
 }
 
 // MARK: - HorizontalFloatingHeaderLayoutDelegate
-extension EmployeesViewController: UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -137,7 +137,7 @@ extension EmployeesViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - UICollectionViewDataSource
-extension EmployeesViewController: UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDataSource {
 
     // MARK: - Collection View Data Source
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -163,7 +163,7 @@ extension EmployeesViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-extension EmployeesViewController: UICollectionViewDelegate {
+extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let data = viewModel?.dataForEmployee(at: indexPath.row) {
             performSegue(withIdentifier: String(describing: EmployeeProfileViewController.self), sender: data)
