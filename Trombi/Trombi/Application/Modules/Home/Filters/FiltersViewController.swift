@@ -67,7 +67,7 @@ final class FiltersViewController: UIViewController, BottomPanel {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configurefiltersCollectionView()
+        configureFiltersCollectionView()
     }
 
     // MARK: - IBAction
@@ -89,7 +89,7 @@ final class FiltersViewController: UIViewController, BottomPanel {
 
     // MARK: - Private methods
 
-    func configurefiltersCollectionView() {
+    func configureFiltersCollectionView() {
         filtersCollectionView?.delegate = self
         filtersCollectionView?.dataSource = self
         filtersCollectionView?.allowsSelection = true
@@ -176,7 +176,7 @@ extension FiltersViewController: UICollectionViewDataSource {
 
             return reusableHeader
 
-        default:  fatalError("Unexpected element kind")
+        default: fatalError("Unexpected element kind")
         }
     }
 }

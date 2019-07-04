@@ -49,8 +49,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwq-6x-1lH">
                         <rect key="frame" x="0.0" y="335.5" width="347" height="107.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VE3-SO-UZM">
-                                <rect key="frame" x="0.0" y="17" width="52.5" height="25.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VE3-SO-UZM">
+                                <rect key="frame" x="0.0" y="17" width="56.5" height="25.5"/>
                                 <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="20"/>
                                 <color key="textColor" red="0.27058823529411763" green="0.27843137254901962" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -63,6 +63,8 @@
                             </label>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DET-Sa-73b" secondAttribute="trailing" id="Lxv-jx-TUk"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VE3-SO-UZM" secondAttribute="trailing" id="NOX-lT-8tZ"/>
                             <constraint firstItem="DET-Sa-73b" firstAttribute="centerY" secondItem="qwq-6x-1lH" secondAttribute="centerY" multiplier="1.35" id="lgE-Ji-341"/>
                             <constraint firstItem="VE3-SO-UZM" firstAttribute="centerY" secondItem="qwq-6x-1lH" secondAttribute="centerY" multiplier="0.55" id="rnC-rw-DAZ"/>
                         </constraints>

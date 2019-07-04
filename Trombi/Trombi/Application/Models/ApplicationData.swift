@@ -15,4 +15,8 @@ class ApplicationData {
     var employees: [Employee] = []
     var teams: [Team] = []
     var usefuleLinks: [UsefulLink] = []
+
+    func teamOfEmployee(_ employee: Employee) -> Team? {
+        return teams.first(where: { $0.identifier == employee.teamId })
+    }
 }

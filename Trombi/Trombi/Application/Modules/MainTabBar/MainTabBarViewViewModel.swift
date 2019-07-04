@@ -14,7 +14,7 @@ final class MainTabBarViewViewModel {
 
     // MARK: - Properties
 
-    private(set) var employeesViewViewModel: EmployeesViewViewModel = EmployeesViewViewModel()
+    private(set) var employeesViewViewModel: HomeViewViewModel = HomeViewViewModel()
 
     // MARK: - Private properties
     private let employeesChainLoading = EmployeesChainLoading()

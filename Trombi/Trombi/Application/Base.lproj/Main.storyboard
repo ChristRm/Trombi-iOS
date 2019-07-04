@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="818" y="642"/>
         </scene>
-        <!--Employees-->
+        <!--Home-->
         <scene sceneID="HUa-cb-NaI">
             <objects>
-                <viewControllerPlaceholder storyboardName="Employees" id="kBS-Ok-RL2" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" id="kBS-Ok-RL2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="d8o-1d-FqV"/>
                     <navigationItem key="navigationItem" id="OG1-5D-joF"/>
                 </viewControllerPlaceholder>
