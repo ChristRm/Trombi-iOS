@@ -35,7 +35,7 @@ enum TrombiApiRequests {
     case getUsefulLinks
     case getTeams
 
-    func asURLRequest() throws -> URLRequest {
+    func asURLRequest() -> URLRequest {
 
         let requestData: (method: HTTPMethod, path: String, parameters: [String: AnyObject]?) = {
                 switch self {

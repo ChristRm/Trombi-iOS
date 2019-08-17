@@ -10,11 +10,15 @@ import Foundation
 
 class ApplicationData {
 
-    init() {}
+    init(employees: [Employee] = [], teams: [Team] = [], usefuleLinks: [UsefulLink] = []) {
+        self.employees = employees
+        self.teams = teams
+        self.usefuleLinks = usefuleLinks
+    }
 
-    var employees: [Employee] = []
-    var teams: [Team] = []
-    var usefuleLinks: [UsefulLink] = []
+    var employees: [Employee]
+    var teams: [Team]
+    var usefuleLinks: [UsefulLink]
 
     func teamOfEmployee(_ employee: Employee) -> Team? {
         return teams.first(where: { $0.identifier == employee.teamId })

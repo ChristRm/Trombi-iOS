@@ -12,42 +12,34 @@ import RxCocoa
 
 final class MainTabBarViewViewModel {
 
+    // MARK: - RxSwift
+
+    private let disposeBag = DisposeBag()
+
     // MARK: - Properties
 
     private(set) var employeesViewViewModel: HomeViewViewModel = HomeViewViewModel()
 
-    // MARK: - Private properties
-    private let employeesChainLoading = EmployeesChainLoading()
-    private let teamsChainLoading = TeamsChainLoading()
-    private let usefulLinksLoading = UsefulLinksChainLoading()
-
     // MARK: - Public interface
 
-    var employees: Driver<[Employee]> { return _employees.asDriver() }
-
-    var randomUser: Employee {
-        return _employees.value.first!
-    }
-
-    private let _employees = BehaviorRelay<[Employee]>(value: [])
-
-
     func loadAppData() {
-        let loadsChain = LoadsChain(chain: [employeesChainLoading, teamsChainLoading, usefulLinksLoading])
+        let getEmployees = TrombiAPI.sharedAPI.getEmployees()
+        let getTeams = TrombiAPI.sharedAPI.getTeams()
+        let getUsefulLinks = TrombiAPI.sharedAPI.getUsefulLinks()
 
-        loadsChain.executeChain({ [weak self] succeededLoads in
-            guard let strongSelf = self else { return }
+        Observable.zip(
+            getEmployees,
+            getTeams,
+            getUsefulLinks,
+            resultSelector: { (employees: [Employee], teams: [Team], usefulLinks: [UsefulLink]) in
+                let applicationData = ApplicationData(
+                    employees: employees,
+                    teams: teams,
+                    usefuleLinks: usefulLinks
+                )
 
-            let result = ApplicationData()
-            result.employees = strongSelf.employeesChainLoading.employees ?? []
-            result.teams = strongSelf.teamsChainLoading.teams ?? []
-            result.usefuleLinks = strongSelf.usefulLinksLoading.usefulLinks ?? []
-
-            strongSelf.employeesViewViewModel.applicationData = result
-
-            self?._employees.accept(result.employees)
-        }) { (succeededLoads, error) in
-            //TODO: handle errors
-        }
+                self.employeesViewViewModel.applicationData = applicationData
+        }).subscribe().disposed(by: disposeBag)
+        #warning("Handle the errors")
     }
 }
