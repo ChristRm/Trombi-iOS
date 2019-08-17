@@ -3,7 +3,6 @@ import Foundation
 public struct Team: Codable {
 
     enum CodingKeys: String, CodingKey {
-
         case identifier = "id"
         case name = "name"
         case members = "persons"
