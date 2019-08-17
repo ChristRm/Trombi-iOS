@@ -49,9 +49,10 @@ final class HomeViewController: UIViewController {
             }
         } else if segue.identifier == String(describing: EmployeeProfileViewController.self) {
             if let userProfileViewController = segue.destination as? EmployeeProfileViewController {
-                if let data = sender as? (user: Employee, team: Team) {
-                    userProfileViewController.team = data.team
-                    userProfileViewController.employee = data.user
+                if let employeeInfo = sender as? EmployeeInfo {
+
+                    userProfileViewController.team = employeeInfo.team
+                    userProfileViewController.employee = employeeInfo.employee
                 }
             }
         }
@@ -201,10 +202,10 @@ extension HomeViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if let data = viewModel?.dataForEmployee(at: indexPath.row) {
-//            performSegue(withIdentifier: String(describing: EmployeeProfileViewController.self), sender: data)
-//        } else {
-//            fatalError("EmployeesViewModel is nil")
-//        }
+        if let data = viewModel?.employeeSectionAtIndex(indexPath.section).cells[indexPath.row] {
+            performSegue(withIdentifier: String(describing: EmployeeProfileViewController.self), sender: data)
+        } else {
+            fatalError("EmployeesViewModel is nil")
+        }
     }
 }

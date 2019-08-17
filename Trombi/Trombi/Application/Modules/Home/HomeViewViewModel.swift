@@ -135,10 +135,10 @@ extension HomeViewViewModel {
     }
 
     private func employeeInfo(_ employee: Employee) -> EmployeeInfo {
-        return EmployeeInfo(imageUrl: employee.avatarUrl,
-                            nameText: employee.fullName,
-                            teamNameText: applicationData.teamOfEmployee(employee)?.name ?? "",
-                            positionText: employee.job)
+        return EmployeeInfo(
+            employee: employee,
+            team: applicationData.teamOfEmployee(employee)!
+        )
     }
 
 

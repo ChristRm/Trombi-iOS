@@ -11,17 +11,29 @@ import SDWebImage
 
 struct EmployeeInfo {
 
-    init(imageUrl: String, nameText: String, teamNameText: String, positionText: String) {
-        self.imageUrl = imageUrl
-        self.nameText = nameText
-        self.teamNameText = teamNameText
-        self.positionText = positionText
+    let employee: Employee
+    let team: Team
+
+    init(employee: Employee, team: Team) {
+        self.employee = employee
+        self.team = team
     }
 
-    var imageUrl: String = ""
-    var nameText: String = ""
-    var teamNameText: String = ""
-    var positionText: String = ""
+    var imageUrl: String {
+        return employee.avatarUrl
+    }
+
+    var nameText: String {
+        return employee.fullName
+    }
+
+    var teamNameText: String {
+        return team.name
+    }
+
+    var positionText: String {
+        return employee.job
+    }
 }
 
 final class EmployeeCollectionViewCell: UICollectionViewCell {
