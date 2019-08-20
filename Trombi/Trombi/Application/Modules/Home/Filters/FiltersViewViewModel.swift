@@ -12,7 +12,7 @@ import RxSwift
 
 final class FiltersViewViewModel {
 
-    enum FilterCategory: Int {
+    fileprivate enum FilterCategory: Int {
         case people = 0
         case department = 1
     }

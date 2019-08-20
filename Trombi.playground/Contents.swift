@@ -1,46 +1,59 @@
 import Foundation
 
-guard let personsapiUrl = Bundle.main.url(forResource: "personsapi", withExtension: "json") else {
-    fatalError()
+enum RunMode {
+    case jsonsParsing
+    case sequenceExample
 }
 
-guard let linksapiUrl = Bundle.main.url(forResource: "linksapi", withExtension: "json") else {
-    fatalError()
-}
+let runMode: RunMode = .sequenceExample
 
-guard let teamsapiUrl = Bundle.main.url(forResource: "teamsapi", withExtension: "json") else {
-    fatalError()
-}
+if runMode == .jsonsParsing {
+    guard let personsapiUrl = Bundle.main.url(forResource: "personsapi", withExtension: "json") else {
+        fatalError()
+    }
 
-guard let personsData = try? Data(contentsOf: personsapiUrl) else {
-    fatalError()
-}
+    guard let linksapiUrl = Bundle.main.url(forResource: "linksapi", withExtension: "json") else {
+        fatalError()
+    }
 
-guard let linksData = try? Data(contentsOf: linksapiUrl) else {
-    fatalError()
-}
+    guard let teamsapiUrl = Bundle.main.url(forResource: "teamsapi", withExtension: "json") else {
+        fatalError()
+    }
 
-guard let teamsData = try? Data(contentsOf: teamsapiUrl) else {
-    fatalError()
-}
+    guard let personsData = try? Data(contentsOf: personsapiUrl) else {
+        fatalError()
+    }
 
-let decoder = JSONDecoder()
+    guard let linksData = try? Data(contentsOf: linksapiUrl) else {
+        fatalError()
+    }
 
-do {
-    let personsResponse = try decoder.decode(Array<Employee>.self, from: personsData)
+    guard let teamsData = try? Data(contentsOf: teamsapiUrl) else {
+        fatalError()
+    }
 
-    let linksResponse = try decoder.decode(Array<UsefulLink>.self, from: linksData)
+    let decoder = JSONDecoder()
 
-    let teamsResponse = try decoder.decode(Array<Team>.self, from:teamsData)
+    do {
+        let personsResponse = try decoder.decode(Array<Employee>.self, from: personsData)
 
-    print("==================Persons==================")
-    personsResponse.forEach { print($0) }
+        let linksResponse = try decoder.decode(Array<UsefulLink>.self, from: linksData)
 
-    print("==================Links==================")
-    linksResponse.forEach { print($0) }
+        let teamsResponse = try decoder.decode(Array<Team>.self, from:teamsData)
 
-    print("==================Teams==================")
-    teamsResponse.forEach { print($0) }
-} catch {
-    print(error)
+        print("==================Persons==================")
+        personsResponse.forEach { print($0) }
+
+        print("==================Links==================")
+        linksResponse.forEach { print($0) }
+
+        print("==================Teams==================")
+        teamsResponse.forEach { print($0) }
+    } catch {
+        print(error)
+    }
+} else {
+    let fibonacciSequence = FibonacciSequence(limit: 10)
+
+    fibonacciSequence.forEach { print($0) }
 }
