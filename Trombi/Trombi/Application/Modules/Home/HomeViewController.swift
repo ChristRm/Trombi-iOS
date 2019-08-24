@@ -60,7 +60,9 @@ final class HomeViewController: UIViewController {
 
     // MARK: - IBAction
 
-    @IBAction func searchButtonTouched(_ sender: Any) { }
+    @IBAction func searchButtonTouched(_ sender: Any) {
+        performSegue(withIdentifier: String(describing: SearchViewController.self), sender: nil)
+    }
 
     @IBAction func filterButtonTouched(_ sender: Any) {
         performSegue(withIdentifier: String(describing: FiltersPanelViewController.self), sender: nil)
