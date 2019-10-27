@@ -7,3 +7,6 @@
 //
 
 import Foundation
+import RxSwift
+
+class SearchViewViewModel { }

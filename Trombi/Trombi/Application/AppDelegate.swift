@@ -54,6 +54,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UITabBar.appearance().backgroundColor = UIColor.mainWhiteColor
 
+        UINavigationBar.appearance().shadowImage = UIImage()
+
         if #available(iOS 11.0, *) {
             UINavigationBar.appearance().largeTitleTextAttributes =
                 [NSAttributedString.Key.foregroundColor: UIColor.mainBlackColor,

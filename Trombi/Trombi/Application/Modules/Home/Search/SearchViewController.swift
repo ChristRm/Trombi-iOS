@@ -10,75 +10,92 @@ import UIKit
 
 class SearchViewController: UITableViewController {
 
-    private let searchController =
-        UISearchController(searchResultsController: nil)
+    // MARK: - Properties
+    private let searchController = TrombiSearchBarController(searchResultsController: nil)
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        initSearchBar()
+        tableView?.registerReusableCell(type: EmployeeTableViewCell.self)
+        setupSearchBarController()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         searchController.isActive = true
-//        searchController.searchBar.becomeFirstResponder()
-//        searchBar.becomeFirstResponder()
+        searchController.searchBar.becomeFirstResponder()
+
+        navigationController?.navigationBar.clipsToBounds = true
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.clipsToBounds = false
     }
-    */
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let userInfoCell: EmployeeTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+
+        userInfoCell.avatarImageView = nil
+        userInfoCell.nameLabel?.text = "Name"
+        userInfoCell.positionLabel?.text = "Position"
+        userInfoCell.teamLabel?.text = "Team"
+
+        return userInfoCell
+    }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
 }
 
 extension SearchViewController {
-    fileprivate func initSearchBar() {
-        // from medix-news
-//        searchBar.tintColor = UIColor.gray
-//        searchBar.layer.borderWidth = 1
-//        searchBar.layer.borderColor = searchBar.barTintColor?.cgColor
-//        searchBar.delegate = self
-
-        
-//        leadingSearchBarConstraint.constant = 0
-//        trailingSearchBarConstraint.constant = 0
-//        UIView.animate(withDuration: 0.01) {
-//            self.searchBar.layoutIfNeeded()
-//        }
-
+    fileprivate func setupSearchBarController() {
 
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.delegate = self
         searchController.searchBar.placeholder = "Search Candies"
-        searchController.searchBar.showsCancelButton = false
-        navigationItem.searchController = searchController
+        searchController.trombiDelegate = self
+
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
-
     }
 }
 
+extension SearchViewController: TrombiSearchBarControllerDelegate {
+    func dismissTapped() {
+        navigationController?.dismiss(animated: false, completion: nil)
+    }
+}
+
+// MARK: - UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
-
+    // TODO: Handle events of UISearchBarDelegate
 }
 
+// MARK: - UISearchResultsUpdating
 extension SearchViewController: UISearchResultsUpdating {
+    // TODO: Handle events of UISearchResultsUpdating
     func updateSearchResults(for searchController: UISearchController) {
-        //TODO: update
+
     }
-
-
 }
 
+// MARK: - UISearchControllerDelegate
 extension SearchViewController: UISearchControllerDelegate {
+    // TODO: Handle events of UISearchControllerDelegate
     func didPresentSearchController(_ searchController: UISearchController) {
         searchController.searchBar.showsCancelButton = false
     }
