@@ -32,8 +32,8 @@ final class MainTabBarViewController: UITabBarController {
 
         viewControllers?.forEach({ tabViewController in
             if let navigationController = tabViewController as? UINavigationController {
-                if let employeesViewController = navigationController.viewControllers.first as? HomeViewController {
-                    employeesViewController.viewModel = viewModel?.employeesViewViewModel
+                if let homeViewController = navigationController.viewControllers.first as? HomeViewController {
+                    homeViewController.viewModel = viewModel?.homeViewViewModel
                 }
             }
         })

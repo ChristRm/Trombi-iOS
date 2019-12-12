@@ -12,5 +12,5 @@ struct EmployeesSection {
     let title: String
     let rightSideImageUrl: String?
 
-    var cells: [EmployeeInfo]
+    var cells: [EmployeeCellModel]
 }

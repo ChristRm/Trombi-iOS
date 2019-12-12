@@ -18,7 +18,7 @@ final class MainTabBarViewViewModel {
 
     // MARK: - Properties
 
-    private(set) var employeesViewViewModel: HomeViewViewModel = HomeViewViewModel()
+    private(set) var homeViewViewModel: HomeViewViewModel = HomeViewViewModel()
 
     // MARK: - Public interface
 
@@ -38,7 +38,7 @@ final class MainTabBarViewViewModel {
                     usefuleLinks: usefulLinks
                 )
 
-                self.employeesViewViewModel.applicationData = applicationData
+                self.homeViewViewModel.applicationData = applicationData
         }).subscribe().disposed(by: disposeBag)
         #warning("Handle the errors")
     }

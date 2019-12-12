@@ -126,21 +126,19 @@ extension HomeViewViewModel {
 
         if !filteredTeams.isEmpty {
             filteredEmployees = filteredEmployees.filter({
-                guard let team = applicationData.teamOfEmployee($0) else { return true }
-                return filteredTeams.contains(team)
+                return self.filteredTeams.contains(self.applicationData.teamOfEmployee($0))
             })
         }
 
         return filteredEmployees
     }
 
-    private func employeeInfo(_ employee: Employee) -> EmployeeInfo {
-        return EmployeeInfo(
+    private func employeeInfo(_ employee: Employee) -> EmployeeCellModel {
+        return EmployeeCellModel(
             employee: employee,
-            team: applicationData.teamOfEmployee(employee)!
+            team: applicationData.teamOfEmployee(employee)
         )
     }
-
 
     private func isEmployeeNewcomer(_ employee: Employee) -> Bool {
         return employee.arrival < Date().addingTimeInterval(-Defaults.newcomerInterval)

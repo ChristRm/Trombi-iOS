@@ -32,7 +32,8 @@ class TrombiSearchBar: UISearchBar {
         barTintColor = UIColor.mainWhiteColor
         showsBookmarkButton = false
         showsCancelButton = false
-        setImage(UIImage(named: "icBack"), for: .search, state: .normal)// TODO: this image is wrong
+
+        setImage(UIImage(), for: .search, state: .normal)// TODO: this image is wrong
         setPositionAdjustment(UIOffset(horizontal: 5.0, vertical: 0.0), for: .search)
         searchTextPositionAdjustment = UIOffset(horizontal: 5.0, vertical: 0.0)
 
@@ -40,7 +41,8 @@ class TrombiSearchBar: UISearchBar {
 
         backButton.backgroundColor = .clear
         backButton.setTitle(nil, for: .normal)
-        backButton.setImage(UIImage(named: "icDone"), for: .normal)
+        backButton.tintColor = UIColor.mainBlackColor
+        backButton.setImage(UIImage(named: "icBack"), for: .normal)
 
         backButton.addTarget(self, action: #selector(imageTapped), for: .touchUpInside)
         searchFieldContainer.addSubview(backButton)

@@ -43,17 +43,23 @@ final class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
+        guard let viewModel = viewModel else { return }
+
         if segue.identifier == String(describing: FiltersPanelViewController.self) {
             if let filetsPanelViewController = segue.destination as? FiltersPanelViewController {
-                filetsPanelViewController.filtersViewViewModel = viewModel?.filtersViewViewModel
+                filetsPanelViewController.filtersViewViewModel = viewModel.filtersViewViewModel
             }
         } else if segue.identifier == String(describing: EmployeeProfileViewController.self) {
             if let userProfileViewController = segue.destination as? EmployeeProfileViewController {
-                if let employeeInfo = sender as? EmployeeInfo {
-
+                if let employeeInfo = sender as? EmployeeCellModel {
                     userProfileViewController.team = employeeInfo.team
                     userProfileViewController.employee = employeeInfo.employee
                 }
+            }
+        } else if segue.identifier == String(describing: SearchViewController.self) {
+            if let navigationController = segue.destination as? UINavigationController,
+                let searchViewController = navigationController.viewControllers.first as? SearchViewController {
+                searchViewController.viewModel = SearchViewViewModel(applicationData: viewModel.applicationData)
             }
         }
     }

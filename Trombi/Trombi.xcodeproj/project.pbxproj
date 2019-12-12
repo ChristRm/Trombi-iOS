@@ -13,8 +13,8 @@
 		4BA3CFBD21A6DA6F003358E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFBB21A6DA6F003358E6 /* LaunchScreen.storyboard */; };
 		9D06DDBB21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D06DDBA21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift */; };
 		9D110BA521B5E91200AB0A36 /* TrombiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D110BA421B5E91200AB0A36 /* TrombiAPI.swift */; };
-		9D12825A234129C100261AB6 /* EmployeeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D128258234129C000261AB6 /* EmployeeTableViewCell.xib */; };
-		9D12825B234129C100261AB6 /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D128259234129C100261AB6 /* EmployeeTableViewCell.swift */; };
+		9D12825A234129C100261AB6 /* EmployeeSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D128258234129C000261AB6 /* EmployeeSearchTableViewCell.xib */; };
+		9D12825B234129C100261AB6 /* EmployeeSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D128259234129C100261AB6 /* EmployeeSearchTableViewCell.swift */; };
 		9D15A8DE22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D15A8DD22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib */; };
 		9D1C06B12308642600D20470 /* JSONDecoder+TrombiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1C06B02308642600D20470 /* JSONDecoder+TrombiAPI.swift */; };
 		9D1D067621C9950A00B2A56A /* EmployeeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D067521C9950A00B2A56A /* EmployeeSearchViewController.swift */; };
@@ -22,6 +22,7 @@
 		9D3967B821CEE12E0087CEA7 /* UIColor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3967B721CEE12E0087CEA7 /* UIColor+Convenience.swift */; };
 		9D3D0C40233FBA2A00CF2590 /* TrombiSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D0C3F233FBA2A00CF2590 /* TrombiSearchBar.swift */; };
 		9D3D0C42233FC7E000CF2590 /* TrombiSearchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D0C41233FC7E000CF2590 /* TrombiSearchBarController.swift */; };
+		9D5278C623A652E300C9C8DC /* UserDefaults+Trombi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5278C523A652E300C9C8DC /* UserDefaults+Trombi.swift */; };
 		9D52BAF721F1FF5700962C4D /* LayoutInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52BAF321F1FF5700962C4D /* LayoutInfo.swift */; };
 		9D52BAF821F1FF5700962C4D /* LayoutAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52BAF421F1FF5700962C4D /* LayoutAlignment.swift */; };
 		9D52BAF921F1FF5700962C4D /* TagCellLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52BAF521F1FF5700962C4D /* TagCellLayoutDelegate.swift */; };
@@ -43,6 +44,9 @@
 		9D8E92EE21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E92EC21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift */; };
 		9D8E92EF21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8E92ED21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.xib */; };
 		9D92F22E2228A187005C605B /* TrombiTopRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D92F22D2228A187005C605B /* TrombiTopRoundedView.swift */; };
+		9D9E7775236795FF0075FD25 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E7774236795FF0075FD25 /* SearchService.swift */; };
+		9DA1BBB223A66DCF0032E6CD /* LastSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1BBB023A66DCF0032E6CD /* LastSearchTableViewCell.swift */; };
+		9DA1BBB323A66DCF0032E6CD /* LastSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DA1BBB123A66DCF0032E6CD /* LastSearchTableViewCell.xib */; };
 		9DAC757621BC3C7800BA791D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC757521BC3C7800BA791D /* MainTabBarViewController.swift */; };
 		9DAC757821BC3C9700BA791D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DAC757721BC3C9700BA791D /* Home.storyboard */; };
 		9DAC757C21BC409400BA791D /* UIViewController+Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC757A21BC409400BA791D /* UIViewController+Storyboards.swift */; };
@@ -81,8 +85,8 @@
 		52A3D3B164CBEE12469D7207 /* libPods-Trombi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Trombi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D06DDBA21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeueReusableCell.swift"; sourceTree = "<group>"; };
 		9D110BA421B5E91200AB0A36 /* TrombiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiAPI.swift; sourceTree = "<group>"; };
-		9D128258234129C000261AB6 /* EmployeeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeTableViewCell.xib; sourceTree = "<group>"; };
-		9D128259234129C100261AB6 /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
+		9D128258234129C000261AB6 /* EmployeeSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeSearchTableViewCell.xib; sourceTree = "<group>"; };
+		9D128259234129C100261AB6 /* EmployeeSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeSearchTableViewCell.swift; sourceTree = "<group>"; };
 		9D15A8DD22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeesCollectionViewHeader.xib; sourceTree = "<group>"; };
 		9D1C06B02308642600D20470 /* JSONDecoder+TrombiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+TrombiAPI.swift"; sourceTree = "<group>"; };
 		9D1D067521C9950A00B2A56A /* EmployeeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSearchViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 		9D3967B721CEE12E0087CEA7 /* UIColor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Convenience.swift"; sourceTree = "<group>"; };
 		9D3D0C3F233FBA2A00CF2590 /* TrombiSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiSearchBar.swift; sourceTree = "<group>"; };
 		9D3D0C41233FC7E000CF2590 /* TrombiSearchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiSearchBarController.swift; sourceTree = "<group>"; };
+		9D5278C523A652E300C9C8DC /* UserDefaults+Trombi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Trombi.swift"; sourceTree = "<group>"; };
 		9D52BAF321F1FF5700962C4D /* LayoutInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutInfo.swift; sourceTree = "<group>"; };
 		9D52BAF421F1FF5700962C4D /* LayoutAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutAlignment.swift; sourceTree = "<group>"; };
 		9D52BAF521F1FF5700962C4D /* TagCellLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCellLayoutDelegate.swift; sourceTree = "<group>"; };
@@ -108,12 +113,20 @@
 		9D59316323119699004448A2 /* SearchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewViewModel.swift; sourceTree = "<group>"; };
 		9D5931652311A11D004448A2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		9D69B61F22A5B6F1008ED9B5 /* EmployeeSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSectionModel.swift; sourceTree = "<group>"; };
+		9D7FE154236612C60081AE60 /* GitHubSearchRepositoriesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubSearchRepositoriesAPI.swift; sourceTree = "<group>"; };
+		9D7FE155236612C60081AE60 /* GitHubSearchRepositories.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GitHubSearchRepositories.storyboard; sourceTree = "<group>"; };
+		9D7FE156236612C60081AE60 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		9D7FE157236612C60081AE60 /* GitHubSearchRepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubSearchRepositoriesViewController.swift; sourceTree = "<group>"; };
+		9D7FE158236612C60081AE60 /* GitHubSearchRepositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubSearchRepositories.swift; sourceTree = "<group>"; };
 		9D83E3162235774A0042DC0B /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		9D8E92E421F35A6F004B8E9E /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 		9D8E92E821F38197004B8E9E /* FiltersViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewViewModel.swift; sourceTree = "<group>"; };
 		9D8E92EC21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D8E92ED21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartmentTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		9D92F22D2228A187005C605B /* TrombiTopRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiTopRoundedView.swift; sourceTree = "<group>"; };
+		9D9E7774236795FF0075FD25 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		9DA1BBB023A66DCF0032E6CD /* LastSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSearchTableViewCell.swift; sourceTree = "<group>"; };
+		9DA1BBB123A66DCF0032E6CD /* LastSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastSearchTableViewCell.xib; sourceTree = "<group>"; };
 		9DAC757521BC3C7800BA791D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		9DAC757721BC3C9700BA791D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9DAC757A21BC409400BA791D /* UIViewController+Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboards.swift"; sourceTree = "<group>"; };
@@ -205,9 +218,11 @@
 		9D3D0C3E233FB9C200CF2590 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9D128259234129C100261AB6 /* EmployeeTableViewCell.swift */,
-				9D128258234129C000261AB6 /* EmployeeTableViewCell.xib */,
 				9D3D0C3F233FBA2A00CF2590 /* TrombiSearchBar.swift */,
+				9D128259234129C100261AB6 /* EmployeeSearchTableViewCell.swift */,
+				9D128258234129C000261AB6 /* EmployeeSearchTableViewCell.xib */,
+				9DA1BBB123A66DCF0032E6CD /* LastSearchTableViewCell.xib */,
+				9DA1BBB023A66DCF0032E6CD /* LastSearchTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,11 +275,13 @@
 		9D59316023119635004448A2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				9D7FE153236612C60081AE60 /* GitHubSearchRepositories */,
 				9D3D0C3E233FB9C200CF2590 /* Views */,
 				9D59316123119668004448A2 /* SearchViewController.swift */,
 				9D59316323119699004448A2 /* SearchViewViewModel.swift */,
 				9D3D0C41233FC7E000CF2590 /* TrombiSearchBarController.swift */,
 				9D5931652311A11D004448A2 /* Search.storyboard */,
+				9D9E7774236795FF0075FD25 /* SearchService.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -275,6 +292,18 @@
 				9D69B61F22A5B6F1008ED9B5 /* EmployeeSectionModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9D7FE153236612C60081AE60 /* GitHubSearchRepositories */ = {
+			isa = PBXGroup;
+			children = (
+				9D7FE154236612C60081AE60 /* GitHubSearchRepositoriesAPI.swift */,
+				9D7FE155236612C60081AE60 /* GitHubSearchRepositories.storyboard */,
+				9D7FE156236612C60081AE60 /* UINavigationController+Extensions.swift */,
+				9D7FE157236612C60081AE60 /* GitHubSearchRepositoriesViewController.swift */,
+				9D7FE158236612C60081AE60 /* GitHubSearchRepositories.swift */,
+			);
+			path = GitHubSearchRepositories;
 			sourceTree = "<group>";
 		};
 		9D92F22C2228A179005C605B /* Views */ = {
@@ -309,6 +338,7 @@
 				9D3967B721CEE12E0087CEA7 /* UIColor+Convenience.swift */,
 				9D8E92E421F35A6F004B8E9E /* UIView+RoundCorners.swift */,
 				9D1C06B02308642600D20470 /* JSONDecoder+TrombiAPI.swift */,
+				9D5278C523A652E300C9C8DC /* UserDefaults+Trombi.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -483,9 +513,10 @@
 				9D15A8DE22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib in Resources */,
 				9D5931662311A11D004448A2 /* Search.storyboard in Resources */,
 				4BA3CFBA21A6DA6F003358E6 /* Assets.xcassets in Resources */,
-				9D12825A234129C100261AB6 /* EmployeeTableViewCell.xib in Resources */,
+				9D12825A234129C100261AB6 /* EmployeeSearchTableViewCell.xib in Resources */,
 				9DCF1FD421FD09BA00605CB3 /* OtherTagCollectionViewCell.xib in Resources */,
 				9DAC757821BC3C9700BA791D /* Home.storyboard in Resources */,
+				9DA1BBB323A66DCF0032E6CD /* LastSearchTableViewCell.xib in Resources */,
 				9D52BB2F21F2036F00962C4D /* FiltersCollectionViewHeader.xib in Resources */,
 				9D55DF5921C9205C009A983F /* EmployeeCollectionViewCell.xib in Resources */,
 				9D8E92EF21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.xib in Resources */,
@@ -548,6 +579,7 @@
 				9DAFB58E21B332CC0038C680 /* Team.swift in Sources */,
 				9DFB774722292A9A00160540 /* CircleImageView.swift in Sources */,
 				9DC2835522103EEF0024263A /* EmployeeProfileViewController.swift in Sources */,
+				9D5278C623A652E300C9C8DC /* UserDefaults+Trombi.swift in Sources */,
 				9D55DF5821C9205C009A983F /* EmployeeCollectionViewCell.swift in Sources */,
 				9D1D067621C9950A00B2A56A /* EmployeeSearchViewController.swift in Sources */,
 				9D52BB2821F2036F00962C4D /* FiltersPresentTransitionAnimation.swift in Sources */,
@@ -558,7 +590,7 @@
 				9D83E3172235774A0042DC0B /* CircleView.swift in Sources */,
 				9DC28358221041B80024263A /* UserInfoTableViewCell.swift in Sources */,
 				9DE90CCD21A9FB5400AF8DF3 /* TrombiApiRequests.swift in Sources */,
-				9D12825B234129C100261AB6 /* EmployeeTableViewCell.swift in Sources */,
+				9D12825B234129C100261AB6 /* EmployeeSearchTableViewCell.swift in Sources */,
 				9DAC758121BC453500BA791D /* ReusableView.swift in Sources */,
 				9D69B62022A5B6F1008ED9B5 /* EmployeeSectionModel.swift in Sources */,
 				9D59316223119668004448A2 /* SearchViewController.swift in Sources */,
@@ -571,6 +603,7 @@
 				9DBA8CA521D2640A009FF7B5 /* UIFont+Trombi.swift in Sources */,
 				9DAC758321BC458900BA791D /* UITableView+dequeueReusableCell.swift in Sources */,
 				9DAFB58C21B332CC0038C680 /* UsefulLink.swift in Sources */,
+				9D9E7775236795FF0075FD25 /* SearchService.swift in Sources */,
 				9D8E92EE21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift in Sources */,
 				9D06DDBB21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift in Sources */,
 				9D52BB3921F2036F00962C4D /* FiltersPanelViewController.swift in Sources */,
@@ -583,6 +616,7 @@
 				9DAFB58D21B332CC0038C680 /* Employee.swift in Sources */,
 				9D110BA521B5E91200AB0A36 /* TrombiAPI.swift in Sources */,
 				9D3D0C40233FBA2A00CF2590 /* TrombiSearchBar.swift in Sources */,
+				9DA1BBB223A66DCF0032E6CD /* LastSearchTableViewCell.swift in Sources */,
 				9D52BAFA21F1FF5700962C4D /* TagCellLayout.swift in Sources */,
 				9D8E92E921F38197004B8E9E /* FiltersViewViewModel.swift in Sources */,
 				9DCF1FD321FD09BA00605CB3 /* OtherTagCollectionViewCell.swift in Sources */,

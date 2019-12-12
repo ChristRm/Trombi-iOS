@@ -8,73 +8,77 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-SemiBold.ttf">
+            <string>Muli-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmployeeTableViewCell" rowHeight="100" id="rnB-hm-kyg" customClass="EmployeeTableViewCell" customModule="Trombi" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmployeeSearchTableViewCell" id="rnB-hm-kyg" customClass="EmployeeSearchTableViewCell" customModule="Trombi" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rnB-hm-kyg" id="ccC-dA-3Rm">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S2G-Kd-n1n">
-                        <rect key="frame" x="37.5" y="10" width="79.5" height="79.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S2G-Kd-n1n">
+                        <rect key="frame" x="25" y="9.5" width="80" height="80"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="80" id="l5x-6p-5xI"/>
                             <constraint firstAttribute="width" secondItem="S2G-Kd-n1n" secondAttribute="height" multiplier="1:1" id="nca-ut-L25"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRt-uv-ahp" userLabel="Space View">
-                        <rect key="frame" x="0.0" y="0.0" width="37.5" height="99.5"/>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Andy Baker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YII-qp-twL">
-                        <rect key="frame" x="136" y="10" width="88" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="124" y="9.5" width="93.5" height="21"/>
+                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UI designer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5S-PW-4ce">
-                        <rect key="frame" x="136" y="36" width="88" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="124" y="35.5" width="90.5" height="21"/>
+                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TuZ-lM-GPU" userLabel="Space View 2">
-                        <rect key="frame" x="117" y="0.0" width="19" height="99.5"/>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trombi team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqE-HF-8l4">
-                        <rect key="frame" x="136" y="62" width="96" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="124" y="61.5" width="100.5" height="21"/>
+                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nei-V9-Dx8" userLabel="Bottom line">
+                        <rect key="frame" x="25" y="98.5" width="325" height="1"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="FJt-KN-k2b"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="MRt-uv-ahp" firstAttribute="top" secondItem="ccC-dA-3Rm" secondAttribute="top" id="9HO-nK-7eX"/>
-                    <constraint firstItem="S2G-Kd-n1n" firstAttribute="leading" secondItem="MRt-uv-ahp" secondAttribute="trailing" id="BGM-Ls-qDA"/>
-                    <constraint firstItem="S2G-Kd-n1n" firstAttribute="centerY" secondItem="ccC-dA-3Rm" secondAttribute="centerY" id="Hed-no-hxk"/>
-                    <constraint firstItem="YII-qp-twL" firstAttribute="leading" secondItem="TuZ-lM-GPU" secondAttribute="trailing" id="ITz-LZ-k8O"/>
-                    <constraint firstAttribute="bottom" secondItem="MRt-uv-ahp" secondAttribute="bottom" id="JC3-gy-zbg"/>
-                    <constraint firstItem="S2G-Kd-n1n" firstAttribute="height" secondItem="ccC-dA-3Rm" secondAttribute="height" multiplier="0.8" id="Mcg-xm-zoO"/>
+                    <constraint firstAttribute="bottom" secondItem="nei-V9-Dx8" secondAttribute="bottom" id="2QM-hg-1wZ"/>
+                    <constraint firstItem="S2G-Kd-n1n" firstAttribute="leading" secondItem="ccC-dA-3Rm" secondAttribute="leading" constant="25" id="8zB-vT-BHT"/>
+                    <constraint firstItem="nei-V9-Dx8" firstAttribute="leading" secondItem="S2G-Kd-n1n" secondAttribute="leading" id="9EE-Un-olD"/>
+                    <constraint firstItem="YII-qp-twL" firstAttribute="top" secondItem="ccC-dA-3Rm" secondAttribute="top" constant="9.5" id="CzU-JG-rba"/>
                     <constraint firstItem="fqE-HF-8l4" firstAttribute="leading" secondItem="E5S-PW-4ce" secondAttribute="leading" id="Myi-y1-jUT"/>
                     <constraint firstItem="YII-qp-twL" firstAttribute="top" secondItem="S2G-Kd-n1n" secondAttribute="top" id="PRd-QI-3Ip"/>
-                    <constraint firstItem="MRt-uv-ahp" firstAttribute="leading" secondItem="ccC-dA-3Rm" secondAttribute="leading" id="WXF-h0-s7w"/>
-                    <constraint firstItem="MRt-uv-ahp" firstAttribute="width" secondItem="ccC-dA-3Rm" secondAttribute="width" multiplier="0.1" id="biq-m4-BYE"/>
-                    <constraint firstItem="TuZ-lM-GPU" firstAttribute="leading" secondItem="S2G-Kd-n1n" secondAttribute="trailing" id="dQl-1F-oxJ"/>
+                    <constraint firstItem="nei-V9-Dx8" firstAttribute="top" secondItem="fqE-HF-8l4" secondAttribute="bottom" constant="16" id="dW8-oY-rgN"/>
                     <constraint firstItem="E5S-PW-4ce" firstAttribute="top" secondItem="YII-qp-twL" secondAttribute="bottom" constant="5" id="gRF-Bu-kFY"/>
-                    <constraint firstItem="TuZ-lM-GPU" firstAttribute="top" secondItem="ccC-dA-3Rm" secondAttribute="top" id="gWm-jq-WQd"/>
-                    <constraint firstAttribute="bottom" secondItem="TuZ-lM-GPU" secondAttribute="bottom" id="l5r-0Y-v8o"/>
+                    <constraint firstAttribute="trailing" secondItem="nei-V9-Dx8" secondAttribute="trailing" constant="25" id="lK5-h7-aGN"/>
                     <constraint firstItem="fqE-HF-8l4" firstAttribute="top" secondItem="E5S-PW-4ce" secondAttribute="bottom" constant="5" id="mxE-rf-pHO"/>
                     <constraint firstItem="E5S-PW-4ce" firstAttribute="leading" secondItem="YII-qp-twL" secondAttribute="leading" id="o9d-fC-lYo"/>
-                    <constraint firstItem="TuZ-lM-GPU" firstAttribute="width" secondItem="ccC-dA-3Rm" secondAttribute="width" multiplier="0.05" id="q2c-yU-H94"/>
+                    <constraint firstItem="YII-qp-twL" firstAttribute="leading" secondItem="S2G-Kd-n1n" secondAttribute="trailing" constant="19" id="s2N-Ex-GXC"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="1" green="1" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="avatarImageView" destination="S2G-Kd-n1n" id="9g7-KD-b00"/>
                 <outlet property="nameLabel" destination="YII-qp-twL" id="RQa-0L-IRx"/>
                 <outlet property="positionLabel" destination="E5S-PW-4ce" id="SJN-o0-D48"/>
                 <outlet property="teamLabel" destination="fqE-HF-8l4" id="Nnj-TW-Mh3"/>
             </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="117.84107946026987"/>
         </tableViewCell>
     </objects>
 </document>

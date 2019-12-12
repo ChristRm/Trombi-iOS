@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-struct EmployeeInfo {
+struct EmployeeCellModel {
 
     let employee: Employee
     let team: Team
@@ -51,7 +51,7 @@ final class EmployeeCollectionViewCell: UICollectionViewCell {
         initShadows()
     }
 
-    func setModel(_ model: EmployeeInfo) {
+    func setModel(_ model: EmployeeCellModel) {
         let avatarUrl = TrombiApiRequests.baseUrl + model.imageUrl
         imageView?.sd_setImage(with: URL(string: avatarUrl), completed: nil)
 

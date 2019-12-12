@@ -20,7 +20,10 @@ class ApplicationData {
     var teams: [Team]
     var usefuleLinks: [UsefulLink]
 
-    func teamOfEmployee(_ employee: Employee) -> Team? {
-        return teams.first(where: { $0.identifier == employee.teamId })
+    func teamOfEmployee(_ employee: Employee) -> Team {
+        guard let team = teams.first(where: { $0.identifier == employee.teamId })
+            else { fatalError("Inconsistent data, employee without team") }
+        
+        return team
     }
 }

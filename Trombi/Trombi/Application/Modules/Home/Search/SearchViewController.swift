@@ -7,18 +7,35 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import RxAtomic
 
-class SearchViewController: UITableViewController {
+class SearchViewController: UIViewController {
+
+    // MARK: - RxSwift
+    private let disposeBag = DisposeBag()
+
+    // MARK: - ViewModel
+    var viewModel: SearchViewViewModel?
 
     // MARK: - Properties
     private let searchController = TrombiSearchBarController(searchResultsController: nil)
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noResultsView: UIView!
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView?.registerReusableCell(type: EmployeeTableViewCell.self)
+        setupTableView()
         setupSearchBarController()
+
+        if let viewModel = viewModel {
+            bindViewModel(viewModel)
+        } else {
+            print("SearchViewViewModel is not set up")
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -34,38 +51,40 @@ class SearchViewController: UITableViewController {
         navigationController?.navigationBar.clipsToBounds = false
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let userInfoCell: EmployeeTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+    // MARK: - binding ViewModel
+    private func bindViewModel(_ viewModel: SearchViewViewModel) {
+        viewModel.foundEmployees.drive(tableView.rx.items(
+            cellIdentifier: EmployeeSearchTableViewCell.staticReuseIdentifier,
+            cellType: EmployeeSearchTableViewCell.self)
+        ) { (_, employeeSearchCellModel, cell) in
+            cell.setModel(employeeSearchCellModel)
+            }.disposed(by: disposeBag)
+        viewModel.noResultsIsHidden.drive(noResultsView.rx.isHidden).disposed(by: disposeBag)
 
-        userInfoCell.avatarImageView = nil
-        userInfoCell.nameLabel?.text = "Name"
-        userInfoCell.positionLabel?.text = "Position"
-        userInfoCell.teamLabel?.text = "Team"
+        _ = searchController.searchBar.rx.text.orEmpty
+            .debounce(0.5, scheduler: MainScheduler.instance)
+            .bind(to: viewModel.enteredSearch)
+            .disposed(by: disposeBag)
 
-        return userInfoCell
-    }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        searchController.searchBar.rx.searchButtonClicked.subscribe { [weak self] _ in
+            self?.searchController.searchBar.resignFirstResponder()
+        }.disposed(by: disposeBag)
     }
 }
 
 extension SearchViewController {
-    fileprivate func setupSearchBarController() {
+    fileprivate func setupTableView() {
+        tableView.registerReusableCell(type: EmployeeSearchTableViewCell.self)
+        tableView.registerReusableCell(type: LastSearchTableViewCell.self)
+        tableView.rowHeight = UITableView.automaticDimension
+    }
 
+    fileprivate func setupSearchBarController() {
         // Setup the Search Controller
-        searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.delegate = self
-        searchController.searchBar.placeholder = "Search Candies"
+        searchController.searchBar.placeholder = "Search"
+
         searchController.trombiDelegate = self
 
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
@@ -82,15 +101,7 @@ extension SearchViewController: TrombiSearchBarControllerDelegate {
 
 // MARK: - UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
-    // TODO: Handle events of UISearchBarDelegate
-}
-
-// MARK: - UISearchResultsUpdating
-extension SearchViewController: UISearchResultsUpdating {
-    // TODO: Handle events of UISearchResultsUpdating
-    func updateSearchResults(for searchController: UISearchController) {
-
-    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) { }
 }
 
 // MARK: - UISearchControllerDelegate
