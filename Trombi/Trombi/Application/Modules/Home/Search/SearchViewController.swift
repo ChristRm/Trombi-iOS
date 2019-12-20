@@ -53,7 +53,7 @@ class SearchViewController: UIViewController {
 
     // MARK: - binding ViewModel
     private func bindViewModel(_ viewModel: SearchViewViewModel) {
-        viewModel.foundEmployees.drive(tableView.rx.items(
+        viewModel.tableOfFoundEmployees.drive(tableView.rx.items(
             cellIdentifier: EmployeeSearchTableViewCell.staticReuseIdentifier,
             cellType: EmployeeSearchTableViewCell.self)
         ) { (_, employeeSearchCellModel, cell) in

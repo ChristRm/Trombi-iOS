@@ -27,7 +27,7 @@ final class MainTabBarViewViewModel {
         let getTeams = TrombiAPI.sharedAPI.getTeams()
         let getUsefulLinks = TrombiAPI.sharedAPI.getUsefulLinks()
 
-        Observable.zip(
+        let applicationDataObservable: Observable<ApplicationData> = Observable.zip(
             getEmployees,
             getTeams,
             getUsefulLinks,
@@ -38,8 +38,18 @@ final class MainTabBarViewViewModel {
                     usefuleLinks: usefulLinks
                 )
 
-                self.homeViewViewModel.applicationData = applicationData
-        }).subscribe().disposed(by: disposeBag)
-        #warning("Handle the errors")
+                return applicationData
+        })
+
+        applicationDataObservable.subscribe({ [weak self] event in
+            switch event {
+            case .next(let applicationData):
+                self?.homeViewViewModel.applicationData = applicationData
+            case .completed:
+                print("completed")
+            case .error(let error):
+                print(error.localizedDescription)
+            }
+        }).disposed(by: disposeBag)
     }
 }

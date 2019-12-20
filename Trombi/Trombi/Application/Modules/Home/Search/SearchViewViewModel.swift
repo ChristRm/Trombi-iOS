@@ -23,7 +23,7 @@ class SearchViewViewModel {
     var enteredSearch: BehaviorRelay = BehaviorRelay<String>(value: "")
 
     // MARK: - Output
-    var foundEmployees: Driver<[EmployeeSearchCellModel]> { return _foundEmployees.asDriver() }
+    var tableOfFoundEmployees: Driver<[EmployeeSearchCellModel]> { return _foundEmployees.asDriver() }
     var noResultsIsHidden: Driver<Bool> { return _noResultsIsHidden.asDriver() }
 
     // MARK: - Private properties
