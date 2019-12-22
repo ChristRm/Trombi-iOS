@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class SearchViewViewModel {
 
@@ -20,17 +21,26 @@ class SearchViewViewModel {
     let applicationData: ApplicationData
 
     // MARK: - Input
-    var enteredSearch: BehaviorRelay = BehaviorRelay<String>(value: "")
+    private(set) var enteredSearch: BehaviorRelay = BehaviorRelay<String>(value: "")
+    private(set) var selectedItem: BehaviorRelay<Int?> = BehaviorRelay<Int?>(value: nil)
 
     // MARK: - Output
-    var tableOfFoundEmployees: Driver<[EmployeeSearchCellModel]> { return _foundEmployees.asDriver() }
+
     var noResultsIsHidden: Driver<Bool> { return _noResultsIsHidden.asDriver() }
+    var searchTable: Driver<[SearchTableModel]> { return _testTable.asDriver() }
+
+    var forcedSearchText: Driver<String?> { return _forcedSearchText.asDriver() }
 
     // MARK: - Private properties
     private let _foundEmployees = BehaviorRelay<[EmployeeSearchCellModel]>(value: [])
     private let _noResultsIsHidden = BehaviorRelay<Bool>(value: true)
 
     private let searchService: SearchService
+    private let _testTable =
+        BehaviorRelay<[SearchTableModel]>(value: [])
+
+    private let _forcedSearchText =
+        BehaviorRelay<String?>(value: nil)
 
     init(applicationData: ApplicationData) {
         self.applicationData = applicationData
@@ -42,14 +52,37 @@ class SearchViewViewModel {
         enteredSearch.distinctUntilChanged().map({ [weak self] enteredText -> [EmployeeSearchCellModel] in
             guard let strongSelf = self else { return [] }
 
-            print(enteredText)
             return strongSelf.searchEmployee(searchFragment: enteredText)
         }).bind(to: _foundEmployees).disposed(by: disposeBag)
+
+        Observable.combineLatest(_foundEmployees, enteredSearch) { (foundEmployees, entered) -> [SearchTableModel] in
+            guard !entered.isEmpty else {
+                return UserDefaults.lastSearches.map { return SearchTableModel.lastSearch($0) }
+            }
+
+            let foundEmployeesTable = foundEmployees.map({ return SearchTableModel.employee($0) })
+            return foundEmployeesTable
+            }.bind(to: _testTable).disposed(by: disposeBag)
 
         Observable.combineLatest(_foundEmployees, enteredSearch) { (found, entered) -> Bool in
             let noResults = !entered.isEmpty && found.isEmpty
             return !noResults
         }.bind(to: _noResultsIsHidden).disposed(by: disposeBag)
+
+        selectedItem.subscribe { [weak self] event in
+            switch event {
+            case .next(let row):
+                if let row = row, let tableModel = self?._testTable.value[row] {
+                    switch tableModel {
+                    case .employee(let _): // TODO: open profile screen from the search
+                        break
+                    case .lastSearch(let lastSearch):
+                        self?._forcedSearchText.accept(lastSearch)
+                    }
+                }
+            default: break
+            }
+        }.disposed(by: disposeBag)
     }
 
     private func searchEmployee(searchFragment: String) -> [EmployeeSearchCellModel] {
@@ -64,5 +97,16 @@ class SearchViewViewModel {
             positionText: employee.job,
             teamNameText: applicationData.teamOfEmployee(employee).name
         )
+    }
+
+    // MARK: - Public interface
+
+    func addLastSearch(_ lastSearch: String) {
+        let lastSearches = UserDefaults.lastSearches
+
+        var queue = Queue<String>(maximumSize: 3, incomingOrder: lastSearches)
+        queue.push(lastSearch)
+
+        UserDefaults.set(lastSearches: queue.queueArray)
     }
 }

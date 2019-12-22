@@ -11,6 +11,11 @@ import RxCocoa
 import RxSwift
 import RxAtomic
 
+enum SearchTableModel {
+    case employee(EmployeeSearchCellModel)
+    case lastSearch(String)
+}
+
 class SearchViewController: UIViewController {
 
     // MARK: - RxSwift
@@ -24,7 +29,6 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noResultsView: UIView!
-
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +57,25 @@ class SearchViewController: UIViewController {
 
     // MARK: - binding ViewModel
     private func bindViewModel(_ viewModel: SearchViewViewModel) {
-        viewModel.tableOfFoundEmployees.drive(tableView.rx.items(
-            cellIdentifier: EmployeeSearchTableViewCell.staticReuseIdentifier,
-            cellType: EmployeeSearchTableViewCell.self)
-        ) { (_, employeeSearchCellModel, cell) in
-            cell.setModel(employeeSearchCellModel)
-            }.disposed(by: disposeBag)
+        viewModel.searchTable
+            .asObservable()
+            .bind(to: tableView.rx.items) { (tableView, row, searchDataModel) -> UITableViewCell in
+            switch searchDataModel {
+            case .employee(let employeeSearchCellModel):
+                let employeeCell: EmployeeSearchTableViewCell =
+                    tableView.dequeueReusableCell(for: IndexPath(row: row, section: 0))
+
+                employeeCell.setModel(employeeSearchCellModel)
+                return employeeCell
+            case .lastSearch(let lastSearch):
+                let lastSearchCell: LastSearchTableViewCell =
+                    tableView.dequeueReusableCell(for: IndexPath(row: row, section: 0))
+
+                lastSearchCell.setText(lastSearch)
+                return lastSearchCell
+            }
+        }.disposed(by: disposeBag)
+
         viewModel.noResultsIsHidden.drive(noResultsView.rx.isHidden).disposed(by: disposeBag)
 
         _ = searchController.searchBar.rx.text.orEmpty
@@ -68,7 +85,23 @@ class SearchViewController: UIViewController {
 
         searchController.searchBar.rx.searchButtonClicked.subscribe { [weak self] _ in
             self?.searchController.searchBar.resignFirstResponder()
+            if let text = self?.searchController.searchBar.text {
+                self?.viewModel?.addLastSearch(text)
+            }
         }.disposed(by: disposeBag)
+
+        tableView.rx.itemSelected
+            .asObservable()
+            .map({ indexPath -> Int in return indexPath.row })
+            .bind(to: viewModel.selectedItem)
+            .disposed(by: disposeBag)
+
+        viewModel.forcedSearchText.drive(onNext: { [weak self] forceSearchText in
+            guard let forceSearchText = forceSearchText else { return }
+            self?.searchController.searchBar.text = forceSearchText
+            self?.viewModel?.enteredSearch.accept(forceSearchText)
+        }, onCompleted: nil, onDisposed: nil)
+            .disposed(by: disposeBag)
     }
 }
 

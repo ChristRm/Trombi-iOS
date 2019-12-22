@@ -17,14 +17,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LastSearchTableViewCell" rowHeight="149" id="KGk-i7-Jjw" customClass="LastSearchTableViewCell" customModule="Trombi" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LastSearchTableViewCell" id="KGk-i7-Jjw" customClass="LastSearchTableViewCell" customModule="Trombi" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="405" height="149"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="405" height="148.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icSearch" translatesAutoresizingMaskIntoConstraints="NO" id="H5L-Jz-oNl">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icHistory" translatesAutoresizingMaskIntoConstraints="NO" id="H5L-Jz-oNl">
                         <rect key="frame" x="25" y="57" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="QYn-MT-Nbm"/>
@@ -33,17 +33,27 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qaa-u7-Urq">
                         <rect key="frame" x="70" y="15" width="42" height="118.5"/>
-                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpM-sA-KxQ" userLabel="Bottom line">
+                        <rect key="frame" x="25" y="147.5" width="355" height="1"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="gyq-Wb-LmS"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="H5L-Jz-oNl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4fG-hw-SYl"/>
                     <constraint firstItem="H5L-Jz-oNl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="85k-De-Jvg"/>
+                    <constraint firstAttribute="trailing" secondItem="xpM-sA-KxQ" secondAttribute="trailing" constant="25" id="BYP-xf-rMl"/>
                     <constraint firstAttribute="bottom" secondItem="Qaa-u7-Urq" secondAttribute="bottom" constant="15" id="Gob-6h-fY0"/>
+                    <constraint firstItem="xpM-sA-KxQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="JUp-Ed-nRN"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Qaa-u7-Urq" secondAttribute="trailing" constant="25" id="h2s-eH-bpU"/>
                     <constraint firstItem="Qaa-u7-Urq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="iID-o0-1B3"/>
+                    <constraint firstAttribute="bottom" secondItem="xpM-sA-KxQ" secondAttribute="bottom" id="lop-pF-5VQ"/>
                     <constraint firstItem="Qaa-u7-Urq" firstAttribute="leading" secondItem="H5L-Jz-oNl" secondAttribute="trailing" constant="10" id="z9u-Ua-d42"/>
                 </constraints>
             </tableViewCellContentView>
@@ -55,6 +65,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icSearch" width="25" height="25"/>
+        <image name="icHistory" width="20" height="20"/>
     </resources>
 </document>

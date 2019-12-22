@@ -3,9 +3,10 @@ import Foundation
 enum RunMode {
     case jsonsParsing
     case sequenceExample
+    case queueExample
 }
 
-let runMode: RunMode = .sequenceExample
+let runMode: RunMode = .queueExample
 
 if runMode == .jsonsParsing {
     guard let personsapiUrl = Bundle.main.url(forResource: "personsapi", withExtension: "json") else {
@@ -52,8 +53,25 @@ if runMode == .jsonsParsing {
     } catch {
         print(error)
     }
-} else {
+} else if runMode == .sequenceExample {
     let fibonacciSequence = FibonacciSequence(limit: 10)
 
     fibonacciSequence.forEach { print($0) }
+} else if runMode == .queueExample {
+    var queue = Queue<String>(maximumSize: 3)
+
+    queue.push("A")
+    queue.push("B")
+    queue.push("C")
+    queue.push("D")
+
+    print(queue)
+
+    queue.pop()
+
+    print(queue)
+
+    let queue2 = Queue<String>(maximumSize: 3, incomingOrder: ["A", "B", "C", "D", "E"])
+
+    print(queue2)
 }

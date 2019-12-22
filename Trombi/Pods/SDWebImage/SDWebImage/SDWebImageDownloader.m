@@ -275,6 +275,11 @@
     UNLOCK(self.operationsLock);
 }
 
+- (nullable SDWebImageDownloadToken *)downloadImageWithURL:(NSURL *)url
+                                                 completed:(SDWebImageDownloaderCompletedBlock)completedBlock {
+  return [self downloadImageWithURL:url options:0 progress:nil completed:completedBlock];
+}
+
 - (nullable SDWebImageDownloadToken *)downloadImageWithURL:(nullable NSURL *)url
                                                    options:(SDWebImageDownloaderOptions)options
                                                   progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock
@@ -289,8 +294,8 @@
     
     LOCK(self.operationsLock);
     NSOperation<SDWebImageDownloaderOperationInterface> *operation = [self.URLOperations objectForKey:url];
-    // There is a case that the operation may be marked as finished, but not been removed from `self.URLOperations`.
-    if (!operation || operation.isFinished) {
+    // There is a case that the operation may be marked as finished or cancelled, but not been removed from `self.URLOperations`.
+    if (!operation || operation.isFinished || operation.isCancelled) {
         operation = [self createDownloaderOperationWithUrl:url options:options];
         __weak typeof(self) wself = self;
         operation.completionBlock = ^{
@@ -306,6 +311,15 @@
         // Add operation to operation queue only after all configuration done according to Apple's doc.
         // `addOperation:` does not synchronously execute the `operation.completionBlock` so this will not cause deadlock.
         [self.downloadQueue addOperation:operation];
+    }
+    else if (!operation.isExecuting) {
+        if (options & SDWebImageDownloaderHighPriority) {
+            operation.queuePriority = NSOperationQueuePriorityHigh;
+        } else if (options & SDWebImageDownloaderLowPriority) {
+            operation.queuePriority = NSOperationQueuePriorityLow;
+        } else {
+            operation.queuePriority = NSOperationQueuePriorityNormal;
+        }
     }
     UNLOCK(self.operationsLock);
 

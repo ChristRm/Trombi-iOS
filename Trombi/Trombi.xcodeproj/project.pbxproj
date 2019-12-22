@@ -32,6 +32,7 @@
 		9D52BB2F21F2036F00962C4D /* FiltersCollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D52BB1021F2036F00962C4D /* FiltersCollectionViewHeader.xib */; };
 		9D52BB3321F2036F00962C4D /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52BB1421F2036F00962C4D /* FiltersViewController.swift */; };
 		9D52BB3921F2036F00962C4D /* FiltersPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52BB1D21F2036F00962C4D /* FiltersPanelViewController.swift */; };
+		9D5429E023AFE4AA000C3721 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5429DF23AFE4AA000C3721 /* Stack.swift */; };
 		9D55DF5821C9205C009A983F /* EmployeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55DF5621C9205C009A983F /* EmployeeCollectionViewCell.swift */; };
 		9D55DF5921C9205C009A983F /* EmployeeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D55DF5721C9205C009A983F /* EmployeeCollectionViewCell.xib */; };
 		9D59316223119668004448A2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D59316123119668004448A2 /* SearchViewController.swift */; };
@@ -107,6 +108,7 @@
 		9D52BB1021F2036F00962C4D /* FiltersCollectionViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiltersCollectionViewHeader.xib; sourceTree = "<group>"; };
 		9D52BB1421F2036F00962C4D /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		9D52BB1D21F2036F00962C4D /* FiltersPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersPanelViewController.swift; sourceTree = "<group>"; };
+		9D5429DF23AFE4AA000C3721 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		9D55DF5621C9205C009A983F /* EmployeeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D55DF5721C9205C009A983F /* EmployeeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeCollectionViewCell.xib; sourceTree = "<group>"; };
 		9D59316123119668004448A2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -221,8 +223,8 @@
 				9D3D0C3F233FBA2A00CF2590 /* TrombiSearchBar.swift */,
 				9D128259234129C100261AB6 /* EmployeeSearchTableViewCell.swift */,
 				9D128258234129C000261AB6 /* EmployeeSearchTableViewCell.xib */,
-				9DA1BBB123A66DCF0032E6CD /* LastSearchTableViewCell.xib */,
 				9DA1BBB023A66DCF0032E6CD /* LastSearchTableViewCell.swift */,
+				9DA1BBB123A66DCF0032E6CD /* LastSearchTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -270,6 +272,14 @@
 				9DF0A5832214C3E700358A3E /* TagCellViewModel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9D5429DE23AFE49C000C3721 /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				9D5429DF23AFE4AA000C3721 /* Stack.swift */,
+			);
+			path = Structures;
 			sourceTree = "<group>";
 		};
 		9D59316023119635004448A2 /* Search */ = {
@@ -366,6 +376,7 @@
 		9DE90CCA21A9F9C300AF8DF3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9D5429DE23AFE49C000C3721 /* Structures */,
 				9D92F22C2228A179005C605B /* Views */,
 				9DAC757921BC3EF100BA791D /* Extenstions */,
 				9DE90CCB21A9FA6900AF8DF3 /* Network */,
@@ -592,6 +603,7 @@
 				9DE90CCD21A9FB5400AF8DF3 /* TrombiApiRequests.swift in Sources */,
 				9D12825B234129C100261AB6 /* EmployeeSearchTableViewCell.swift in Sources */,
 				9DAC758121BC453500BA791D /* ReusableView.swift in Sources */,
+				9D5429E023AFE4AA000C3721 /* Stack.swift in Sources */,
 				9D69B62022A5B6F1008ED9B5 /* EmployeeSectionModel.swift in Sources */,
 				9D59316223119668004448A2 /* SearchViewController.swift in Sources */,
 				9D3D0C42233FC7E000CF2590 /* TrombiSearchBarController.swift in Sources */,

@@ -23,7 +23,6 @@ final class EmployeeProfileViewController: UIViewController {
     @IBOutlet private weak var nameLabel: UILabel?
     @IBOutlet private weak var posititonLabel: UILabel?
 
-
     // MARK: - Input data
     var team: Team?
     var employee: Employee?
