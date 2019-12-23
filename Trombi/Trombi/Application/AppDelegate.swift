@@ -16,7 +16,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        prepareNavigationBarProxy()
+        prepareUiElementsProxies()
         prepareTabBarProxy()
 
         guard let mainTabBarViewController =
@@ -44,13 +44,20 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) { }
 
     // MARK: - Private
-    private func prepareNavigationBarProxy() {
+    private func prepareUiElementsProxies() {
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barTintColor = UIColor.mainWhiteColor
         UINavigationBar.appearance().backgroundColor = UIColor.clear
         UINavigationBar.appearance().titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.mainBlackColor,
              NSAttributedString.Key.font: UIFont.semiBoldAppFontOf(size: 17)]
+
+        UINavigationBar.appearance().shadowImage = UIImage()
+
+
+        UITabBar.appearance().backgroundColor = UIColor.mainWhiteColor
+
+        UITextField.appearance().tintColor = UIColor.mainBlackColor
 
         if #available(iOS 11.0, *) {
             UINavigationBar.appearance().largeTitleTextAttributes =

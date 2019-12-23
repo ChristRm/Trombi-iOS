@@ -71,11 +71,12 @@
                         <outlet property="filterBarButtonItem" destination="zTn-sC-W5e" id="HY4-Ux-b2P"/>
                         <segue destination="2jr-an-iZc" kind="presentation" identifier="FiltersPanelViewController" id="vLC-va-ej5"/>
                         <segue destination="5Sm-P6-Do1" kind="show" identifier="EmployeeProfileViewController" id="bOb-d6-BYj"/>
+                        <segue destination="wru-cy-RTN" kind="presentation" identifier="SearchViewController" id="WMX-xE-dcq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3i-yE-OMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079" y="32"/>
+            <point key="canvasLocation" x="1126" y="32"/>
         </scene>
         <!--Filters View Controller-->
         <scene sceneID="jkZ-8D-an5">
@@ -191,6 +192,14 @@
             </objects>
             <point key="canvasLocation" x="1973.5999999999999" y="739.43028485757122"/>
         </scene>
+        <!--Search-->
+        <scene sceneID="k6T-Cu-pcd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" id="wru-cy-RTN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gX0-fW-8oF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1780" y="-462"/>
+        </scene>
         <!--Filters Panel View Controller-->
         <scene sceneID="rV5-GE-5yR">
             <objects>
@@ -289,6 +298,7 @@
                                             <constraint firstAttribute="width" constant="40" id="3XL-fl-7kQ"/>
                                             <constraint firstAttribute="height" constant="40" id="fFV-oK-NBU"/>
                                         </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="icBack"/>
                                         <connections>
                                             <action selector="backButtonTouched:" destination="5Sm-P6-Do1" eventType="touchUpInside" id="g9H-8J-j1J"/>
