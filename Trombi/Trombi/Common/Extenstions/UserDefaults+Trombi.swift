@@ -14,7 +14,7 @@ extension UserDefaults {
         static let lastSearches = "lastSearches"
     }
 
-    // MARK: - Temperature Notation
+    // MARK: - Last searches
 
     class var lastSearches: [String] {
         let storedValue = UserDefaults.standard.array(forKey: UserDefaults.Keys.lastSearches)

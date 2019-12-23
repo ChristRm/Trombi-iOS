@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 import RxAtomic
 
-enum SearchTableModel {
+enum SearchTableElementModel {
     case employee(EmployeeSearchCellModel)
     case lastSearch(String)
 }

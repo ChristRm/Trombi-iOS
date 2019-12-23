@@ -18,10 +18,10 @@ struct EmployeeSearchCellModel {
 final class EmployeeSearchTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
-    @IBOutlet weak var avatarImageView: UIImageView?
-    @IBOutlet weak var nameLabel: UILabel?
-    @IBOutlet weak var positionLabel: UILabel?
-    @IBOutlet weak var teamLabel: UILabel?
+    @IBOutlet private weak var avatarImageView: UIImageView?
+    @IBOutlet private weak var nameLabel: UILabel?
+    @IBOutlet private weak var positionLabel: UILabel?
+    @IBOutlet private weak var teamLabel: UILabel?
 
     override func awakeFromNib() {
         super.awakeFromNib()

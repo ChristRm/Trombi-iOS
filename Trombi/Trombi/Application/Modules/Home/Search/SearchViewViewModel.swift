@@ -27,7 +27,7 @@ class SearchViewViewModel {
     // MARK: - Output
 
     var noResultsIsHidden: Driver<Bool> { return _noResultsIsHidden.asDriver() }
-    var searchTable: Driver<[SearchTableModel]> { return _testTable.asDriver() }
+    var searchTable: Driver<[SearchTableElementModel]> { return _testTable.asDriver() }
 
     var forcedSearchText: Driver<String?> { return _forcedSearchText.asDriver() }
 
@@ -37,7 +37,7 @@ class SearchViewViewModel {
 
     private let searchService: SearchService
     private let _testTable =
-        BehaviorRelay<[SearchTableModel]>(value: [])
+        BehaviorRelay<[SearchTableElementModel]>(value: [])
 
     private let _forcedSearchText =
         BehaviorRelay<String?>(value: nil)
@@ -55,12 +55,12 @@ class SearchViewViewModel {
             return strongSelf.searchEmployee(searchFragment: enteredText)
         }).bind(to: _foundEmployees).disposed(by: disposeBag)
 
-        Observable.combineLatest(_foundEmployees, enteredSearch) { (foundEmployees, entered) -> [SearchTableModel] in
+        Observable.combineLatest(_foundEmployees, enteredSearch) { (foundEmployees, entered) -> [SearchTableElementModel] in
             guard !entered.isEmpty else {
-                return UserDefaults.lastSearches.map { return SearchTableModel.lastSearch($0) }
+                return UserDefaults.lastSearches.map { return SearchTableElementModel.lastSearch($0) }
             }
 
-            let foundEmployeesTable = foundEmployees.map({ return SearchTableModel.employee($0) })
+            let foundEmployeesTable = foundEmployees.map({ return SearchTableElementModel.employee($0) })
             return foundEmployeesTable
             }.bind(to: _testTable).disposed(by: disposeBag)
 

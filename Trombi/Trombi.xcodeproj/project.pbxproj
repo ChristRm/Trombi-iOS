@@ -115,11 +115,6 @@
 		9D59316323119699004448A2 /* SearchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewViewModel.swift; sourceTree = "<group>"; };
 		9D5931652311A11D004448A2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		9D69B61F22A5B6F1008ED9B5 /* EmployeeSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSectionModel.swift; sourceTree = "<group>"; };
-		9D7FE154236612C60081AE60 /* GitHubSearchRepositoriesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubSearchRepositoriesAPI.swift; sourceTree = "<group>"; };
-		9D7FE155236612C60081AE60 /* GitHubSearchRepositories.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GitHubSearchRepositories.storyboard; sourceTree = "<group>"; };
-		9D7FE156236612C60081AE60 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
-		9D7FE157236612C60081AE60 /* GitHubSearchRepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubSearchRepositoriesViewController.swift; sourceTree = "<group>"; };
-		9D7FE158236612C60081AE60 /* GitHubSearchRepositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubSearchRepositories.swift; sourceTree = "<group>"; };
 		9D83E3162235774A0042DC0B /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		9D8E92E421F35A6F004B8E9E /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 		9D8E92E821F38197004B8E9E /* FiltersViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewViewModel.swift; sourceTree = "<group>"; };
@@ -285,7 +280,6 @@
 		9D59316023119635004448A2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				9D7FE153236612C60081AE60 /* GitHubSearchRepositories */,
 				9D3D0C3E233FB9C200CF2590 /* Views */,
 				9D59316123119668004448A2 /* SearchViewController.swift */,
 				9D59316323119699004448A2 /* SearchViewViewModel.swift */,
@@ -302,18 +296,6 @@
 				9D69B61F22A5B6F1008ED9B5 /* EmployeeSectionModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		9D7FE153236612C60081AE60 /* GitHubSearchRepositories */ = {
-			isa = PBXGroup;
-			children = (
-				9D7FE154236612C60081AE60 /* GitHubSearchRepositoriesAPI.swift */,
-				9D7FE155236612C60081AE60 /* GitHubSearchRepositories.storyboard */,
-				9D7FE156236612C60081AE60 /* UINavigationController+Extensions.swift */,
-				9D7FE157236612C60081AE60 /* GitHubSearchRepositoriesViewController.swift */,
-				9D7FE158236612C60081AE60 /* GitHubSearchRepositories.swift */,
-			);
-			path = GitHubSearchRepositories;
 			sourceTree = "<group>";
 		};
 		9D92F22C2228A179005C605B /* Views */ = {
