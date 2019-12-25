@@ -30,8 +30,6 @@ final class HomeViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "People"
-
         setupCollectionView()
     }
 
@@ -46,8 +44,8 @@ final class HomeViewController: UIViewController {
         guard let viewModel = viewModel else { return }
 
         if segue.identifier == String(describing: FiltersPanelViewController.self) {
-            if let filetsPanelViewController = segue.destination as? FiltersPanelViewController {
-                filetsPanelViewController.filtersViewViewModel = viewModel.filtersViewViewModel
+            if let filtersPanelViewController = segue.destination as? FiltersPanelViewController {
+                filtersPanelViewController.filtersViewViewModel = viewModel.filtersViewViewModel
             }
         } else if segue.identifier == String(describing: EmployeeProfileViewController.self) {
             if let userProfileViewController = segue.destination as? EmployeeProfileViewController {

@@ -21,10 +21,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--People-->
+        <!--Home View Controller-->
         <scene sceneID="EA6-u0-K0b">
             <objects>
-                <viewController title="People" id="hae-0R-Onj" customClass="HomeViewController" customModule="Trombi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="hae-0R-Onj" userLabel="Home View Controller" customClass="HomeViewController" customModule="Trombi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ce2-6I-KQj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,7 +50,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RtR-gT-WnG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Dg6-Xa-FPW">
+                    <navigationItem key="navigationItem" title="Home" id="Dg6-Xa-FPW">
                         <rightBarButtonItems>
                             <barButtonItem image="icFilter" id="zTn-sC-W5e">
                                 <color key="tintColor" red="0.18431372549019609" green="0.19215686274509802" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -198,7 +198,7 @@
                 <viewControllerPlaceholder storyboardName="Search" id="wru-cy-RTN" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gX0-fW-8oF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="-462"/>
+            <point key="canvasLocation" x="1734" y="-497"/>
         </scene>
         <!--Filters Panel View Controller-->
         <scene sceneID="rV5-GE-5yR">
@@ -538,7 +538,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idG-V6-B2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077.5999999999999" y="881.10944527736137"/>
+            <point key="canvasLocation" x="1126" y="882"/>
         </scene>
     </scenes>
     <resources>

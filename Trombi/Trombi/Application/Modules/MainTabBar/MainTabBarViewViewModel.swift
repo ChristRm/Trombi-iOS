@@ -19,6 +19,7 @@ final class MainTabBarViewViewModel {
     // MARK: - Properties
 
     private(set) var homeViewViewModel: HomeViewViewModel = HomeViewViewModel()
+    private(set) var usefulLinksViewViewModel: UsefulLinksViewViewModel = UsefulLinksViewViewModel()
 
     // MARK: - Public interface
 
@@ -45,6 +46,7 @@ final class MainTabBarViewViewModel {
             switch event {
             case .next(let applicationData):
                 self?.homeViewViewModel.applicationData = applicationData
+                self?.usefulLinksViewViewModel.applicationData = applicationData
             case .completed:
                 print("completed")
             case .error(let error):
