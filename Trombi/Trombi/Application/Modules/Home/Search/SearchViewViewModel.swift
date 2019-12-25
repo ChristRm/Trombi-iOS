@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class SearchViewViewModel {
+final class SearchViewViewModel {
 
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
@@ -27,7 +27,7 @@ class SearchViewViewModel {
     // MARK: - Output
 
     var noResultsIsHidden: Driver<Bool> { return _noResultsIsHidden.asDriver() }
-    var searchTable: Driver<[SearchTableElementModel]> { return _testTable.asDriver() }
+    var searchTable: Driver<[SearchTableElementModel]> { return _searchTable.asDriver() }
 
     var forcedSearchText: Driver<String?> { return _forcedSearchText.asDriver() }
 
@@ -36,7 +36,7 @@ class SearchViewViewModel {
     private let _noResultsIsHidden = BehaviorRelay<Bool>(value: true)
 
     private let searchService: SearchService
-    private let _testTable =
+    private let _searchTable =
         BehaviorRelay<[SearchTableElementModel]>(value: [])
 
     private let _forcedSearchText =
@@ -62,7 +62,7 @@ class SearchViewViewModel {
 
             let foundEmployeesTable = foundEmployees.map({ return SearchTableElementModel.employee($0) })
             return foundEmployeesTable
-            }.bind(to: _testTable).disposed(by: disposeBag)
+            }.bind(to: _searchTable).disposed(by: disposeBag)
 
         Observable.combineLatest(_foundEmployees, enteredSearch) { (found, entered) -> Bool in
             let noResults = !entered.isEmpty && found.isEmpty
@@ -72,7 +72,7 @@ class SearchViewViewModel {
         selectedItem.subscribe { [weak self] event in
             switch event {
             case .next(let row):
-                if let row = row, let tableModel = self?._testTable.value[row] {
+                if let row = row, let tableModel = self?._searchTable.value[row] {
                     switch tableModel {
                     case .employee(let _): // TODO: open profile screen from the search
                         break

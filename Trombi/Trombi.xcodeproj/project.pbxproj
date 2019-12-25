@@ -21,6 +21,8 @@
 		9D2071D823B1481800082181 /* UsefulLinks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2071D723B1481800082181 /* UsefulLinks.storyboard */; };
 		9D2071DC23B1484A00082181 /* UsefulLinksViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2071DB23B1484A00082181 /* UsefulLinksViewViewModel.swift */; };
 		9D2071DE23B1487600082181 /* UsefulLinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2071DD23B1487600082181 /* UsefulLinksViewController.swift */; };
+		9D2071E223B151BF00082181 /* UsefulLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2071E023B151BF00082181 /* UsefulLinkTableViewCell.swift */; };
+		9D2071E323B151BF00082181 /* UsefulLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2071E123B151BF00082181 /* UsefulLinkTableViewCell.xib */; };
 		9D3967B421CEE07A0087CEA7 /* UIColor+Trombi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3967B321CEE07A0087CEA7 /* UIColor+Trombi.swift */; };
 		9D3967B821CEE12E0087CEA7 /* UIColor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3967B721CEE12E0087CEA7 /* UIColor+Convenience.swift */; };
 		9D3D0C40233FBA2A00CF2590 /* TrombiSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D0C3F233FBA2A00CF2590 /* TrombiSearchBar.swift */; };
@@ -97,6 +99,8 @@
 		9D2071D723B1481800082181 /* UsefulLinks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UsefulLinks.storyboard; sourceTree = "<group>"; };
 		9D2071DB23B1484A00082181 /* UsefulLinksViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulLinksViewViewModel.swift; sourceTree = "<group>"; };
 		9D2071DD23B1487600082181 /* UsefulLinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulLinksViewController.swift; sourceTree = "<group>"; };
+		9D2071E023B151BF00082181 /* UsefulLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulLinkTableViewCell.swift; sourceTree = "<group>"; };
+		9D2071E123B151BF00082181 /* UsefulLinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsefulLinkTableViewCell.xib; sourceTree = "<group>"; };
 		9D29BBFD21D2604000EDBCA0 /* Muli-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraBold.ttf"; sourceTree = "<group>"; };
 		9D29BBFE21D2604000EDBCA0 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
 		9D29BBFF21D2604000EDBCA0 /* Muli-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -210,11 +214,21 @@
 		9D2071D623B147D500082181 /* UsefulLinks */ = {
 			isa = PBXGroup;
 			children = (
+				9D2071DF23B1519F00082181 /* Views */,
 				9D2071D723B1481800082181 /* UsefulLinks.storyboard */,
 				9D2071DB23B1484A00082181 /* UsefulLinksViewViewModel.swift */,
 				9D2071DD23B1487600082181 /* UsefulLinksViewController.swift */,
 			);
 			path = UsefulLinks;
+			sourceTree = "<group>";
+		};
+		9D2071DF23B1519F00082181 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9D2071E023B151BF00082181 /* UsefulLinkTableViewCell.swift */,
+				9D2071E123B151BF00082181 /* UsefulLinkTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9D29BBFC21D25EEF00EDBCA0 /* Resources */ = {
@@ -522,6 +536,7 @@
 				9D2071D823B1481800082181 /* UsefulLinks.storyboard in Resources */,
 				4BA3CFBD21A6DA6F003358E6 /* LaunchScreen.storyboard in Resources */,
 				9D15A8DE22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib in Resources */,
+				9D2071E323B151BF00082181 /* UsefulLinkTableViewCell.xib in Resources */,
 				9D5931662311A11D004448A2 /* Search.storyboard in Resources */,
 				4BA3CFBA21A6DA6F003358E6 /* Assets.xcassets in Resources */,
 				9D12825A234129C100261AB6 /* EmployeeSearchTableViewCell.xib in Resources */,
@@ -609,6 +624,7 @@
 				9D3D0C42233FC7E000CF2590 /* TrombiSearchBarController.swift in Sources */,
 				9D8E92E521F35A6F004B8E9E /* UIView+RoundCorners.swift in Sources */,
 				9D2071DC23B1484A00082181 /* UsefulLinksViewViewModel.swift in Sources */,
+				9D2071E223B151BF00082181 /* UsefulLinkTableViewCell.swift in Sources */,
 				9D52BAF721F1FF5700962C4D /* LayoutInfo.swift in Sources */,
 				9D52BB3321F2036F00962C4D /* FiltersViewController.swift in Sources */,
 				9D3967B421CEE07A0087CEA7 /* UIColor+Trombi.swift in Sources */,

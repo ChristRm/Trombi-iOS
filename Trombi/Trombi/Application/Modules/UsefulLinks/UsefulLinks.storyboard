@@ -10,20 +10,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Useful Links View Controller-->
+        <!--Useful links-->
         <scene sceneID="0eN-DM-jnN">
             <objects>
-                <viewController id="1O3-Op-dGJ" customClass="UsefulLinksViewController" customModule="Trombi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Useful links" id="1O3-Op-dGJ" customClass="UsefulLinksViewController" customModule="Trombi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4FO-I5-GcE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KYs-mG-7yv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KYs-mG-7yv">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="KYs-mG-7yv" firstAttribute="leading" secondItem="iWM-8g-CJa" secondAttribute="leading" id="C5X-ih-8wg"/>
                             <constraint firstItem="iWM-8g-CJa" firstAttribute="trailing" secondItem="KYs-mG-7yv" secondAttribute="trailing" id="FDD-Vi-zBe"/>
@@ -32,7 +32,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iWM-8g-CJa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rxU-uA-QXt"/>
+                    <navigationItem key="navigationItem" title="Useful links" id="rxU-uA-QXt"/>
                     <connections>
                         <outlet property="tableView" destination="KYs-mG-7yv" id="jXb-0H-u16"/>
                     </connections>

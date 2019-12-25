@@ -34,6 +34,9 @@ final class MainTabBarViewController: UITabBarController {
             if let navigationController = tabViewController as? UINavigationController {
                 if let homeViewController = navigationController.viewControllers.first as? HomeViewController {
                     homeViewController.viewModel = viewModel?.homeViewViewModel
+                } else if let usefulLinksViewController =
+                    navigationController.viewControllers.first as? UsefulLinksViewController {
+                    usefulLinksViewController.viewModel = viewModel?.usefulLinksViewViewModel
                 }
             }
         })

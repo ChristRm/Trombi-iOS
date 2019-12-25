@@ -16,7 +16,7 @@ enum SearchTableElementModel {
     case lastSearch(String)
 }
 
-class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
 
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
@@ -29,6 +29,7 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noResultsView: UIView!
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -51,13 +51,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.mainBlackColor,
              NSAttributedString.Key.font: UIFont.semiBoldAppFontOf(size: 17)]
-
         UINavigationBar.appearance().shadowImage = UIImage()
-
-
-        UITabBar.appearance().backgroundColor = UIColor.mainWhiteColor
-
-        UITextField.appearance().tintColor = UIColor.mainBlackColor
 
         if #available(iOS 11.0, *) {
             UINavigationBar.appearance().largeTitleTextAttributes =
@@ -66,6 +60,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             // Fallback on earlier versions
         }
+
+        UITabBar.appearance().backgroundColor = UIColor.mainWhiteColor
+
+        UITextField.appearance().tintColor = UIColor.mainBlackColor
     }
 
     private func prepareTabBarProxy() {

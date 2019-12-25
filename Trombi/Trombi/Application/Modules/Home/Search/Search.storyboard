@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-SemiBold.ttf">
+            <string>Muli-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="mkh-a6-rUK">
@@ -44,10 +49,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6l-3D-sv6">
-                                        <rect key="frame" x="149" y="291.5" width="77" height="20"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <rect key="frame" x="147.5" y="291" width="80" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="17"/>
                                         <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                        <color key="highlightedColor" red="0.27058823529411763" green="0.27843137254901962" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                 </subviews>
                                 <constraints>
