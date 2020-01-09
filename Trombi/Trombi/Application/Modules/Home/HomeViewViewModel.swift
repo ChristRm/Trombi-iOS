@@ -10,7 +10,6 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-
 // MARK: - Constants
 extension HomeViewViewModel {
     fileprivate enum Defaults {

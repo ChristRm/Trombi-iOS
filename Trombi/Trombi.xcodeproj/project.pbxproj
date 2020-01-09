@@ -16,6 +16,7 @@
 		9D12825A234129C100261AB6 /* EmployeeSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D128258234129C000261AB6 /* EmployeeSearchTableViewCell.xib */; };
 		9D12825B234129C100261AB6 /* EmployeeSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D128259234129C100261AB6 /* EmployeeSearchTableViewCell.swift */; };
 		9D15A8DE22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D15A8DD22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib */; };
+		9D187E8F23B409C20080033E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D187E8E23B409C20080033E /* SplashViewController.swift */; };
 		9D1C06B12308642600D20470 /* JSONDecoder+TrombiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1C06B02308642600D20470 /* JSONDecoder+TrombiAPI.swift */; };
 		9D1D067621C9950A00B2A56A /* EmployeeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D067521C9950A00B2A56A /* EmployeeSearchViewController.swift */; };
 		9D2071D823B1481800082181 /* UsefulLinks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2071D723B1481800082181 /* UsefulLinks.storyboard */; };
@@ -66,6 +67,7 @@
 		9DAFB58D21B332CC0038C680 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAFB58A21B332CC0038C680 /* Employee.swift */; };
 		9DAFB58E21B332CC0038C680 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAFB58B21B332CC0038C680 /* Team.swift */; };
 		9DBA8CA521D2640A009FF7B5 /* UIFont+Trombi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA8CA421D2640A009FF7B5 /* UIFont+Trombi.swift */; };
+		9DBDAC6523C67B74006FE076 /* Teams.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DBDAC6423C67B74006FE076 /* Teams.storyboard */; };
 		9DC2835522103EEF0024263A /* EmployeeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC2835422103EEF0024263A /* EmployeeProfileViewController.swift */; };
 		9DC28358221041B80024263A /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC28356221041B80024263A /* UserInfoTableViewCell.swift */; };
 		9DC28359221041B80024263A /* UserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DC28357221041B80024263A /* UserInfoTableViewCell.xib */; };
@@ -94,6 +96,7 @@
 		9D128258234129C000261AB6 /* EmployeeSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeSearchTableViewCell.xib; sourceTree = "<group>"; };
 		9D128259234129C100261AB6 /* EmployeeSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeSearchTableViewCell.swift; sourceTree = "<group>"; };
 		9D15A8DD22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeesCollectionViewHeader.xib; sourceTree = "<group>"; };
+		9D187E8E23B409C20080033E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		9D1C06B02308642600D20470 /* JSONDecoder+TrombiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+TrombiAPI.swift"; sourceTree = "<group>"; };
 		9D1D067521C9950A00B2A56A /* EmployeeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSearchViewController.swift; sourceTree = "<group>"; };
 		9D2071D723B1481800082181 /* UsefulLinks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UsefulLinks.storyboard; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 		9DAFB58A21B332CC0038C680 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		9DAFB58B21B332CC0038C680 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		9DBA8CA421D2640A009FF7B5 /* UIFont+Trombi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Trombi.swift"; sourceTree = "<group>"; };
+		9DBDAC6423C67B74006FE076 /* Teams.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teams.storyboard; sourceTree = "<group>"; };
 		9DC2835422103EEF0024263A /* EmployeeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileViewController.swift; sourceTree = "<group>"; };
 		9DC28356221041B80024263A /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		9DC28357221041B80024263A /* UserInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoTableViewCell.xib; sourceTree = "<group>"; };
@@ -209,6 +213,14 @@
 				E4FBF017B55BED3E63668F77 /* Pods-Trombi.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9D187E8D23B409A20080033E /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				9D187E8E23B409C20080033E /* SplashViewController.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		9D2071D623B147D500082181 /* UsefulLinks */ = {
@@ -375,6 +387,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9DBDAC6323C67B47006FE076 /* Teams */ = {
+			isa = PBXGroup;
+			children = (
+				9DBDAC6423C67B74006FE076 /* Teams.storyboard */,
+			);
+			path = Teams;
+			sourceTree = "<group>";
+		};
 		9DC2835322103EB80024263A /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +453,7 @@
 		9DF9590421B2F459005F024E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9DBDAC6323C67B47006FE076 /* Teams */,
 				9D2071D623B147D500082181 /* UsefulLinks */,
 				9DC2835322103EB80024263A /* UserProfile */,
 				9DAC757421BC3BE700BA791D /* MainTabBar */,
@@ -444,6 +465,7 @@
 		9DF9590521B2F459005F024E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9D187E8D23B409A20080033E /* Splash */,
 				9D59316023119635004448A2 /* Search */,
 				9D52BAFE21F2034100962C4D /* Filters */,
 				9DAC758421BC463C00BA791D /* Views */,
@@ -549,6 +571,7 @@
 				9DEEF2ED21D2693B00509063 /* Muli-Bold.ttf in Resources */,
 				4BA3CFB821A6DA6E003358E6 /* Main.storyboard in Resources */,
 				9DEEF2EE21D2693E00509063 /* Muli-ExtraBold.ttf in Resources */,
+				9DBDAC6523C67B74006FE076 /* Teams.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +628,7 @@
 				9DAFB58E21B332CC0038C680 /* Team.swift in Sources */,
 				9DFB774722292A9A00160540 /* CircleImageView.swift in Sources */,
 				9DC2835522103EEF0024263A /* EmployeeProfileViewController.swift in Sources */,
+				9D187E8F23B409C20080033E /* SplashViewController.swift in Sources */,
 				9D5278C623A652E300C9C8DC /* UserDefaults+Trombi.swift in Sources */,
 				9D55DF5821C9205C009A983F /* EmployeeCollectionViewCell.swift in Sources */,
 				9D1D067621C9950A00B2A56A /* EmployeeSearchViewController.swift in Sources */,

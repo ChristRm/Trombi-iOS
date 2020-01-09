@@ -1,0 +1,100 @@
+//
+//  SplashViewController.swift
+//  Trombi
+//
+//  Created by Chris Rusin on 12/25/19.
+//  Copyright © 2019 Christian Rusin . All rights reserved.
+//
+
+import UIKit
+import RxSwift
+import RxCocoa
+
+final class SplashViewController: UIViewController {
+
+    // MARK: - RxSwift
+
+    private let disposeBag = DisposeBag()
+
+    var applicationData: Driver<ApplicationData?> {
+        return _applicationData.asDriver()
+    }
+
+    private let _applicationData = BehaviorRelay<ApplicationData?>(value: nil)
+
+    private func getApplicationData() {
+        let getEmployees = TrombiAPI.sharedAPI.getEmployees()
+        let getTeams = TrombiAPI.sharedAPI.getTeams()
+        let getUsefulLinks = TrombiAPI.sharedAPI.getUsefulLinks()
+
+        let observable: Observable<ApplicationData> = Observable.zip(
+            getEmployees,
+            getTeams,
+            getUsefulLinks,
+            resultSelector: { (employees: [Employee], teams: [Team], usefulLinks: [UsefulLink]) in
+                let applicationData = ApplicationData(
+                    employees: employees,
+                    teams: teams,
+                    usefuleLinks: usefulLinks
+                )
+
+                return applicationData
+        })
+
+        activityIndicatorView.isHidden = false
+
+        observable.subscribe({ [weak self] event in
+            self?.activityIndicatorView.isHidden = true
+            switch event {
+            case .next(let applicationData):
+                self?._applicationData.accept(applicationData)
+                break
+            case .error(let error):
+                self?.showErrorAlert(description: error.localizedDescription)
+                break
+            default: break
+            }
+        }).disposed(by: disposeBag)
+    }
+
+    @IBOutlet private weak var backgroundGradientView: UIView!
+    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [#colorLiteral(red: 0.9803921569, green: 0.6705882353, blue: 0.0862745098, alpha: 1).cgColor, #colorLiteral(red: 1, green: 0.4274509804, blue: 0.1137254902, alpha: 1).cgColor]
+
+        gradientLayer.shouldRasterize = true
+
+        backgroundGradientView.layer.addSublayer(gradientLayer)
+        activityIndicatorView.startAnimating()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getApplicationData()
+    }
+
+    override var shouldAutorotate: Bool {
+        return false
+    }
+
+    private func showErrorAlert(description: String) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController(
+                title: "Error",
+                message: description,
+                preferredStyle: .alert
+            )
+
+            alert.addAction(UIAlertAction(title: "RETRY", style: .default, handler: { [weak self] _ in
+                self?.getApplicationData()
+            }))
+
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
+}

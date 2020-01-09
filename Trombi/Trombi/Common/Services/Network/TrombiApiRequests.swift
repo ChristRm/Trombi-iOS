@@ -26,7 +26,7 @@ enum HTTPMethod: String {
 enum TrombiApiRequests {
 
     static var baseUrl: String {
-        return "https://trombi.mogmi.fr"
+        return "https://trombi.corp.netatmo.com"// "https://trombi.mogmi.fr"
     }
 
     fileprivate static var defaultRequestTimeout: TimeInterval = TimeInterval(5.0)// 5 seconds

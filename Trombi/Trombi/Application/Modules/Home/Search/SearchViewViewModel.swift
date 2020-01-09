@@ -17,7 +17,6 @@ final class SearchViewViewModel {
     private let disposeBag = DisposeBag()
 
     // MARK: - Properties
-
     let applicationData: ApplicationData
 
     // MARK: - Input
@@ -25,7 +24,6 @@ final class SearchViewViewModel {
     private(set) var selectedItem: BehaviorRelay<Int?> = BehaviorRelay<Int?>(value: nil)
 
     // MARK: - Output
-
     var noResultsIsHidden: Driver<Bool> { return _noResultsIsHidden.asDriver() }
     var searchTable: Driver<[SearchTableElementModel]> { return _searchTable.asDriver() }
 
