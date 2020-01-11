@@ -10,7 +10,7 @@ import UIKit
 
 struct EmployeesSection {
     let title: String
-    let rightSideImageUrl: String?
+    let rightSideImage: UIImage?
 
     var cells: [EmployeeCellModel]
 }

@@ -33,7 +33,7 @@ class TrombiSearchBar: UISearchBar {
         showsBookmarkButton = false
         showsCancelButton = false
 
-        setImage(UIImage(), for: .search, state: .normal)// TODO: this image is wrong
+        setImage(UIImage(), for: .search, state: .normal)
         setPositionAdjustment(UIOffset(horizontal: 5.0, vertical: 0.0), for: .search)
         searchTextPositionAdjustment = UIOffset(horizontal: 5.0, vertical: 0.0)
 
@@ -55,17 +55,9 @@ class TrombiSearchBar: UISearchBar {
         super.init(coder: aDecoder)
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setShowsCancelButton(false, animated: false)
-    }
-
     override func draw(_ rect: CGRect) {
-
-        guard let index = indexOfSearchFieldInSubviews() else { return }
         // Access the search field
-        guard let majorSearchField: UITextField =
-            searchFieldContainer.subviews[index] as? UITextField else { return }
+        guard let majorSearchField: UITextField = findFirstTextField() else { return }
 
         majorSearchField.subviews.forEach { subview in
 
@@ -114,19 +106,6 @@ class TrombiSearchBar: UISearchBar {
         shapeLayer.lineWidth = 1.0
 
         layer.addSublayer(shapeLayer)
-    }
-
-    private func indexOfSearchFieldInSubviews() -> Int! {
-        var index: Int!
-
-        for i in 0...searchFieldContainer.subviews.count {
-            if let _ = searchFieldContainer.subviews[i] as? UITextField {
-                index = i
-                break
-            }
-        }
-
-        return index
     }
 
     @objc private func imageTapped() {

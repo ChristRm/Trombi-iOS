@@ -24,7 +24,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="311" height="207"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are here babe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhJ-Ye-GvO">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are here babe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GhJ-Ye-GvO">
                         <rect key="frame" x="88" y="93.5" width="135.5" height="20.5"/>
                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="16"/>
                         <color key="textColor" red="0.1843137255" green="0.19215686269999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>

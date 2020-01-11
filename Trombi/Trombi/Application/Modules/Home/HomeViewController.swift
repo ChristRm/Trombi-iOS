@@ -77,15 +77,24 @@ final class HomeViewController: UIViewController {
         viewModel.employeesSections.drive(onNext: { [weak self] _ in
             self?.collectionView?.reloadData()
         }).disposed(by: disposeBag)
+
+        viewModel.filtersViewViewModel.filtered.drive(onNext: { [weak self] filtered in
+            self?.filterBarButtonItem?.image = filtered ? UIImage(named: "icFiltered") : UIImage(named: "icFilter")
+        }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
     }
 
     // MARK: - Private methods
 
     private func setupCollectionView() {
         collectionView?.registerReusableCell(type: EmployeeCollectionViewCell.self)
-        collectionView?.register(UINib(nibName: "EmployeesCollectionViewHeader", bundle: nil),
-                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                 withReuseIdentifier: "EmployeesCollectionViewHeader")
+        collectionView?.register(
+            UINib(
+                nibName: "EmployeesCollectionViewHeader",
+                bundle: nil
+            ),
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: "EmployeesCollectionViewHeader"
+        )
         collectionView?.delegate = self
         collectionView?.dataSource = self
     }
@@ -188,18 +197,24 @@ extension HomeViewController: UICollectionViewDataSource {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let reusableHeader =
-                collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                withReuseIdentifier: "EmployeesCollectionViewHeader",
-                                                                for: indexPath)
+                collectionView.dequeueReusableSupplementaryView(
+                    ofKind: UICollectionView.elementKindSectionHeader,
+                    withReuseIdentifier: "EmployeesCollectionViewHeader",
+                    for: indexPath
+            )
 
             guard let descriptionLabel = reusableHeader.viewWithTag(1) as? UILabel else {
-                fatalError("could not find description label")
+                fatalError("could not find the description label")
+            }
+
+            guard let rightSideImageView = reusableHeader.viewWithTag(2) as? UIImageView else {
+                fatalError("could not find the image")
             }
 
             descriptionLabel.text = viewModel.employeeSectionAtIndex(indexPath.section).title
+            rightSideImageView.image = viewModel.employeeSectionAtIndex(indexPath.section).rightSideImage
 
             return reusableHeader
-
         default: fatalError("Unexpected element kind")
         }
     }

@@ -12,6 +12,9 @@ import EventKit
 final class EmployeeProfileViewController: UIViewController {
 
     // MARK: - Properties
+    var presentAsModal: Bool = false
+    var onDismiss: (() -> Void)?
+
     private var userImageViewShadowLayer: CALayer?
 
     // MARK: - IBOutlet
@@ -48,7 +51,11 @@ final class EmployeeProfileViewController: UIViewController {
 
     // MARK: - IBAction
     @IBAction func backButtonTouched(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        if presentAsModal {
+            dismiss(animated: true, completion: onDismiss)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
 
     // MARK: - Private
@@ -345,5 +352,23 @@ extension Employee {
 
             return dateFormatter.string(from: arrival)
         }
+    }
+}
+
+extension EmployeeProfileViewController {
+    static func modal(employee: Employee, team: Team, onDismiss: (() -> Void)?) -> EmployeeProfileViewController {
+        let storyboard = UIStoryboard.init(name: "UserProfile", bundle: nil)
+        guard let viewController =
+            storyboard.instantiateViewController(
+                withIdentifier: "EmployeeProfileViewController") as? EmployeeProfileViewController else {
+                    fatalError("Cannot instantiate EmployeeProfileViewController")
+        }
+
+        viewController.employee = employee
+        viewController.team = team
+        viewController.presentAsModal = true
+        viewController.onDismiss = onDismiss
+
+        return viewController
     }
 }

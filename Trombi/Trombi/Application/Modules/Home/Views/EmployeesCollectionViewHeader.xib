@@ -27,12 +27,23 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agf-mV-HEL">
                     <rect key="frame" x="350" y="0.0" width="25" height="50"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BY PEOPLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClL-gp-Anm">
-                    <rect key="frame" x="25" y="17.5" width="325" height="15.5"/>
-                    <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="13"/>
-                    <color key="textColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcQ-8Y-mPe">
+                    <rect key="frame" x="25" y="0.0" width="325" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BY PEOPLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClL-gp-Anm">
+                            <rect key="frame" x="0.0" y="0.0" width="202" height="50"/>
+                            <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="13"/>
+                            <color key="textColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jnb-ln-gJU">
+                            <rect key="frame" x="202" y="0.0" width="123" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="jnb-ln-gJU" secondAttribute="height" multiplier="64:26" id="3am-RX-NbF"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWd-ho-CUh" userLabel="Bottom line">
                     <rect key="frame" x="25" y="49" width="325" height="1"/>
                     <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,21 +56,20 @@
                 <constraint firstItem="CeZ-Db-FJx" firstAttribute="bottom" secondItem="gZW-7A-XK1" secondAttribute="bottom" id="4uA-Of-D69"/>
                 <constraint firstItem="gZW-7A-XK1" firstAttribute="width" secondItem="BpN-ab-1u5" secondAttribute="width" multiplier="25/375" id="C2Q-e6-pcc"/>
                 <constraint firstItem="gZW-7A-XK1" firstAttribute="top" secondItem="CeZ-Db-FJx" secondAttribute="top" id="DJq-pq-OF1"/>
+                <constraint firstItem="bcQ-8Y-mPe" firstAttribute="centerY" secondItem="CeZ-Db-FJx" secondAttribute="centerY" id="Gvm-Ne-WGf"/>
                 <constraint firstItem="agf-mV-HEL" firstAttribute="leading" secondItem="eWd-ho-CUh" secondAttribute="trailing" id="Gxj-0g-NZf"/>
                 <constraint firstItem="eWd-ho-CUh" firstAttribute="bottom" secondItem="CeZ-Db-FJx" secondAttribute="bottom" id="INe-H1-aaB"/>
-                <constraint firstItem="ClL-gp-Anm" firstAttribute="leading" secondItem="gZW-7A-XK1" secondAttribute="trailing" id="MKn-4d-3Mt"/>
                 <constraint firstItem="agf-mV-HEL" firstAttribute="top" secondItem="CeZ-Db-FJx" secondAttribute="top" id="MmI-Yx-csq"/>
                 <constraint firstItem="eWd-ho-CUh" firstAttribute="leading" secondItem="gZW-7A-XK1" secondAttribute="trailing" id="N8I-3F-aU5"/>
+                <constraint firstItem="agf-mV-HEL" firstAttribute="leading" secondItem="bcQ-8Y-mPe" secondAttribute="trailing" id="QwK-8z-Fru"/>
                 <constraint firstItem="agf-mV-HEL" firstAttribute="width" secondItem="BpN-ab-1u5" secondAttribute="width" multiplier="25/375" id="UPN-i1-TNy"/>
-                <constraint firstItem="ClL-gp-Anm" firstAttribute="width" relation="lessThanOrEqual" secondItem="BpN-ab-1u5" secondAttribute="width" multiplier="0.9" id="WoT-6I-aJC"/>
-                <constraint firstItem="ClL-gp-Anm" firstAttribute="centerY" secondItem="CeZ-Db-FJx" secondAttribute="centerY" id="aWC-Mj-PbQ"/>
-                <constraint firstItem="agf-mV-HEL" firstAttribute="leading" secondItem="ClL-gp-Anm" secondAttribute="trailing" id="cDr-PL-wXC"/>
                 <constraint firstItem="CeZ-Db-FJx" firstAttribute="bottom" secondItem="agf-mV-HEL" secondAttribute="bottom" id="hEp-d7-206"/>
                 <constraint firstItem="agf-mV-HEL" firstAttribute="trailing" secondItem="CeZ-Db-FJx" secondAttribute="trailing" id="l99-gq-ZhH"/>
                 <constraint firstItem="gZW-7A-XK1" firstAttribute="leading" secondItem="CeZ-Db-FJx" secondAttribute="leading" id="lH1-A7-O6e"/>
+                <constraint firstItem="bcQ-8Y-mPe" firstAttribute="leading" secondItem="gZW-7A-XK1" secondAttribute="trailing" id="xrP-68-h22"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="CeZ-Db-FJx"/>
-            <point key="canvasLocation" x="351.5" y="54"/>
+            <point key="canvasLocation" x="351.19999999999999" y="53.973013493253376"/>
         </collectionReusableView>
     </objects>
 </document>

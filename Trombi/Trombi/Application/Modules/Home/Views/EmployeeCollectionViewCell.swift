@@ -12,9 +12,9 @@ import SDWebImage
 struct EmployeeCellModel {
 
     let employee: Employee
-    let team: Team
+    let team: Team?
 
-    init(employee: Employee, team: Team) {
+    init(employee: Employee, team: Team?) {
         self.employee = employee
         self.team = team
     }
@@ -28,7 +28,7 @@ struct EmployeeCellModel {
     }
 
     var teamNameText: String {
-        return team.name
+        return team?.name ?? "No team"
     }
 
     var positionText: String {
