@@ -9,16 +9,7 @@
 import UIKit
 import RxSwift
 
-// MARK: - Constants
-extension FiltersViewController {
-    enum Defaults {
-//        static let
-    }
-}
-
 final class FiltersViewController: UIViewController, BottomPanel {
-
-    // MARK: - ViewModel definition
 
     // MARK: - IBOutlet
 
@@ -27,6 +18,9 @@ final class FiltersViewController: UIViewController, BottomPanel {
     @IBOutlet private weak var headerCollectionViewHeightConstraint: NSLayoutConstraint?
     @IBOutlet private weak var filtersCollectionViewHeightConstraint: NSLayoutConstraint?
     @IBOutlet private weak var bottomViewHeightConstraint: NSLayoutConstraint?
+
+    @IBOutlet weak var resetButton: UIButton?
+    @IBOutlet weak var applyButton: UIButton?
 
     // MARK: - DasboardBottomBar
     var panelIdentifier: String?
@@ -39,7 +33,7 @@ final class FiltersViewController: UIViewController, BottomPanel {
 
         let screenHeight = UIScreen.main.bounds.height
         let headerCollectionViewHeight = headerCollectionViewHeightConstraint.constant
-        let collectionViewHeight = screenHeight * 320.0/812.0 - headerCollectionViewHeight
+        let collectionViewHeight = screenHeight * 420.0/812.0 - headerCollectionViewHeight
         let bottomViewHeight: CGFloat = 70.0
 
         filtersCollectionViewHeightConstraint?.constant = collectionViewHeight
@@ -51,13 +45,7 @@ final class FiltersViewController: UIViewController, BottomPanel {
     weak var bottomPanelDelegate: BottomPanelDelegate?
     
     // MARK: - ViewModel
-    var viewModel: FiltersViewViewModel? {
-        didSet {
-            if let viewModel = viewModel {
-                bindViewModel(viewModel)
-            }
-        }
-    }
+    var viewModel: FiltersViewViewModel?
 
     // MARK: - RxSwift
 
@@ -68,6 +56,9 @@ final class FiltersViewController: UIViewController, BottomPanel {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureFiltersCollectionView()
+        if let viewModel = viewModel {
+            bindViewModel(viewModel)
+        }
     }
 
     // MARK: - IBAction
@@ -77,7 +68,7 @@ final class FiltersViewController: UIViewController, BottomPanel {
     }
 
     @IBAction func resetButtonTouched(_ sender: Any) {
-        viewModel?.resetFilters()
+
     }
 
     // MARK: - binding ViewModel
@@ -85,6 +76,13 @@ final class FiltersViewController: UIViewController, BottomPanel {
         viewModel.sectionsTags.drive(onNext: { [weak self] (_) in
             self?.filtersCollectionView?.reloadData()
         }).disposed(by: disposeBag)
+
+        guard let resetButton = resetButton else { print("Reset button is not set up") ; return }
+        viewModel.filtered.drive(resetButton.rx.isSelected).disposed(by: disposeBag)
+
+        resetButton.rx.controlEvent(.touchUpInside).bind { [weak self] in
+            self?.viewModel?.resetFilters()
+        }.disposed(by: disposeBag)
     }
 
     // MARK: - Private methods

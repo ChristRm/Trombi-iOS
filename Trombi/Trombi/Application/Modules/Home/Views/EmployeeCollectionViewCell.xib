@@ -55,7 +55,7 @@
                                 <color key="textColor" red="0.27058823529411763" green="0.27843137254901962" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DET-Sa-73b">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DET-Sa-73b">
                                 <rect key="frame" x="0.0" y="63" width="38.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="15"/>
                                 <color key="textColor" red="1" green="0.42745098039215684" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
@@ -69,7 +69,7 @@
                             <constraint firstItem="VE3-SO-UZM" firstAttribute="centerY" secondItem="qwq-6x-1lH" secondAttribute="centerY" multiplier="0.55" id="rnC-rw-DAZ"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-bZ-tNB">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-bZ-tNB">
                         <rect key="frame" x="10" y="306.5" width="38.5" height="19"/>
                         <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="15"/>
                         <color key="textColor" red="1" green="1" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,6 +81,7 @@
                 <constraint firstItem="DET-Sa-73b" firstAttribute="leading" secondItem="Vak-t2-aai" secondAttribute="leading" id="0lt-UL-b13"/>
                 <constraint firstItem="3gg-PM-Oud" firstAttribute="leading" secondItem="Vak-t2-aai" secondAttribute="leading" id="9Ge-Ji-urg"/>
                 <constraint firstItem="3gg-PM-Oud" firstAttribute="bottom" secondItem="Vak-t2-aai" secondAttribute="bottom" id="BOT-l9-CGn"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cLT-bZ-tNB" secondAttribute="trailing" constant="10" id="DEW-dv-Yr7"/>
                 <constraint firstItem="qwq-6x-1lH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Nph-1e-V4w"/>
                 <constraint firstItem="Vak-t2-aai" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Nq6-cI-7wq"/>
                 <constraint firstItem="cLT-bZ-tNB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="QYc-Wy-BPe"/>

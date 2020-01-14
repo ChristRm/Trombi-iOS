@@ -30,7 +30,11 @@ class UsefulLinkTableViewCell: UITableViewCell {
     }
 
     func setModel(_ model: UsefulLinkCellModel) {
-        linkImageView?.sd_setImage(with: URL(string: model.imageUrl), completed: nil)
+        if model.imageUrl.isEmpty {
+            linkImageView?.image = UIImage(named: "defaultLink")
+        } else {
+            linkImageView?.sd_setImage(with: URL(string: model.imageUrl), completed: nil)
+        }
 
         titleLabel?.text = model.title
         descriptionLabel?.text = model.description

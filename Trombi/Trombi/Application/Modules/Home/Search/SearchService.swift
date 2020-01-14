@@ -18,6 +18,8 @@ class SearchService {
     }
 
     func search(fragmentString: String) -> [Employee] {
-            return employees.filter({ $0.fullName.contains(fragmentString) })
+        return employees.filter({
+            !($0.fullName.range(of: fragmentString, options: .caseInsensitive)?.isEmpty ?? true)
+        })
     }
 }

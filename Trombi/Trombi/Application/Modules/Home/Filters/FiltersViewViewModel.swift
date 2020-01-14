@@ -12,6 +12,10 @@ import RxSwift
 
 final class FiltersViewViewModel {
 
+    // MARK: - RxSwift
+
+    private let disposeBag = DisposeBag()
+
     fileprivate enum FilterCategory: Int {
         case people = 0
         case department = 1
@@ -21,6 +25,19 @@ final class FiltersViewViewModel {
 
     var newcomersFilterSelected: Driver<Bool> { return _newcomersFilterSelected.asDriver() }
     var filteredTeams: Driver<Set<Team> > { return _filteredTeams.asDriver() }
+
+
+
+    var filtered: Driver<Bool> {
+        return Observable.combineLatest(
+            filteredTeams.asObservable(),
+            newcomersFilterSelected.asObservable()
+        ) { (filtered, selected) -> Bool in
+            return !filtered.isEmpty || selected
+            }.asDriver(onErrorJustReturn: false)
+    }
+
+    var sectionsTags: Driver<[Int: [TagCellViewModel]]> { return _sectionsTags.asDriver() }
 
     var numberOfSections: Int {
         return _sectionsTags.value.keys.count
@@ -34,19 +51,25 @@ final class FiltersViewViewModel {
         return _sectionsTags.value[section]!.count
     }
 
-    private var _newcomersFilterSelected: BehaviorRelay<Bool>
-    private var _filteredTeams: BehaviorRelay<Set<Team> >
-
-    var sectionsTags: Driver<[Int: [TagCellViewModel]]> { return _sectionsTags.asDriver() }
+    private var _newcomersFilterSelected: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
+    private var _filteredTeams: BehaviorRelay<Set<Team> > = BehaviorRelay<Set<Team> >(value: Set<Team>())
+    private var _filtered: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
 
     private let _sectionsTags = BehaviorRelay<[Int: [TagCellViewModel]]>(value: [:])
 
-    let teams: [Team]
+    var teams: [Team] {
+        didSet {
+            setupTags()
+        }
+    }
 
-    init(teams: [Team], filteredByNewcomers: Bool, filteredTeams: Set<Team>) {
+    init(teams: [Team]) {
         self.teams = teams
-        _newcomersFilterSelected = BehaviorRelay(value: filteredByNewcomers)
-        _filteredTeams = BehaviorRelay(value: filteredTeams)
+        setupTags()
+    }
+
+    init() {
+        self.teams = []
         setupTags()
     }
 

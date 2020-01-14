@@ -18,7 +18,6 @@
 		9D15A8DE22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D15A8DD22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib */; };
 		9D187E8F23B409C20080033E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D187E8E23B409C20080033E /* SplashViewController.swift */; };
 		9D1C06B12308642600D20470 /* JSONDecoder+TrombiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1C06B02308642600D20470 /* JSONDecoder+TrombiAPI.swift */; };
-		9D1D067621C9950A00B2A56A /* EmployeeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D067521C9950A00B2A56A /* EmployeeSearchViewController.swift */; };
 		9D2071D823B1481800082181 /* UsefulLinks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2071D723B1481800082181 /* UsefulLinks.storyboard */; };
 		9D2071DC23B1484A00082181 /* UsefulLinksViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2071DB23B1484A00082181 /* UsefulLinksViewViewModel.swift */; };
 		9D2071DE23B1487600082181 /* UsefulLinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2071DD23B1487600082181 /* UsefulLinksViewController.swift */; };
@@ -27,7 +26,8 @@
 		9D3967B421CEE07A0087CEA7 /* UIColor+Trombi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3967B321CEE07A0087CEA7 /* UIColor+Trombi.swift */; };
 		9D3967B821CEE12E0087CEA7 /* UIColor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3967B721CEE12E0087CEA7 /* UIColor+Convenience.swift */; };
 		9D3D0C40233FBA2A00CF2590 /* TrombiSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D0C3F233FBA2A00CF2590 /* TrombiSearchBar.swift */; };
-		9D3D0C42233FC7E000CF2590 /* TrombiSearchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D0C41233FC7E000CF2590 /* TrombiSearchBarController.swift */; };
+		9D4936B923CA4C2100805B22 /* UIView+FindFirstTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4936B823CA4C2100805B22 /* UIView+FindFirstTextField.swift */; };
+		9D4936BC23CA66F400805B22 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4936BB23CA66F400805B22 /* UserProfile.storyboard */; };
 		9D5278C623A652E300C9C8DC /* UserDefaults+Trombi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5278C523A652E300C9C8DC /* UserDefaults+Trombi.swift */; };
 		9D52BAF721F1FF5700962C4D /* LayoutInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52BAF321F1FF5700962C4D /* LayoutInfo.swift */; };
 		9D52BAF821F1FF5700962C4D /* LayoutAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52BAF421F1FF5700962C4D /* LayoutAlignment.swift */; };
@@ -98,7 +98,6 @@
 		9D15A8DD22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeesCollectionViewHeader.xib; sourceTree = "<group>"; };
 		9D187E8E23B409C20080033E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		9D1C06B02308642600D20470 /* JSONDecoder+TrombiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+TrombiAPI.swift"; sourceTree = "<group>"; };
-		9D1D067521C9950A00B2A56A /* EmployeeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSearchViewController.swift; sourceTree = "<group>"; };
 		9D2071D723B1481800082181 /* UsefulLinks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UsefulLinks.storyboard; sourceTree = "<group>"; };
 		9D2071DB23B1484A00082181 /* UsefulLinksViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulLinksViewViewModel.swift; sourceTree = "<group>"; };
 		9D2071DD23B1487600082181 /* UsefulLinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulLinksViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +109,8 @@
 		9D3967B321CEE07A0087CEA7 /* UIColor+Trombi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Trombi.swift"; sourceTree = "<group>"; };
 		9D3967B721CEE12E0087CEA7 /* UIColor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Convenience.swift"; sourceTree = "<group>"; };
 		9D3D0C3F233FBA2A00CF2590 /* TrombiSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiSearchBar.swift; sourceTree = "<group>"; };
-		9D3D0C41233FC7E000CF2590 /* TrombiSearchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiSearchBarController.swift; sourceTree = "<group>"; };
+		9D4936B823CA4C2100805B22 /* UIView+FindFirstTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FindFirstTextField.swift"; sourceTree = "<group>"; };
+		9D4936BB23CA66F400805B22 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		9D5278C523A652E300C9C8DC /* UserDefaults+Trombi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Trombi.swift"; sourceTree = "<group>"; };
 		9D52BAF321F1FF5700962C4D /* LayoutInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutInfo.swift; sourceTree = "<group>"; };
 		9D52BAF421F1FF5700962C4D /* LayoutAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutAlignment.swift; sourceTree = "<group>"; };
@@ -266,6 +266,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9D4936BA23CA66DC00805B22 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UserProfile;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		9D52BAF121F1FE9400962C4D /* 3rdParty */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,7 +333,6 @@
 				9D3D0C3E233FB9C200CF2590 /* Views */,
 				9D59316123119668004448A2 /* SearchViewController.swift */,
 				9D59316323119699004448A2 /* SearchViewViewModel.swift */,
-				9D3D0C41233FC7E000CF2590 /* TrombiSearchBarController.swift */,
 				9D5931652311A11D004448A2 /* Search.storyboard */,
 				9D9E7774236795FF0075FD25 /* SearchService.swift */,
 			);
@@ -373,6 +380,7 @@
 				9D8E92E421F35A6F004B8E9E /* UIView+RoundCorners.swift */,
 				9D1C06B02308642600D20470 /* JSONDecoder+TrombiAPI.swift */,
 				9D5278C523A652E300C9C8DC /* UserDefaults+Trombi.swift */,
+				9D4936B823CA4C2100805B22 /* UIView+FindFirstTextField.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -401,6 +409,7 @@
 				9DC2835422103EEF0024263A /* EmployeeProfileViewController.swift */,
 				9DC28356221041B80024263A /* UserInfoTableViewCell.swift */,
 				9DC28357221041B80024263A /* UserInfoTableViewCell.xib */,
+				9D4936BB23CA66F400805B22 /* UserProfile.storyboard */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -453,6 +462,7 @@
 		9DF9590421B2F459005F024E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9D4936BA23CA66DC00805B22 /* UserProfile */,
 				9DBDAC6323C67B47006FE076 /* Teams */,
 				9D2071D623B147D500082181 /* UsefulLinks */,
 				9DC2835322103EB80024263A /* UserProfile */,
@@ -472,7 +482,6 @@
 				9D69B61E22A5B6B6008ED9B5 /* ViewModels */,
 				9DF9590821B2F74E005F024E /* HomeViewController.swift */,
 				9DAC758921BC4B3000BA791D /* HomeViewViewModel.swift */,
-				9D1D067521C9950A00B2A56A /* EmployeeSearchViewController.swift */,
 				9DAC757721BC3C9700BA791D /* Home.storyboard */,
 			);
 			path = Home;
@@ -562,6 +571,7 @@
 				9D5931662311A11D004448A2 /* Search.storyboard in Resources */,
 				4BA3CFBA21A6DA6F003358E6 /* Assets.xcassets in Resources */,
 				9D12825A234129C100261AB6 /* EmployeeSearchTableViewCell.xib in Resources */,
+				9D4936BC23CA66F400805B22 /* UserProfile.storyboard in Resources */,
 				9DCF1FD421FD09BA00605CB3 /* OtherTagCollectionViewCell.xib in Resources */,
 				9DAC757821BC3C9700BA791D /* Home.storyboard in Resources */,
 				9DA1BBB323A66DCF0032E6CD /* LastSearchTableViewCell.xib in Resources */,
@@ -631,7 +641,6 @@
 				9D187E8F23B409C20080033E /* SplashViewController.swift in Sources */,
 				9D5278C623A652E300C9C8DC /* UserDefaults+Trombi.swift in Sources */,
 				9D55DF5821C9205C009A983F /* EmployeeCollectionViewCell.swift in Sources */,
-				9D1D067621C9950A00B2A56A /* EmployeeSearchViewController.swift in Sources */,
 				9D52BB2821F2036F00962C4D /* FiltersPresentTransitionAnimation.swift in Sources */,
 				9D52BAF921F1FF5700962C4D /* TagCellLayoutDelegate.swift in Sources */,
 				9DAC757621BC3C7800BA791D /* MainTabBarViewController.swift in Sources */,
@@ -645,7 +654,6 @@
 				9D5429E023AFE4AA000C3721 /* Stack.swift in Sources */,
 				9D69B62022A5B6F1008ED9B5 /* EmployeeSectionModel.swift in Sources */,
 				9D59316223119668004448A2 /* SearchViewController.swift in Sources */,
-				9D3D0C42233FC7E000CF2590 /* TrombiSearchBarController.swift in Sources */,
 				9D8E92E521F35A6F004B8E9E /* UIView+RoundCorners.swift in Sources */,
 				9D2071DC23B1484A00082181 /* UsefulLinksViewViewModel.swift in Sources */,
 				9D2071E223B151BF00082181 /* UsefulLinkTableViewCell.swift in Sources */,
@@ -656,6 +664,7 @@
 				9D2071DE23B1487600082181 /* UsefulLinksViewController.swift in Sources */,
 				9DBA8CA521D2640A009FF7B5 /* UIFont+Trombi.swift in Sources */,
 				9DAC758321BC458900BA791D /* UITableView+dequeueReusableCell.swift in Sources */,
+				9D4936B923CA4C2100805B22 /* UIView+FindFirstTextField.swift in Sources */,
 				9DAFB58C21B332CC0038C680 /* UsefulLink.swift in Sources */,
 				9D9E7775236795FF0075FD25 /* SearchService.swift in Sources */,
 				9D8E92EE21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift in Sources */,

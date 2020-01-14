@@ -25,7 +25,7 @@ final class SearchViewController: UIViewController {
     var viewModel: SearchViewViewModel?
 
     // MARK: - Properties
-    private let searchController = TrombiSearchBarController(searchResultsController: nil)
+    private lazy var trombiSearchBar = TrombiSearchBar(frame: .zero)
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noResultsView: UIView!
@@ -34,7 +34,11 @@ final class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupSearchBarController()
+
+        trombiSearchBar.sizeToFit()
+        trombiSearchBar.placeholder = "Search"
+        trombiSearchBar.trombiDelegate = self
+        navigationItem.titleView = trombiSearchBar
 
         if let viewModel = viewModel {
             bindViewModel(viewModel)
@@ -45,10 +49,7 @@ final class SearchViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        searchController.isActive = true
-        searchController.searchBar.becomeFirstResponder()
-
-        navigationController?.navigationBar.clipsToBounds = true
+        trombiSearchBar.becomeFirstResponder()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -79,14 +80,14 @@ final class SearchViewController: UIViewController {
 
         viewModel.noResultsIsHidden.drive(noResultsView.rx.isHidden).disposed(by: disposeBag)
 
-        _ = searchController.searchBar.rx.text.orEmpty
+        trombiSearchBar.rx.text.orEmpty
             .debounce(0.5, scheduler: MainScheduler.instance)
             .bind(to: viewModel.enteredSearch)
             .disposed(by: disposeBag)
 
-        searchController.searchBar.rx.searchButtonClicked.subscribe { [weak self] _ in
-            self?.searchController.searchBar.resignFirstResponder()
-            if let text = self?.searchController.searchBar.text {
+        trombiSearchBar.rx.searchButtonClicked.subscribe { [weak self] _ in
+            self?.trombiSearchBar.resignFirstResponder()
+            if let text = self?.trombiSearchBar.text {
                 self?.viewModel?.addLastSearch(text)
             }
         }.disposed(by: disposeBag)
@@ -99,10 +100,27 @@ final class SearchViewController: UIViewController {
 
         viewModel.forcedSearchText.drive(onNext: { [weak self] forceSearchText in
             guard let forceSearchText = forceSearchText else { return }
-            self?.searchController.searchBar.text = forceSearchText
+            self?.trombiSearchBar.text = forceSearchText
             self?.viewModel?.enteredSearch.accept(forceSearchText)
         }, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
+
+        viewModel.openEmployee.asObservable().subscribe { [weak self] event in
+            switch event {
+            case .next(let employeeAndTeam):
+                if let employee = employeeAndTeam?.0, let team = employeeAndTeam?.1 {
+                    let employeeViewController =
+                        EmployeeProfileViewController.modal(
+                            employee: employee,
+                            team: team,
+                            onDismiss: nil)
+
+                    self?.present(employeeViewController, animated: true, completion: nil)
+                }
+            default:
+                break
+            }
+            }.disposed(by: disposeBag)
     }
 }
 
@@ -112,36 +130,10 @@ extension SearchViewController {
         tableView.registerReusableCell(type: LastSearchTableViewCell.self)
         tableView.rowHeight = UITableView.automaticDimension
     }
-
-    fileprivate func setupSearchBarController() {
-        // Setup the Search Controller
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.delegate = self
-        searchController.searchBar.placeholder = "Search"
-
-        searchController.trombiDelegate = self
-
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        tableView.tableHeaderView = searchController.searchBar
-        definesPresentationContext = true
-    }
 }
 
-extension SearchViewController: TrombiSearchBarControllerDelegate {
+extension SearchViewController: TrombiSearchBarDelegate {
     func dismissTapped() {
-        navigationController?.dismiss(animated: false, completion: nil)
-    }
-}
-
-// MARK: - UISearchBarDelegate
-extension SearchViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) { }
-}
-
-// MARK: - UISearchControllerDelegate
-extension SearchViewController: UISearchControllerDelegate {
-    // TODO: Handle events of UISearchControllerDelegate
-    func didPresentSearchController(_ searchController: UISearchController) {
-        searchController.searchBar.showsCancelButton = false
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -13,7 +13,8 @@ import RxSwift
 // MARK: - Constants
 extension HomeViewViewModel {
     fileprivate enum Defaults {
-        static let newcomerInterval: TimeInterval = 100.0
+        static let secondsInDay = 3600.0 * 24.0
+        static let newcomerInterval: TimeInterval = 30.0 * secondsInDay
     }
 }
 
@@ -25,24 +26,11 @@ final class HomeViewViewModel {
 
     // MARK: - Properties
 
-    var filtersViewViewModel: FiltersViewViewModel {
-        let result = FiltersViewViewModel(teams: applicationData.teams,
-                                          filteredByNewcomers: sortByNewcomers,
-                                          filteredTeams: filteredTeams)
-
-        result.filteredTeams.drive(onNext: { [weak self] filteredTeams in
-            self?.filteredTeams = filteredTeams
-        }).disposed(by: disposeBag)
-
-        result.newcomersFilterSelected.drive(onNext: { [weak self] newcomersFilterSelected in
-            self?.sortByNewcomers = newcomersFilterSelected
-        }).disposed(by: disposeBag)
-
-        return result
-    }
+    var filtersViewViewModel: FiltersViewViewModel = FiltersViewViewModel(teams: [])
 
     var applicationData: ApplicationData = ApplicationData() {
         didSet {
+            filtersViewViewModel.teams = applicationData.teams
             _employeesSections.accept(getEemployeesSections())
         }
     }
@@ -65,6 +53,16 @@ final class HomeViewViewModel {
     }
 
     // MARK: - Public interface
+
+    init() {
+        filtersViewViewModel.filteredTeams.drive(onNext: { teams in
+            self.filteredTeams = Set<Team>(teams)
+        }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+
+        filtersViewViewModel.newcomersFilterSelected.drive(onNext: { newcomers in
+            self.sortByNewcomers = newcomers
+        }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+    }
 
     func numberOfEmployeesSections() -> Int {
         return _employeesSections.value.count
@@ -92,9 +90,12 @@ extension HomeViewViewModel {
 
         if sortByNewcomers {
             let newcomers = employees.filter { isEmployeeNewcomer($0) }
-            result.append(EmployeesSection(title: "Newcomers",
-                                           rightSideImageUrl: nil, // TODO: "SayHi"
-                                           cells: newcomers.map({ employeeInfo($0) })))
+            result.append(
+                EmployeesSection(
+                    title: "Newcomers",
+                    rightSideImage: UIImage(named: "sayHi") ?? nil,
+                    cells: newcomers.map({ employeeInfo($0) }))
+            )
         }
 
         alphabet.forEach { letter in
@@ -113,7 +114,7 @@ extension HomeViewViewModel {
             guard !employeesStartedWithLetter.isEmpty else { return }
 
             result.append(EmployeesSection(title: String(letter),
-                                           rightSideImageUrl: nil,
+                                           rightSideImage: nil,
                                            cells: employeesStartedWithLetter.map({ employeeInfo($0) })))
         }
 
@@ -125,7 +126,11 @@ extension HomeViewViewModel {
 
         if !filteredTeams.isEmpty {
             filteredEmployees = filteredEmployees.filter({
-                return self.filteredTeams.contains(self.applicationData.teamOfEmployee($0))
+                if let teamOfEmployee = self.applicationData.teamOfEmployee($0) {
+                    return self.filteredTeams.contains(teamOfEmployee)
+                } else {
+                    return false
+                }
             })
         }
 
@@ -140,7 +145,7 @@ extension HomeViewViewModel {
     }
 
     private func isEmployeeNewcomer(_ employee: Employee) -> Bool {
-        return employee.arrival < Date().addingTimeInterval(-Defaults.newcomerInterval)
+        return employee.arrival > Date().addingTimeInterval(-Defaults.newcomerInterval)
     }
 
     private var alphabet: [Character] {

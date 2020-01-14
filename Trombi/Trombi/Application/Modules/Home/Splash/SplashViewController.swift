@@ -44,15 +44,17 @@ final class SplashViewController: UIViewController {
         activityIndicatorView.isHidden = false
 
         observable.subscribe({ [weak self] event in
-            self?.activityIndicatorView.isHidden = true
-            switch event {
-            case .next(let applicationData):
-                self?._applicationData.accept(applicationData)
-                break
-            case .error(let error):
-                self?.showErrorAlert(description: error.localizedDescription)
-                break
-            default: break
+            DispatchQueue.main.async {
+                self?.activityIndicatorView.isHidden = true
+                switch event {
+                case .next(let applicationData):
+                    self?._applicationData.accept(applicationData)
+                    break
+                case .error(let error):
+                    self?.showErrorAlert(description: error.localizedDescription)
+                    break
+                default: break
+                }
             }
         }).disposed(by: disposeBag)
     }

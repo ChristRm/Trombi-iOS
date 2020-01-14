@@ -25,14 +25,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icHistory" translatesAutoresizingMaskIntoConstraints="NO" id="H5L-Jz-oNl">
-                        <rect key="frame" x="25" y="57" width="35" height="35"/>
+                        <rect key="frame" x="25" y="64.5" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="35" id="QYn-MT-Nbm"/>
-                            <constraint firstAttribute="width" constant="35" id="qKV-Yn-89d"/>
+                            <constraint firstAttribute="height" constant="20" id="QYn-MT-Nbm"/>
+                            <constraint firstAttribute="width" constant="20" id="qKV-Yn-89d"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qaa-u7-Urq">
-                        <rect key="frame" x="70" y="15" width="42" height="118.5"/>
+                        <rect key="frame" x="55" y="15" width="42" height="118.5"/>
                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
