@@ -101,7 +101,7 @@ final class SearchViewViewModel {
             imageUrl: employee.avatarUrl,
             nameText: employee.fullName,
             positionText: employee.job,
-            teamNameText: applicationData.teamOfEmployee(employee)?.name ?? "No team"
+            teamNameText: applicationData.teamOfEmployee(employee).name// ?? "No team"
         )
     }
 

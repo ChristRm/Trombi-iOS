@@ -126,11 +126,9 @@ extension HomeViewViewModel {
 
         if !filteredTeams.isEmpty {
             filteredEmployees = filteredEmployees.filter({
-                if let teamOfEmployee = self.applicationData.teamOfEmployee($0) {
-                    return self.filteredTeams.contains(teamOfEmployee)
-                } else {
-                    return false
-                }
+                let teamOfEmployee = self.applicationData.teamOfEmployee($0)
+                return self.filteredTeams.contains(teamOfEmployee)
+
             })
         }
 
