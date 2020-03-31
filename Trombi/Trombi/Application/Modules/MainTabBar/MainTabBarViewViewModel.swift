@@ -20,4 +20,5 @@ final class MainTabBarViewViewModel {
 
     private(set) var homeViewViewModel: HomeViewViewModel = HomeViewViewModel()
     private(set) var usefulLinksViewViewModel: UsefulLinksViewViewModel = UsefulLinksViewViewModel()
+    private(set) var settingsViewViewModel: SettingsViewViewModel = SettingsViewViewModel()
 }

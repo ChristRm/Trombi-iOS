@@ -21,7 +21,7 @@ final class UsefulLinksViewController: UIViewController {
 
     // MARK: - IBOutlets
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView?
 
     // MARK: - Lifecycle
 
@@ -33,11 +33,16 @@ final class UsefulLinksViewController: UIViewController {
             print("UsefulLinksViewViewModel is not set up")
         }
 
-        tableView.registerReusableCell(type: UsefulLinkTableViewCell.self)
+        tableView?.registerReusableCell(type: UsefulLinkTableViewCell.self)
     }
 
     // MARK: - binding ViewModel
     private func bindViewModel(_ viewModel: UsefulLinksViewViewModel) {
+        guard let tableView = tableView else {
+            print("tableView is not set up")
+            return
+        }
+        
         viewModel.usefulLinksTable.drive(tableView.rx.items(
             cellIdentifier: UsefulLinkTableViewCell.staticReuseIdentifier,
             cellType: UsefulLinkTableViewCell.self)
@@ -47,7 +52,10 @@ final class UsefulLinksViewController: UIViewController {
 
         tableView.rx.itemSelected
             .asObservable()
-            .map({ indexPath -> Int in return indexPath.row })
+            .map({ [weak self] indexPath -> Int in
+                self?.tableView?.deselectRow(at: indexPath, animated: true)
+                return indexPath.row
+            })
             .bind(to: viewModel.selectedItem)
             .disposed(by: disposeBag)
 

@@ -42,7 +42,6 @@ final class SearchViewViewModel {
     private let _forcedSearchText =
         BehaviorRelay<String?>(value: nil)
 
-
     private var foundEmployees: [Employee] = []
 
     init(applicationData: ApplicationData) {

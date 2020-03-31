@@ -12,6 +12,7 @@ extension UserDefaults {
 
     private struct Keys {
         static let lastSearches = "lastSearches"
+        static let baseUrl = "baseUrl"
     }
 
     // MARK: - Last searches
@@ -23,5 +24,16 @@ extension UserDefaults {
 
     class func set(lastSearches: [String]) {
         UserDefaults.standard.set(lastSearches, forKey: UserDefaults.Keys.lastSearches)
+    }
+    
+    // MARK: - Base url
+    
+    class var baseUrl: String? {
+        let storedValue = UserDefaults.standard.string(forKey: UserDefaults.Keys.baseUrl)
+        return storedValue
+    }
+    
+    class func set(baseUrl: String?) {
+        UserDefaults.standard.set(baseUrl, forKey: UserDefaults.Keys.baseUrl)
     }
 }

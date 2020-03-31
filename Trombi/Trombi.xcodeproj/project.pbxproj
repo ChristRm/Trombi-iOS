@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02C318272431F052009CB2F4 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C318252431F052009CB2F4 /* SettingsTableViewCell.swift */; };
+		02C318282431F052009CB2F4 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C318262431F052009CB2F4 /* SettingsTableViewCell.xib */; };
+		02C3182A2432411D009CB2F4 /* SettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C318292432411D009CB2F4 /* SettingsViewViewModel.swift */; };
 		4BA3CFB321A6DA6E003358E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB221A6DA6E003358E6 /* AppDelegate.swift */; };
 		4BA3CFB821A6DA6E003358E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB621A6DA6E003358E6 /* Main.storyboard */; };
 		4BA3CFBA21A6DA6F003358E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */; };
@@ -86,6 +89,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02C318252431F052009CB2F4 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		02C318262431F052009CB2F4 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		02C318292432411D009CB2F4 /* SettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewViewModel.swift; sourceTree = "<group>"; };
 		4BA3CFAF21A6DA6E003358E6 /* Trombi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trombi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA3CFB221A6DA6E003358E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BA3CFB721A6DA6E003358E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -180,6 +186,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02C318242431F018009CB2F4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02C318252431F052009CB2F4 /* SettingsTableViewCell.swift */,
+				02C318262431F052009CB2F4 /* SettingsTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4BA3CFA621A6DA6E003358E6 = {
 			isa = PBXGroup;
 			children = (
@@ -250,9 +265,10 @@
 		9D297E382415409E008E1A00 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				9D6DE0802430E6A80096DFCB /* Views */,
+				02C318242431F018009CB2F4 /* Views */,
 				9D297E3924154190008E1A00 /* Settings.storyboard */,
 				9D297E3B24154263008E1A00 /* SettingsViewController.swift */,
+				02C318292432411D009CB2F4 /* SettingsViewViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -351,13 +367,6 @@
 				9D69B61F22A5B6F1008ED9B5 /* EmployeeSectionModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		9D6DE0802430E6A80096DFCB /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		9D92F22C2228A179005C605B /* Views */ = {
@@ -480,6 +489,7 @@
 				9D2071D623B147D500082181 /* UsefulLinks */,
 				9DC2835322103EB80024263A /* UserProfile */,
 				9DAC757421BC3BE700BA791D /* MainTabBar */,
+				9D187E8D23B409A20080033E /* Splash */,
 				9DF9590521B2F459005F024E /* Home */,
 			);
 			path = Modules;
@@ -488,7 +498,6 @@
 		9DF9590521B2F459005F024E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				9D187E8D23B409A20080033E /* Splash */,
 				9D59316023119635004448A2 /* Search */,
 				9D52BAFE21F2034100962C4D /* Filters */,
 				9DAC758421BC463C00BA791D /* Views */,
@@ -581,6 +590,7 @@
 				4BA3CFBD21A6DA6F003358E6 /* LaunchScreen.storyboard in Resources */,
 				9D15A8DE22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib in Resources */,
 				9D2071E323B151BF00082181 /* UsefulLinkTableViewCell.xib in Resources */,
+				02C318282431F052009CB2F4 /* SettingsTableViewCell.xib in Resources */,
 				9D297E3A24154190008E1A00 /* Settings.storyboard in Resources */,
 				9D5931662311A11D004448A2 /* Search.storyboard in Resources */,
 				4BA3CFBA21A6DA6F003358E6 /* Assets.xcassets in Resources */,
@@ -677,6 +687,7 @@
 				9D3967B821CEE12E0087CEA7 /* UIColor+Convenience.swift in Sources */,
 				9D2071DE23B1487600082181 /* UsefulLinksViewController.swift in Sources */,
 				9DBA8CA521D2640A009FF7B5 /* UIFont+Trombi.swift in Sources */,
+				02C318272431F052009CB2F4 /* SettingsTableViewCell.swift in Sources */,
 				9DAC758321BC458900BA791D /* UITableView+dequeueReusableCell.swift in Sources */,
 				9D4936B923CA4C2100805B22 /* UIView+FindFirstTextField.swift in Sources */,
 				9DAFB58C21B332CC0038C680 /* UsefulLink.swift in Sources */,
@@ -702,6 +713,7 @@
 				9D59316423119699004448A2 /* SearchViewViewModel.swift in Sources */,
 				9D92F22E2228A187005C605B /* TrombiTopRoundedView.swift in Sources */,
 				9DAC758A21BC4B3000BA791D /* HomeViewViewModel.swift in Sources */,
+				02C3182A2432411D009CB2F4 /* SettingsViewViewModel.swift in Sources */,
 				9D297E3C24154263008E1A00 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

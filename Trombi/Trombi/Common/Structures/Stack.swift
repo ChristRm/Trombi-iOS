@@ -1,5 +1,5 @@
 //
-//  Stack.swift
+//  Queue.swift
 //  Trombi
 //
 //  Created by Chris Rusin on 12/22/19.

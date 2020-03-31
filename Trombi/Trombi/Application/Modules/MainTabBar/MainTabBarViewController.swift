@@ -26,7 +26,6 @@ final class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = UIColor.black
-//        tabBar.unselectedItemTintColor = UIColor.mainBlackColor.withAlphaComponent(0.2)
         initTabs()
     }
 
@@ -65,6 +64,8 @@ final class MainTabBarViewController: UITabBarController {
                 } else if let usefulLinksViewController =
                     navigationController.viewControllers.first as? UsefulLinksViewController {
                     usefulLinksViewController.viewModel = viewModel?.usefulLinksViewViewModel
+                } else if let settingsViewController = navigationController.viewControllers.first as? SettingsViewController {
+                    settingsViewController.viewModel = viewModel?.settingsViewViewModel
                 }
             }
         })

@@ -49,10 +49,9 @@ final class SplashViewController: UIViewController {
                 switch event {
                 case .next(let applicationData):
                     self?._applicationData.accept(applicationData)
-                    break
                 case .error(let error):
-                    self?.showErrorAlert(description: error.localizedDescription)
-                    break
+                    self?.handleError(error as NSError)
+//                    self?.showErrorAlert(description: error.localizedDescription)
                 default: break
                 }
             }
@@ -84,6 +83,14 @@ final class SplashViewController: UIViewController {
         return false
     }
 
+    private func handleError(_ error: NSError) {
+        if error.code == NSURLErrorCannotFindHost {
+            // Show set base url alert
+        } else {
+            showErrorAlert(description: error.localizedDescription)
+        }
+    }
+    
     private func showErrorAlert(description: String) {
         DispatchQueue.main.async { [weak self] in
             let alert = UIAlertController(
