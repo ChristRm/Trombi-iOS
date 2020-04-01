@@ -66,6 +66,23 @@ final class MainTabBarViewController: UITabBarController {
                     usefulLinksViewController.viewModel = viewModel?.usefulLinksViewViewModel
                 } else if let settingsViewController = navigationController.viewControllers.first as? SettingsViewController {
                     settingsViewController.viewModel = viewModel?.settingsViewViewModel
+                    viewModel?.settingsViewViewModel
+                        .finishedWithBaseUrl
+                        .asObservable()
+                        .filter({ baseUrl -> Bool in
+                        return baseUrl != nil
+                    }).subscribe({ [weak self] event in
+                        switch event {
+                        case .next(_):
+                            if let splashViewController = self?.splashViewController {
+                                self?.present(splashViewController, animated: false, completion: nil)
+                            } else {
+                                self?.performSegue(withIdentifier: "Splash", sender: nil)
+                            }
+                        default:
+                            break
+                        }
+                    }).disposed(by: disposeBag)
                 }
             }
         })

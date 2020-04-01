@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 fileprivate extension SettingsViewViewModel {
-    
+
     enum Defaults {
         static let helpUrl: String = "christianrusinm@gmail.com"
     }
@@ -29,7 +29,7 @@ final class SettingsViewViewModel {
     
     // MARK: - Input
     private(set) var selectedItem: BehaviorRelay<Int?> = BehaviorRelay<Int?>(value: nil)
-    private(set) var enteredBaseUrl: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
+    private(set) var finishedWithBaseUrl: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     
     // MARK: - Output
     let settingsTable: Driver<[String]> = {
@@ -38,16 +38,10 @@ final class SettingsViewViewModel {
     var openAlertWithCurrentBaseUrl: Signal<String?> { return _openAlertWithCurrentBaseUrl.asSignal(onErrorJustReturn: nil) }
     var sendEmailToAdress: Signal<String?> { return _sendEmailToAdress.asSignal(onErrorJustReturn: nil) }
     
-    var isEnteredBaseUrlValid: Driver<Bool> {
-        return _isEnteredBaseUrlValid.asDriver()
-    }
-    
     // MARK: - Private properties
     private let _settingsTable = BehaviorRelay<[EmployeeSearchCellModel]>(value: [])
     private let _openAlertWithCurrentBaseUrl = BehaviorRelay<String?>(value: nil)
     private let _sendEmailToAdress = BehaviorRelay<String?>(value: nil)
-    
-    private let _isEnteredBaseUrlValid = BehaviorRelay<Bool>(value: false)
     
     init() {
         setup()
@@ -71,20 +65,5 @@ final class SettingsViewViewModel {
             default: break
             }
         }).disposed(by: disposeBag)
-        
-        enteredBaseUrl.map({ baseUrl -> Bool in
-            guard let baseUrl = baseUrl, !baseUrl.isEmpty,
-                let _ = URL(string: baseUrl + EndpointsHelper.Resource.getPersons) else {
-                return false
-            }
-            
-            return true
-        }).bind(to: _isEnteredBaseUrlValid).disposed(by: disposeBag)
-    }
-    
-    // MARK: - Public interface
-    
-    func setBaseUrl() {
-        UserDefaults.set(baseUrl: enteredBaseUrl.value)
     }
 }

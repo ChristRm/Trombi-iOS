@@ -51,7 +51,6 @@ final class SplashViewController: UIViewController {
                     self?._applicationData.accept(applicationData)
                 case .error(let error):
                     self?.handleError(error as NSError)
-//                    self?.showErrorAlert(description: error.localizedDescription)
                 default: break
                 }
             }
@@ -84,10 +83,42 @@ final class SplashViewController: UIViewController {
     }
 
     private func handleError(_ error: NSError) {
-        if error.code == NSURLErrorCannotFindHost {
-            // Show set base url alert
+        if error.code == NSURLErrorCannotConnectToHost ||
+            error.code == NSURLErrorCannotFindHost ||
+            error.code ==  NSURLErrorUnsupportedURL {
+            showSetBaseUrlAlert()
         } else {
             showErrorAlert(description: error.localizedDescription)
+        }
+    }
+    
+    private func showSetBaseUrlAlert() {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            
+            let alert = BaseUrlAlertController(currentBaseUrl: TrombiApiRequests.baseUrl)
+            alert.acceptedWithBaseUrl.asObservable().filter({ baseUrl -> Bool in
+                return baseUrl != nil
+            }).subscribe({ event in
+                switch event {
+                case .next(_):
+                    strongSelf.getApplicationData()
+                default:
+                    break
+                }
+            }).disposed(by: strongSelf.disposeBag)
+            
+            alert.canceledWithBaseUrl.asObservable().filter({ baseUrl -> Bool in
+                return baseUrl != nil
+            }).subscribe({ event in
+                switch event {
+                case .next(let value):
+                    strongSelf.getApplicationData()
+                default:
+                    break
+                }
+            }).disposed(by: strongSelf.disposeBag)
+            self?.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -99,7 +130,7 @@ final class SplashViewController: UIViewController {
                 preferredStyle: .alert
             )
 
-            alert.addAction(UIAlertAction(title: "RETRY", style: .default, handler: { [weak self] _ in
+            alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { [weak self] _ in
                 self?.getApplicationData()
             }))
 

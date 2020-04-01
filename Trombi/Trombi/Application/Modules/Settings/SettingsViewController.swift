@@ -77,32 +77,22 @@ class SettingsViewController: UIViewController {
         
         viewModel.openAlertWithCurrentBaseUrl.asObservable().filter({ baseUrl -> Bool in
             return baseUrl != nil
-        }).subscribe({ event in
+        }).subscribe({ [weak self] event in
+            guard let strongSelf = self else { return }
+
             switch event {
             case .next(let currentBaseUrl):
-                let alert = UIAlertController(
-                    title: "Set the base url",
-                    message: "Set the url of server you want Trombi to get data from",
-                    preferredStyle: .alert
-                )
-                
-                alert.addTextField(configurationHandler: { [weak self] textField in
-                    guard let strongSelf = self else { return }
-                    textField.text = currentBaseUrl
-                    textField.rx.text.bind(to: viewModel.enteredBaseUrl).disposed(by: strongSelf.disposeBag)
-                })
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
-                    viewModel.setBaseUrl()
-                })
-                
-                alert.addAction(cancelAction)
-                alert.addAction(okAction)
-                
-                viewModel.isEnteredBaseUrlValid.drive(okAction.rx.isEnabled).disposed(by: self.disposeBag)
-                
-                self.present(alert, animated: true, completion: nil)
+                let alert = BaseUrlAlertController(currentBaseUrl: currentBaseUrl)
+                guard let viewModel = strongSelf.viewModel else {
+                    return
+                }
+
+                alert.acceptedWithBaseUrl
+                    .asObservable()
+                    .bind(to: viewModel.finishedWithBaseUrl)
+                    .disposed(by: strongSelf.disposeBag)
+
+                strongSelf.present(alert, animated: true, completion: nil)
             default:
                 break
             }

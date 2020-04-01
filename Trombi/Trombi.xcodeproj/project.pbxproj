@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02473C132434963400E2E3AF /* BaseUrlAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02473C122434963400E2E3AF /* BaseUrlAlertController.swift */; };
+		02473C152434964600E2E3AF /* BaseUrlAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02473C142434964600E2E3AF /* BaseUrlAlertViewModel.swift */; };
 		02C318272431F052009CB2F4 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C318252431F052009CB2F4 /* SettingsTableViewCell.swift */; };
 		02C318282431F052009CB2F4 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C318262431F052009CB2F4 /* SettingsTableViewCell.xib */; };
 		02C3182A2432411D009CB2F4 /* SettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C318292432411D009CB2F4 /* SettingsViewViewModel.swift */; };
@@ -89,6 +91,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02473C122434963400E2E3AF /* BaseUrlAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlAlertController.swift; sourceTree = "<group>"; };
+		02473C142434964600E2E3AF /* BaseUrlAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlAlertViewModel.swift; sourceTree = "<group>"; };
 		02C318252431F052009CB2F4 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		02C318262431F052009CB2F4 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		02C318292432411D009CB2F4 /* SettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewViewModel.swift; sourceTree = "<group>"; };
@@ -186,6 +190,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02473C112434961400E2E3AF /* BaseUrlAlert */ = {
+			isa = PBXGroup;
+			children = (
+				02473C122434963400E2E3AF /* BaseUrlAlertController.swift */,
+				02473C142434964600E2E3AF /* BaseUrlAlertViewModel.swift */,
+			);
+			path = BaseUrlAlert;
+			sourceTree = "<group>";
+		};
 		02C318242431F018009CB2F4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +385,7 @@
 		9D92F22C2228A179005C605B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				02473C112434961400E2E3AF /* BaseUrlAlert */,
 				9D92F22D2228A187005C605B /* TrombiTopRoundedView.swift */,
 				9DFB774622292A9A00160540 /* CircleImageView.swift */,
 				9D83E3162235774A0042DC0B /* CircleView.swift */,
@@ -669,6 +683,7 @@
 				9D52BAF921F1FF5700962C4D /* TagCellLayoutDelegate.swift in Sources */,
 				9DAC757621BC3C7800BA791D /* MainTabBarViewController.swift in Sources */,
 				9DAC757C21BC409400BA791D /* UIViewController+Storyboards.swift in Sources */,
+				02473C132434963400E2E3AF /* BaseUrlAlertController.swift in Sources */,
 				9D52BB2721F2036F00962C4D /* FiltersPresentationController.swift in Sources */,
 				9D83E3172235774A0042DC0B /* CircleView.swift in Sources */,
 				9DC28358221041B80024263A /* UserInfoTableViewCell.swift in Sources */,
@@ -682,6 +697,7 @@
 				9D2071DC23B1484A00082181 /* UsefulLinksViewViewModel.swift in Sources */,
 				9D2071E223B151BF00082181 /* UsefulLinkTableViewCell.swift in Sources */,
 				9D52BAF721F1FF5700962C4D /* LayoutInfo.swift in Sources */,
+				02473C152434964600E2E3AF /* BaseUrlAlertViewModel.swift in Sources */,
 				9D52BB3321F2036F00962C4D /* FiltersViewController.swift in Sources */,
 				9D3967B421CEE07A0087CEA7 /* UIColor+Trombi.swift in Sources */,
 				9D3967B821CEE12E0087CEA7 /* UIColor+Convenience.swift in Sources */,
