@@ -26,7 +26,7 @@ struct Employee: Codable {
     }
 
     var identifier: Int64
-    var teamId: Int64
+    var teamId: Int64?
 
     var arrival: Date
     var surname: String
@@ -37,7 +37,7 @@ struct Employee: Codable {
 
     var avatarUrl: String
 
-    var email: String
+    var email: String?
     var job: String
     var birthday: Date
     var login: String
