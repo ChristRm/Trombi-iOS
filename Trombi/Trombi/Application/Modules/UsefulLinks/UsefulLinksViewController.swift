@@ -27,6 +27,8 @@ final class UsefulLinksViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.configurate()
+        
         if let viewModel = viewModel {
             bindViewModel(viewModel)
         } else {

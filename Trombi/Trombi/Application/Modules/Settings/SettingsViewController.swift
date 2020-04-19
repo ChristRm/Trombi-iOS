@@ -23,6 +23,8 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.configurate()
+        
         guard let tableView = tableView else {
             print("Table view is not set up")
             return
