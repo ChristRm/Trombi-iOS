@@ -25,7 +25,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         window = UIWindow(frame: UIScreen.main.bounds)
-
         mainTabBarViewController.viewModel = mainViewModel
         window?.rootViewController = mainTabBarViewController
         window?.makeKeyAndVisible()
@@ -45,20 +44,25 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Private
     private func prepareUiElementsProxies() {
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().barTintColor = UIColor.mainWhiteColor
-        UINavigationBar.appearance().backgroundColor = UIColor.clear
-        UINavigationBar.appearance().titleTextAttributes =
-            [NSAttributedString.Key.foregroundColor: UIColor.mainBlackColor,
-             NSAttributedString.Key.font: UIFont.semiBoldAppFontOf(size: 17)]
-        UINavigationBar.appearance().shadowImage = UIImage()
-
-        if #available(iOS 11.0, *) {
-            UINavigationBar.appearance().largeTitleTextAttributes =
-                [NSAttributedString.Key.foregroundColor: UIColor.mainBlackColor,
-                 NSAttributedString.Key.font: UIFont.semiBoldAppFontOf(size: 28)]
+        if #available(iOS 13.0, *) {
+            // in iOS 13 each navigation bar has to be configurated indendently
         } else {
-            // Fallback on earlier versions
+            UINavigationBar.appearance().isTranslucent = false
+            UINavigationBar.appearance().barTintColor = UIColor.mainWhiteColor
+            UINavigationBar.appearance().backgroundColor = UIColor.clear
+            UINavigationBar.appearance().tintColor = UIColor.clear
+            UINavigationBar.appearance().titleTextAttributes =
+                [NSAttributedString.Key.foregroundColor: UIColor.mainBlackColor,
+                 NSAttributedString.Key.font: UIFont.semiBoldAppFontOf(size: 17)]
+            UINavigationBar.appearance().shadowImage = UIImage()
+            
+            if #available(iOS 11.0, *) {
+                UINavigationBar.appearance().largeTitleTextAttributes =
+                    [NSAttributedString.Key.foregroundColor: UIColor.mainBlackColor,
+                     NSAttributedString.Key.font: UIFont.semiBoldAppFontOf(size: 28)]
+            } else {
+                // Fallback on earlier versions
+            }
         }
 
         UITabBar.appearance().backgroundColor = UIColor.mainWhiteColor

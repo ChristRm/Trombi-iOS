@@ -30,6 +30,8 @@ final class HomeViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.configurate()
+        
         setupCollectionView()
     }
 
