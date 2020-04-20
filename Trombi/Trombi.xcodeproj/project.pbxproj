@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		02473C132434963400E2E3AF /* BaseUrlAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02473C122434963400E2E3AF /* BaseUrlAlertController.swift */; };
 		02473C152434964600E2E3AF /* BaseUrlAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02473C142434964600E2E3AF /* BaseUrlAlertViewModel.swift */; };
+		02A4E6C6244F625D003AB396 /* CITreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4E6C3244F625D003AB396 /* CITreeView.swift */; };
+		02A4E6C7244F625D003AB396 /* CITreeViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4E6C4244F625D003AB396 /* CITreeViewNode.swift */; };
+		02A4E6C8244F625D003AB396 /* CITreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4E6C5244F625D003AB396 /* CITreeViewController.swift */; };
 		02C318272431F052009CB2F4 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C318252431F052009CB2F4 /* SettingsTableViewCell.swift */; };
 		02C318282431F052009CB2F4 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C318262431F052009CB2F4 /* SettingsTableViewCell.xib */; };
 		02C3182A2432411D009CB2F4 /* SettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C318292432411D009CB2F4 /* SettingsViewViewModel.swift */; };
@@ -96,6 +99,9 @@
 /* Begin PBXFileReference section */
 		02473C122434963400E2E3AF /* BaseUrlAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlAlertController.swift; sourceTree = "<group>"; };
 		02473C142434964600E2E3AF /* BaseUrlAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlAlertViewModel.swift; sourceTree = "<group>"; };
+		02A4E6C3244F625D003AB396 /* CITreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CITreeView.swift; sourceTree = "<group>"; };
+		02A4E6C4244F625D003AB396 /* CITreeViewNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CITreeViewNode.swift; sourceTree = "<group>"; };
+		02A4E6C5244F625D003AB396 /* CITreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CITreeViewController.swift; sourceTree = "<group>"; };
 		02C318252431F052009CB2F4 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		02C318262431F052009CB2F4 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		02C318292432411D009CB2F4 /* SettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewViewModel.swift; sourceTree = "<group>"; };
@@ -203,6 +209,16 @@
 				02473C142434964600E2E3AF /* BaseUrlAlertViewModel.swift */,
 			);
 			path = BaseUrlAlert;
+			sourceTree = "<group>";
+		};
+		02A4E6C2244F5BE4003AB396 /* CITreeView */ = {
+			isa = PBXGroup;
+			children = (
+				02A4E6C3244F625D003AB396 /* CITreeView.swift */,
+				02A4E6C5244F625D003AB396 /* CITreeViewController.swift */,
+				02A4E6C4244F625D003AB396 /* CITreeViewNode.swift */,
+			);
+			path = CITreeView;
 			sourceTree = "<group>";
 		};
 		02C318242431F018009CB2F4 /* Views */ = {
@@ -318,6 +334,7 @@
 		9D52BAF121F1FE9400962C4D /* 3rdParty */ = {
 			isa = PBXGroup;
 			children = (
+				02A4E6C2244F5BE4003AB396 /* CITreeView */,
 				9D52BAF221F1FF3E00962C4D /* TagCellLayout */,
 			);
 			path = 3rdParty;
@@ -698,6 +715,7 @@
 				9D9D0841244E247D00E6CD3B /* TeamsViewController.swift in Sources */,
 				9DC28358221041B80024263A /* UserInfoTableViewCell.swift in Sources */,
 				9DE90CCD21A9FB5400AF8DF3 /* TrombiApiRequests.swift in Sources */,
+				02A4E6C8244F625D003AB396 /* CITreeViewController.swift in Sources */,
 				9D12825B234129C100261AB6 /* EmployeeSearchTableViewCell.swift in Sources */,
 				9DAC758121BC453500BA791D /* ReusableView.swift in Sources */,
 				9D5429E023AFE4AA000C3721 /* Stack.swift in Sources */,
@@ -712,6 +730,7 @@
 				9D3967B421CEE07A0087CEA7 /* UIColor+Trombi.swift in Sources */,
 				9D3967B821CEE12E0087CEA7 /* UIColor+Convenience.swift in Sources */,
 				9D2071DE23B1487600082181 /* UsefulLinksViewController.swift in Sources */,
+				02A4E6C7244F625D003AB396 /* CITreeViewNode.swift in Sources */,
 				9DBA8CA521D2640A009FF7B5 /* UIFont+Trombi.swift in Sources */,
 				02C318272431F052009CB2F4 /* SettingsTableViewCell.swift in Sources */,
 				9DAC758321BC458900BA791D /* UITableView+dequeueReusableCell.swift in Sources */,
@@ -738,6 +757,7 @@
 				9DCF1FD321FD09BA00605CB3 /* OtherTagCollectionViewCell.swift in Sources */,
 				9DF0A5842214C3E700358A3E /* TagCellViewModel.swift in Sources */,
 				4BA3CFB321A6DA6E003358E6 /* AppDelegate.swift in Sources */,
+				02A4E6C6244F625D003AB396 /* CITreeView.swift in Sources */,
 				9D59316423119699004448A2 /* SearchViewViewModel.swift in Sources */,
 				9D92F22E2228A187005C605B /* TrombiTopRoundedView.swift in Sources */,
 				9DAC758A21BC4B3000BA791D /* HomeViewViewModel.swift in Sources */,
