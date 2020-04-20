@@ -47,6 +47,7 @@ final class MainTabBarViewController: UITabBarController {
                 case .next(let applicationData):
                     if let safeApplicationData = applicationData {
                         self?.viewModel?.homeViewViewModel.applicationData = safeApplicationData
+                        self?.viewModel?.teamsViewViewModel.applicationData = safeApplicationData
                         self?.viewModel?.usefulLinksViewViewModel.applicationData = safeApplicationData
                         self?.splashViewController?.dismiss(animated: false, completion: nil)
                     }
@@ -61,6 +62,9 @@ final class MainTabBarViewController: UITabBarController {
             if let navigationController = tabViewController as? UINavigationController {
                 if let homeViewController = navigationController.viewControllers.first as? HomeViewController {
                     homeViewController.viewModel = viewModel?.homeViewViewModel
+                } else if let teamsViewController = navigationController.viewControllers.first as? TeamsViewController {
+                    print("Called when we init Teams View Controller")
+                    teamsViewController.viewModel = viewModel?.teamsViewViewModel
                 } else if let usefulLinksViewController =
                     navigationController.viewControllers.first as? UsefulLinksViewController {
                     usefulLinksViewController.viewModel = viewModel?.usefulLinksViewViewModel

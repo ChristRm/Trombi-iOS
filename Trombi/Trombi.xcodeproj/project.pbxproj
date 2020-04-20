@@ -59,6 +59,8 @@
 		9D8E92EE21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E92EC21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift */; };
 		9D8E92EF21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8E92ED21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.xib */; };
 		9D92F22E2228A187005C605B /* TrombiTopRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D92F22D2228A187005C605B /* TrombiTopRoundedView.swift */; };
+		9D9D0841244E247D00E6CD3B /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D083F244E247D00E6CD3B /* TeamsViewController.swift */; };
+		9D9D0844244E2A1C00E6CD3B /* TeamsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D0843244E2A1C00E6CD3B /* TeamsViewViewModel.swift */; };
 		9D9E7775236795FF0075FD25 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E7774236795FF0075FD25 /* SearchService.swift */; };
 		9DA1BBB223A66DCF0032E6CD /* LastSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1BBB023A66DCF0032E6CD /* LastSearchTableViewCell.swift */; };
 		9DA1BBB323A66DCF0032E6CD /* LastSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DA1BBB123A66DCF0032E6CD /* LastSearchTableViewCell.xib */; };
@@ -150,6 +152,8 @@
 		9D8E92EC21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D8E92ED21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartmentTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		9D92F22D2228A187005C605B /* TrombiTopRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiTopRoundedView.swift; sourceTree = "<group>"; };
+		9D9D083F244E247D00E6CD3B /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
+		9D9D0843244E2A1C00E6CD3B /* TeamsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewViewModel.swift; sourceTree = "<group>"; };
 		9D9E7774236795FF0075FD25 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		9DA1BBB023A66DCF0032E6CD /* LastSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSearchTableViewCell.swift; sourceTree = "<group>"; };
 		9DA1BBB123A66DCF0032E6CD /* LastSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastSearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -438,6 +442,8 @@
 			isa = PBXGroup;
 			children = (
 				9DBDAC6423C67B74006FE076 /* Teams.storyboard */,
+				9D9D083F244E247D00E6CD3B /* TeamsViewController.swift */,
+				9D9D0843244E2A1C00E6CD3B /* TeamsViewViewModel.swift */,
 			);
 			path = Teams;
 			sourceTree = "<group>";
@@ -689,6 +695,7 @@
 				02473C132434963400E2E3AF /* BaseUrlAlertController.swift in Sources */,
 				9D52BB2721F2036F00962C4D /* FiltersPresentationController.swift in Sources */,
 				9D83E3172235774A0042DC0B /* CircleView.swift in Sources */,
+				9D9D0841244E247D00E6CD3B /* TeamsViewController.swift in Sources */,
 				9DC28358221041B80024263A /* UserInfoTableViewCell.swift in Sources */,
 				9DE90CCD21A9FB5400AF8DF3 /* TrombiApiRequests.swift in Sources */,
 				9D12825B234129C100261AB6 /* EmployeeSearchTableViewCell.swift in Sources */,
@@ -719,6 +726,7 @@
 				9DAC757D21BC409400BA791D /* UIStoryboard+StoryboardsList.swift in Sources */,
 				9DAC758C21BC4C2F00BA791D /* MainTabBarViewViewModel.swift in Sources */,
 				02F70558244CC57200287902 /* UINavigationBar+configurate.swift in Sources */,
+				9D9D0844244E2A1C00E6CD3B /* TeamsViewViewModel.swift in Sources */,
 				9D52BAF821F1FF5700962C4D /* LayoutAlignment.swift in Sources */,
 				9DAC759721BC6B0600BA791D /* ApplicationData.swift in Sources */,
 				9DAFB58D21B332CC0038C680 /* Employee.swift in Sources */,
