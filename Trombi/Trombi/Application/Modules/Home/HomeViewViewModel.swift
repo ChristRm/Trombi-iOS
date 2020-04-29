@@ -1,5 +1,5 @@
 //
-//  EmployeesViewViewModel.swift
+//  HomeViewViewModel.swift
 //  Trombi
 //
 //  Created by Chris Rusin on 12/8/18.
@@ -40,12 +40,15 @@ final class HomeViewViewModel {
     // MARK: - Private properties
 
     private let _employeesSections = BehaviorRelay<[EmployeesSection]>(value: [])
+    
+    // TODO: normal binding instead
     private var filteredTeams: Set<Team> = Set<Team>() {
         didSet {
             _employeesSections.accept(getEemployeesSections())
         }
     }
 
+    // TODO: normal binding instead
     private var sortByNewcomers: Bool = false {
         didSet {
             _employeesSections.accept(getEemployeesSections())
@@ -62,14 +65,6 @@ final class HomeViewViewModel {
         filtersViewViewModel.newcomersFilterSelected.drive(onNext: { newcomers in
             self.sortByNewcomers = newcomers
         }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
-    }
-
-    func numberOfEmployeesSections() -> Int {
-        return _employeesSections.value.count
-    }
-
-    func employeeSectionAtIndex(_ index: Int) -> EmployeesSection {
-        return _employeesSections.value[index]
     }
 }
 
@@ -92,9 +87,9 @@ extension HomeViewViewModel {
             let newcomers = employees.filter { isEmployeeNewcomer($0) }
             result.append(
                 EmployeesSection(
-                    title: "Newcomers",
+                    header: "Newcomers",
                     rightSideImage: UIImage(named: "sayHi") ?? nil,
-                    cells: newcomers.map({ employeeInfo($0) }))
+                    items: newcomers.map({ employeeInfo($0) }))
             )
         }
 
@@ -112,10 +107,13 @@ extension HomeViewViewModel {
 
             // return from loop closure if there is no employee starting with this letter
             guard !employeesStartedWithLetter.isEmpty else { return }
+            let employeesSection = EmployeesSection(
+                header: String(letter),
+                rightSideImage: nil,
+                items: employeesStartedWithLetter.map({ employeeInfo($0) })
+            )
 
-            result.append(EmployeesSection(title: String(letter),
-                                           rightSideImage: nil,
-                                           cells: employeesStartedWithLetter.map({ employeeInfo($0) })))
+            result.append(employeesSection)
         }
 
         return result

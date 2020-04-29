@@ -7,10 +7,29 @@
 //
 
 import UIKit
+import RxDataSources
 
-struct EmployeesSection {
-    let title: String
+struct EmployeesSection: SectionModelType {
+    typealias Item = EmployeeCellModel
+    
+    var header: String
+    
     let rightSideImage: UIImage?
+    
+    var items: [Item]
 
-    var cells: [EmployeeCellModel]
+    init(original: EmployeesSection, items: [Item]) {
+        self = original
+        self.items = items
+    }
+    
+    init(
+        header: String,
+        rightSideImage: UIImage?,
+        items: [Item]
+    ) {
+        self.header = header
+        self.rightSideImage = rightSideImage
+        self.items = items
+    }
 }
