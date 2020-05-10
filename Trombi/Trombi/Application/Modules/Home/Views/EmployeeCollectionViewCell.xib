@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,6 +44,10 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vak-t2-aai">
                         <rect key="frame" x="0.0" y="0.0" width="347" height="335.5"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23z-LE-OPc" customClass="ShadowedImageView" customModule="Trombi" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="347" height="335.5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwq-6x-1lH">
                         <rect key="frame" x="0.0" y="335.5" width="347" height="107.5"/>
                         <subviews>
@@ -86,12 +88,16 @@
                 <constraint firstItem="Vak-t2-aai" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Nq6-cI-7wq"/>
                 <constraint firstItem="cLT-bZ-tNB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="QYc-Wy-BPe"/>
                 <constraint firstAttribute="trailing" secondItem="qwq-6x-1lH" secondAttribute="trailing" id="RIN-QH-f8U"/>
+                <constraint firstItem="23z-LE-OPc" firstAttribute="top" secondItem="3gg-PM-Oud" secondAttribute="top" id="VWf-Dc-Hh3"/>
                 <constraint firstItem="Vak-t2-aai" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="175/231" id="Ydo-aX-Hns"/>
+                <constraint firstItem="23z-LE-OPc" firstAttribute="leading" secondItem="3gg-PM-Oud" secondAttribute="leading" id="Zhw-aT-YaY"/>
                 <constraint firstItem="3gg-PM-Oud" firstAttribute="top" secondItem="Vak-t2-aai" secondAttribute="top" id="eMp-h7-ECm"/>
                 <constraint firstItem="qwq-6x-1lH" firstAttribute="top" secondItem="Vak-t2-aai" secondAttribute="bottom" id="eYq-JY-E2u"/>
                 <constraint firstItem="VE3-SO-UZM" firstAttribute="leading" secondItem="Vak-t2-aai" secondAttribute="leading" id="ega-BE-ZCL"/>
+                <constraint firstItem="23z-LE-OPc" firstAttribute="bottom" secondItem="3gg-PM-Oud" secondAttribute="bottom" id="fdS-GJ-DBO"/>
                 <constraint firstAttribute="trailing" secondItem="Vak-t2-aai" secondAttribute="trailing" id="fk4-xb-JWN"/>
                 <constraint firstAttribute="bottom" secondItem="qwq-6x-1lH" secondAttribute="bottom" id="j87-c0-BrP"/>
+                <constraint firstItem="23z-LE-OPc" firstAttribute="trailing" secondItem="3gg-PM-Oud" secondAttribute="trailing" id="jdi-Wg-bdx"/>
                 <constraint firstItem="qwq-6x-1lH" firstAttribute="top" secondItem="cLT-bZ-tNB" secondAttribute="bottom" constant="10" id="klJ-Wt-eXt"/>
                 <constraint firstItem="3gg-PM-Oud" firstAttribute="trailing" secondItem="Vak-t2-aai" secondAttribute="trailing" id="uBF-Fl-9qX"/>
                 <constraint firstItem="Vak-t2-aai" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xYh-a5-46Q"/>
@@ -99,9 +105,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="347" height="443"/>
             <connections>
-                <outlet property="imageShadowInnerView" destination="Dmj-pJ-1X7" id="Rog-wR-4lw"/>
-                <outlet property="imageShadowView" destination="3gg-PM-Oud" id="gSG-oT-hHE"/>
-                <outlet property="imageView" destination="Vak-t2-aai" id="UW7-nS-S8J"/>
+                <outlet property="imageView" destination="23z-LE-OPc" id="GvE-AS-S4D"/>
                 <outlet property="nameLabel" destination="VE3-SO-UZM" id="g5F-Nw-aEA"/>
                 <outlet property="positionLabel" destination="DET-Sa-73b" id="2DN-Qf-qFg"/>
                 <outlet property="teamLabel" destination="cLT-bZ-tNB" id="6OZ-d9-05Z"/>

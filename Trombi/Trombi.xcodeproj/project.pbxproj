@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		02473C132434963400E2E3AF /* BaseUrlAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02473C122434963400E2E3AF /* BaseUrlAlertController.swift */; };
 		02473C152434964600E2E3AF /* BaseUrlAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02473C142434964600E2E3AF /* BaseUrlAlertViewModel.swift */; };
+		0248C7C0246846AE005209D0 /* ShadowedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0248C7BF246846AE005209D0 /* ShadowedImageView.swift */; };
 		024C8A9024635062003A57B5 /* BottomPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024C8A8F24635062003A57B5 /* BottomPanel.swift */; };
 		024C8A93246359F6003A57B5 /* FiltersSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024C8A92246359F6003A57B5 /* FiltersSection.swift */; };
 		02C318272431F052009CB2F4 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C318252431F052009CB2F4 /* SettingsTableViewCell.swift */; };
@@ -96,6 +97,7 @@
 /* Begin PBXFileReference section */
 		02473C122434963400E2E3AF /* BaseUrlAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlAlertController.swift; sourceTree = "<group>"; };
 		02473C142434964600E2E3AF /* BaseUrlAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlAlertViewModel.swift; sourceTree = "<group>"; };
+		0248C7BF246846AE005209D0 /* ShadowedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedImageView.swift; sourceTree = "<group>"; };
 		024C8A8F24635062003A57B5 /* BottomPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPanel.swift; sourceTree = "<group>"; };
 		024C8A92246359F6003A57B5 /* FiltersSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersSection.swift; sourceTree = "<group>"; };
 		02C318252431F052009CB2F4 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				9D92F22D2228A187005C605B /* TrombiTopRoundedView.swift */,
 				9DFB774622292A9A00160540 /* CircleImageView.swift */,
 				9D83E3162235774A0042DC0B /* CircleView.swift */,
+				0248C7BF246846AE005209D0 /* ShadowedImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				9DE90CCD21A9FB5400AF8DF3 /* TrombiApiRequests.swift in Sources */,
 				9D12825B234129C100261AB6 /* EmployeeSearchTableViewCell.swift in Sources */,
 				9DAC758121BC453500BA791D /* ReusableView.swift in Sources */,
+				0248C7C0246846AE005209D0 /* ShadowedImageView.swift in Sources */,
 				9D5429E023AFE4AA000C3721 /* Stack.swift in Sources */,
 				9D69B62022A5B6F1008ED9B5 /* EmployeeSectionModel.swift in Sources */,
 				9D59316223119668004448A2 /* SearchViewController.swift in Sources */,

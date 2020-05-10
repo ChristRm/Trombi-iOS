@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,31 +19,16 @@
             <rect key="frame" x="0.0" y="0.0" width="589" height="335"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="589" height="334.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="589" height="335"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPp-3w-e5C">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ag0-1m-i0S" customClass="ShadowedImageView" customModule="Trombi" customModuleProvider="target">
                         <rect key="frame" x="21" y="20" width="547" height="185"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6J-Lw-wTy">
-                                <rect key="frame" x="0.0" y="20" width="547" height="165"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="p6J-Lw-wTy" secondAttribute="bottom" id="0OR-DN-UgU"/>
-                            <constraint firstAttribute="trailing" secondItem="p6J-Lw-wTy" secondAttribute="trailing" id="s4c-vI-0ma"/>
-                            <constraint firstItem="p6J-Lw-wTy" firstAttribute="top" secondItem="vPp-3w-e5C" secondAttribute="top" constant="20" id="sfa-Cy-sfn"/>
-                            <constraint firstItem="p6J-Lw-wTy" firstAttribute="leading" secondItem="vPp-3w-e5C" secondAttribute="leading" id="uG1-y3-KMj"/>
+                            <constraint firstAttribute="height" constant="185" id="Q4c-nP-suo"/>
                         </constraints>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="crJ-Kw-Yac">
-                        <rect key="frame" x="21" y="20" width="547" height="185"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="185" id="0VJ-Cl-MSb"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7Z-rL-Sg4">
                         <rect key="frame" x="21" y="215" width="44.5" height="21.5"/>
                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
@@ -53,7 +36,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNW-iZ-s6d">
-                        <rect key="frame" x="21" y="241.5" width="31" height="88"/>
+                        <rect key="frame" x="21" y="241.5" width="31" height="88.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.49411764705882355" green="0.49411764705882355" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -68,31 +51,25 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="dDk-Mh-3Hr" firstAttribute="trailing" secondItem="crJ-Kw-Yac" secondAttribute="trailing" id="14L-pW-pPb"/>
-                    <constraint firstItem="vPp-3w-e5C" firstAttribute="trailing" secondItem="crJ-Kw-Yac" secondAttribute="trailing" id="620-4D-QXh"/>
+                    <constraint firstItem="Ag0-1m-i0S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="3Pe-j1-jPk"/>
                     <constraint firstItem="dDk-Mh-3Hr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FNW-iZ-s6d" secondAttribute="trailing" constant="10" id="FCj-mc-HVl"/>
-                    <constraint firstItem="crJ-Kw-Yac" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="FhS-aE-1Rn"/>
-                    <constraint firstItem="D7Z-rL-Sg4" firstAttribute="leading" secondItem="crJ-Kw-Yac" secondAttribute="leading" id="LQR-cW-Db6"/>
                     <constraint firstItem="FNW-iZ-s6d" firstAttribute="leading" secondItem="D7Z-rL-Sg4" secondAttribute="leading" id="MQ6-8u-Die"/>
-                    <constraint firstItem="vPp-3w-e5C" firstAttribute="leading" secondItem="crJ-Kw-Yac" secondAttribute="leading" id="QQc-Iy-HQe"/>
-                    <constraint firstItem="vPp-3w-e5C" firstAttribute="bottom" secondItem="crJ-Kw-Yac" secondAttribute="bottom" id="a8o-2K-k2e"/>
-                    <constraint firstItem="dDk-Mh-3Hr" firstAttribute="top" secondItem="crJ-Kw-Yac" secondAttribute="bottom" constant="30" id="fa8-mR-Ufi"/>
-                    <constraint firstItem="D7Z-rL-Sg4" firstAttribute="top" secondItem="crJ-Kw-Yac" secondAttribute="bottom" constant="10" id="nOq-so-IHi"/>
-                    <constraint firstAttribute="trailing" secondItem="crJ-Kw-Yac" secondAttribute="trailing" constant="21" id="neg-CO-BmZ"/>
+                    <constraint firstItem="dDk-Mh-3Hr" firstAttribute="top" secondItem="Ag0-1m-i0S" secondAttribute="bottom" constant="30" id="O3F-Y2-1ab"/>
+                    <constraint firstItem="dDk-Mh-3Hr" firstAttribute="trailing" secondItem="Ag0-1m-i0S" secondAttribute="trailing" id="PWu-Fr-LXN"/>
+                    <constraint firstItem="Ag0-1m-i0S" firstAttribute="leading" secondItem="D7Z-rL-Sg4" secondAttribute="leading" id="ghx-St-v6m"/>
+                    <constraint firstItem="D7Z-rL-Sg4" firstAttribute="top" secondItem="Ag0-1m-i0S" secondAttribute="bottom" constant="10" id="lTj-9b-Ud2"/>
+                    <constraint firstItem="Ag0-1m-i0S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="law-V0-Mes"/>
                     <constraint firstItem="FNW-iZ-s6d" firstAttribute="top" secondItem="D7Z-rL-Sg4" secondAttribute="bottom" constant="5" id="pPl-0Q-XWs"/>
                     <constraint firstItem="dDk-Mh-3Hr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="D7Z-rL-Sg4" secondAttribute="trailing" constant="10" id="r4F-yC-G6I"/>
                     <constraint firstAttribute="bottom" secondItem="FNW-iZ-s6d" secondAttribute="bottom" constant="5" id="r7a-SX-cIW"/>
-                    <constraint firstItem="crJ-Kw-Yac" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="ry9-83-wrq"/>
-                    <constraint firstItem="vPp-3w-e5C" firstAttribute="top" secondItem="crJ-Kw-Yac" secondAttribute="top" id="yC5-CE-DNx"/>
+                    <constraint firstAttribute="trailing" secondItem="Ag0-1m-i0S" secondAttribute="trailing" constant="21" id="r8e-ra-tlV"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="descriptionLabel" destination="FNW-iZ-s6d" id="vhe-gD-O5y"/>
-                <outlet property="imageShadowInnerView" destination="p6J-Lw-wTy" id="VRo-PI-kaz"/>
-                <outlet property="imageShadowView" destination="vPp-3w-e5C" id="flJ-du-fBD"/>
-                <outlet property="linkImageView" destination="crJ-Kw-Yac" id="M6Z-AH-LGs"/>
+                <outlet property="shadowedImageView" destination="Ag0-1m-i0S" id="rOX-Ro-77F"/>
                 <outlet property="titleLabel" destination="D7Z-rL-Sg4" id="K1Z-mp-N4R"/>
             </connections>
             <point key="canvasLocation" x="287.19999999999999" y="227.13643178410797"/>

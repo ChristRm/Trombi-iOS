@@ -38,10 +38,8 @@ struct EmployeeCellModel {
 
 final class EmployeeCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet private weak var imageView: UIImageView?
-    @IBOutlet private weak var imageShadowView: UIView?
-    // to fill content of shadow view(when shadow view is transparent and has no content it does not draw the shadow)
-    @IBOutlet private weak var imageShadowInnerView: UIView?
+    @IBOutlet private weak var imageView: ShadowedImageView?
+
     @IBOutlet private weak var nameLabel: UILabel?
     @IBOutlet private weak var positionLabel: UILabel?
     @IBOutlet private weak var teamLabel: UILabel?
@@ -53,28 +51,17 @@ final class EmployeeCollectionViewCell: UICollectionViewCell {
 
     func setModel(_ model: EmployeeCellModel) {
         let avatarUrl = TrombiApiRequests.baseUrl + model.imageUrl
-        imageView?.sd_setImage(with: URL(string: avatarUrl), completed: nil)
+        imageView?.setImage(with: URL(string: avatarUrl), completed: nil)
+        
+        imageView?.contentMode = .scaleAspectFill
 
         nameLabel?.text = model.nameText
         teamLabel?.text = model.teamNameText
         positionLabel?.text = model.positionText
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        imageView?.layer.cornerRadius = bounds.width * CGFloat(0.06)
-        imageShadowInnerView?.layer.cornerRadius = bounds.width * CGFloat(0.06)
-    }
-
     // MARK: - Private
     private func initShadows() {
-
-        // shadow around image view
-        imageShadowView?.layer.shadowColor = UIColor.black.cgColor
-        imageShadowView?.layer.shadowOffset = CGSize(width: 0, height: 0)
-        imageShadowView?.layer.shadowOpacity = 0.4
-        imageShadowView?.layer.shadowRadius = 5.0
-
         // shadow for team label over the image
         teamLabel?.layer.shadowColor = UIColor.black.cgColor
         teamLabel?.layer.shadowOffset = CGSize(width: 0, height: 1.5)
