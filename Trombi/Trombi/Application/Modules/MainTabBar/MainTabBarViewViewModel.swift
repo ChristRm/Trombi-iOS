@@ -19,6 +19,7 @@ final class MainTabBarViewViewModel {
     // MARK: - Properties
 
     private(set) var homeViewViewModel: HomeViewViewModel = HomeViewViewModel()
+    private(set) var teamsViewViewModel: TeamsViewViewModel = TeamsViewViewModel()
     private(set) var usefulLinksViewViewModel: UsefulLinksViewViewModel = UsefulLinksViewViewModel()
     private(set) var settingsViewViewModel: SettingsViewViewModel = SettingsViewViewModel()
 }
