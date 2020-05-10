@@ -16,46 +16,29 @@ final class FiltersViewViewModel {
 
     private let disposeBag = DisposeBag()
 
-    fileprivate enum FilterCategory: Int {
-        case people = 0
-        case department = 1
-    }
-
-    // MARK: - Properties
-
-    var newcomersFilterSelected: Driver<Bool> { return _newcomersFilterSelected.asDriver() }
+    // MARK: - Input
+    
+    private(set) var lastUpdatedTagCell: BehaviorRelay<FilterTagCellModel?> = BehaviorRelay<FilterTagCellModel?>(value: nil)
+    
+    // MARK: - Output
+    var filtersSections: Driver<[FiltersSection]> { return _filtersSections.asDriver() }
     var filteredTeams: Driver<Set<Team> > { return _filteredTeams.asDriver() }
+    var newcomersFilterSelected: Driver<Bool> { return _newcomersFilterSelected.asDriver() }
 
-
-
+    // 2 combineLatests in order to make a bindings instead
     var filtered: Driver<Bool> {
         return Observable.combineLatest(
             filteredTeams.asObservable(),
-            newcomersFilterSelected.asObservable()
-        ) { (filtered, selected) -> Bool in
+            _newcomersFilterSelected.asObservable()
+        ).map({ [weak self] (filtered, selected) -> Bool in
+            self?.setupTags()
             return !filtered.isEmpty || selected
-            }.asDriver(onErrorJustReturn: false)
+        }).asDriver(onErrorJustReturn: false)
     }
 
-    var sectionsTags: Driver<[Int: [TagCellViewModel]]> { return _sectionsTags.asDriver() }
-
-    var numberOfSections: Int {
-        return _sectionsTags.value.keys.count
-    }
-
-    var tagSectionTitles: [String] {
-        return ["BY PEOPLE", "BY DEPARTMENT"]
-    }
-
-    func numberOfRows(section: Int) -> Int {
-        return _sectionsTags.value[section]!.count
-    }
-
-    private var _newcomersFilterSelected: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
-    private var _filteredTeams: BehaviorRelay<Set<Team> > = BehaviorRelay<Set<Team> >(value: Set<Team>())
-    private var _filtered: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
-
-    private let _sectionsTags = BehaviorRelay<[Int: [TagCellViewModel]]>(value: [:])
+    private let _filteredTeams: BehaviorRelay<Set<Team> > = BehaviorRelay<Set<Team> >(value: Set<Team>())
+    private let _filtersSections = BehaviorRelay<[FiltersSection]>(value: [])
+    private let _newcomersFilterSelected: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
 
     var teams: [Team] {
         didSet {
@@ -65,11 +48,50 @@ final class FiltersViewViewModel {
 
     init(teams: [Team]) {
         self.teams = teams
-        setupTags()
-    }
+        
+        lastUpdatedTagCell.map({ [weak self] newcomersTagCell -> Bool in
+            guard let strongSelf = self else {
+                fatalError("FilterViewViewModel shouldn't be nil here")
+            }
 
-    init() {
-        self.teams = []
+            guard let tagCell = newcomersTagCell else {
+                return strongSelf._newcomersFilterSelected.value
+                // no cell selected, we fallback to existing value
+            }
+            
+            switch tagCell.type {
+            case .team(_):
+                return strongSelf._newcomersFilterSelected.value
+            case .newcomers:
+                return tagCell.selected
+            }
+        }).bind(to: _newcomersFilterSelected).disposed(by: disposeBag)
+
+        lastUpdatedTagCell.map({ [weak self] tagCell -> Set<Team> in
+            guard let strongSelf = self else {
+                fatalError("FilterViewViewModel shouldn't be nil here")
+            }
+
+            guard let tagCell = tagCell else {
+                return strongSelf._filteredTeams.value
+                // if teamTagCell is nil it means the type of cell is not team so we fallback to existing value
+            }
+
+            var newFilteredTeams = strongSelf._filteredTeams.value
+            
+            switch tagCell.type {
+            case .team(let team):
+                if tagCell.selected {
+                    newFilteredTeams.insert(team)
+                } else {
+                    newFilteredTeams.remove(team)
+                }
+                return newFilteredTeams
+            case .newcomers:
+                return newFilteredTeams
+            }
+        }).bind(to: _filteredTeams).disposed(by: disposeBag)
+
         setupTags()
     }
 
@@ -78,52 +100,56 @@ final class FiltersViewViewModel {
     func resetFilters() {
         _filteredTeams.accept(Set<Team>())
         _newcomersFilterSelected.accept(false)
-        setupTags()
-    }
-
-    func viewModelForTag(_ indexPath: IndexPath) -> TagCellViewModel {
-        return _sectionsTags.value[indexPath.section]![indexPath.row]
-    }
-
-    func didChangeTagAt(_ indexPath: IndexPath, selected: Bool) {
-        guard let filterCategory = FilterCategory(rawValue: indexPath.section) else {
-            fatalError("Selected tag does not belong to any category (NumberOfCategories==NumberOfSections)")
-        }
-
-        switch filterCategory {
-        case .people:
-            _newcomersFilterSelected.accept(selected)
-        case .department:
-            var newFilteredTeams = _filteredTeams.value
-            if selected {
-                newFilteredTeams.insert(teams[indexPath.row])
-                _filteredTeams.accept(newFilteredTeams)
-            } else {
-                newFilteredTeams.remove(teams[indexPath.row])
-                _filteredTeams.accept(newFilteredTeams)
-            }
-        }
-
-        setupTags()
     }
 
     // MARK: - Private methods
-    func setupTags() {
-        var tags: [Int: [TagCellViewModel]] = [:]
+    private func setupTags() {
+        var tags: [FiltersSection] = []
 
-        var section1Tags: [TagCellViewModel] = []
-        section1Tags.append(TagCellViewModel(title: "Newcomers", selected: _newcomersFilterSelected.value, type: .other))
+        var section1Tags: [FilterTagCellModel] = []
+        section1Tags.append(
+            FilterTagCellModel(
+                title: "Newcomers",
+                selected: _newcomersFilterSelected.value,
+                type: .newcomers
+            )
+        )
 
-        tags[FilterCategory.people.rawValue] = section1Tags
+        tags.append(
+            FiltersSection(header: FilterCategory.people.title, items: section1Tags)
+        )
 
-        var section2Tags: [TagCellViewModel] = []
+        var section2Tags: [FilterTagCellModel] = []
         section2Tags = teams.compactMap { team in
-            return TagCellViewModel(title: team.name,
-                                    selected: _filteredTeams.value.contains(where: { $0 == team  }),
-                                    type: .department) }
+            return FilterTagCellModel(
+                title: team.name,
+                selected: _filteredTeams.value.contains(where: { $0 == team  }),
+                type: .team(team)
+            )
+        }
 
-        tags[FilterCategory.department.rawValue] = section2Tags
+        tags.append(
+            FiltersSection(header: FilterCategory.team.title, items: section2Tags)
+        )
+        
+        // TODO: bind instead
+        _filtersSections.accept(tags)
+    }
+}
 
-        _sectionsTags.accept(tags)
+extension FiltersViewViewModel {
+    
+    fileprivate enum FilterCategory {
+        case people
+        case team
+        
+        var title: String {
+            switch self {
+            case .people:
+                return "BY PEOPLE"
+            case .team:
+                return "BY DEPARTMENT"
+            }
+        }
     }
 }

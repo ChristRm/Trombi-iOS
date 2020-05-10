@@ -1,5 +1,5 @@
 //
-//  TagCellViewModel.swift
+//  FilterTagCellModel.swift
 //  Trombi
 //
 //  Created by Chris Rusin on 2/13/19.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct TagCellViewModel {
+struct FilterTagCellModel {
     enum CellType {
-        case other
-        case department
+        case newcomers
+        case team(Team)
     }
-
+    
     var title: String
     var selected: Bool
     var type: CellType

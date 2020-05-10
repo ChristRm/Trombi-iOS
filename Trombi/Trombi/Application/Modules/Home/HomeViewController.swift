@@ -84,12 +84,14 @@ final class HomeViewController: UIViewController {
         }
 
         let dataSource =
-            RxCollectionViewSectionedReloadDataSource<EmployeesSection>(configureCell: { (_, collectionView, indexPath, cellModel) -> UICollectionViewCell in
+            RxCollectionViewSectionedReloadDataSource<EmployeesSection>(
+                configureCell: { (_, collectionView, indexPath, cellModel) -> UICollectionViewCell in
                     let cell: EmployeeCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
                     cell.setModel(cellModel)
                     
                     return cell
             })
+
         dataSource.configureSupplementaryView = { (dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
             switch kind {
             case UICollectionView.elementKindSectionHeader:
@@ -121,7 +123,6 @@ final class HomeViewController: UIViewController {
                 
         viewModel.filtersViewViewModel.filtered.drive(onNext: { [weak self] filtered in
             self?.filterBarButtonItem?.image = filtered ? UIImage(named: "icFiltered") : UIImage(named: "icFilter")
-            // TODO: probably is good enough
         }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
     }
 
@@ -137,6 +138,17 @@ final class HomeViewController: UIViewController {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: "EmployeesCollectionViewHeader"
         )
+        
+        collectionView?.rx.modelSelected(EmployeeCellModel.self).subscribe(
+            onNext: { [weak self] cell in
+                self?.performSegue(
+                    withIdentifier: String(describing: EmployeeProfileViewController.self),
+                    sender: cell
+                )
+        }, onError: nil,
+           onCompleted: nil,
+           onDisposed: nil
+        ).disposed(by: disposeBag)
         
         collectionView?.rx.setDelegate(self).disposed(by: disposeBag)
     }

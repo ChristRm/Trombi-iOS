@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		02473C132434963400E2E3AF /* BaseUrlAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02473C122434963400E2E3AF /* BaseUrlAlertController.swift */; };
 		02473C152434964600E2E3AF /* BaseUrlAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02473C142434964600E2E3AF /* BaseUrlAlertViewModel.swift */; };
+		024C8A9024635062003A57B5 /* BottomPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024C8A8F24635062003A57B5 /* BottomPanel.swift */; };
+		024C8A93246359F6003A57B5 /* FiltersSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024C8A92246359F6003A57B5 /* FiltersSection.swift */; };
 		02C318272431F052009CB2F4 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C318252431F052009CB2F4 /* SettingsTableViewCell.swift */; };
 		02C318282431F052009CB2F4 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C318262431F052009CB2F4 /* SettingsTableViewCell.xib */; };
 		02C3182A2432411D009CB2F4 /* SettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C318292432411D009CB2F4 /* SettingsViewViewModel.swift */; };
@@ -56,8 +58,8 @@
 		9D83E3172235774A0042DC0B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D83E3162235774A0042DC0B /* CircleView.swift */; };
 		9D8E92E521F35A6F004B8E9E /* UIView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E92E421F35A6F004B8E9E /* UIView+RoundCorners.swift */; };
 		9D8E92E921F38197004B8E9E /* FiltersViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E92E821F38197004B8E9E /* FiltersViewViewModel.swift */; };
-		9D8E92EE21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E92EC21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift */; };
-		9D8E92EF21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8E92ED21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.xib */; };
+		9D8E92EE21F3CDC2004B8E9E /* TeamTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E92EC21F3CDC2004B8E9E /* TeamTagCollectionViewCell.swift */; };
+		9D8E92EF21F3CDC2004B8E9E /* TeamTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8E92ED21F3CDC2004B8E9E /* TeamTagCollectionViewCell.xib */; };
 		9D92F22E2228A187005C605B /* TrombiTopRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D92F22D2228A187005C605B /* TrombiTopRoundedView.swift */; };
 		9D9E7775236795FF0075FD25 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E7774236795FF0075FD25 /* SearchService.swift */; };
 		9DA1BBB223A66DCF0032E6CD /* LastSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1BBB023A66DCF0032E6CD /* LastSearchTableViewCell.swift */; };
@@ -85,7 +87,7 @@
 		9DEEF2ED21D2693B00509063 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D29BBFE21D2604000EDBCA0 /* Muli-Bold.ttf */; };
 		9DEEF2EE21D2693E00509063 /* Muli-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D29BBFD21D2604000EDBCA0 /* Muli-ExtraBold.ttf */; };
 		9DEEF2EF21D2694000509063 /* Muli-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D29BBFF21D2604000EDBCA0 /* Muli-SemiBold.ttf */; };
-		9DF0A5842214C3E700358A3E /* TagCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF0A5832214C3E700358A3E /* TagCellViewModel.swift */; };
+		9DF0A5842214C3E700358A3E /* FilterTagCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF0A5832214C3E700358A3E /* FilterTagCellModel.swift */; };
 		9DF9590921B2F74E005F024E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9590821B2F74E005F024E /* HomeViewController.swift */; };
 		9DFB774722292A9A00160540 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB774622292A9A00160540 /* CircleImageView.swift */; };
 		FE975D3EDB857291C4B33C91 /* libPods-Trombi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A3D3B164CBEE12469D7207 /* libPods-Trombi.a */; };
@@ -94,6 +96,8 @@
 /* Begin PBXFileReference section */
 		02473C122434963400E2E3AF /* BaseUrlAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlAlertController.swift; sourceTree = "<group>"; };
 		02473C142434964600E2E3AF /* BaseUrlAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlAlertViewModel.swift; sourceTree = "<group>"; };
+		024C8A8F24635062003A57B5 /* BottomPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPanel.swift; sourceTree = "<group>"; };
+		024C8A92246359F6003A57B5 /* FiltersSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersSection.swift; sourceTree = "<group>"; };
 		02C318252431F052009CB2F4 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		02C318262431F052009CB2F4 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		02C318292432411D009CB2F4 /* SettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewViewModel.swift; sourceTree = "<group>"; };
@@ -147,8 +151,8 @@
 		9D83E3162235774A0042DC0B /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		9D8E92E421F35A6F004B8E9E /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 		9D8E92E821F38197004B8E9E /* FiltersViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewViewModel.swift; sourceTree = "<group>"; };
-		9D8E92EC21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		9D8E92ED21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartmentTagCollectionViewCell.xib; sourceTree = "<group>"; };
+		9D8E92EC21F3CDC2004B8E9E /* TeamTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D8E92ED21F3CDC2004B8E9E /* TeamTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		9D92F22D2228A187005C605B /* TrombiTopRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiTopRoundedView.swift; sourceTree = "<group>"; };
 		9D9E7774236795FF0075FD25 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		9DA1BBB023A66DCF0032E6CD /* LastSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -173,7 +177,7 @@
 		9DCF1FD121FD09BA00605CB3 /* OtherTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DCF1FD221FD09BA00605CB3 /* OtherTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		9DE90CCC21A9FB5400AF8DF3 /* TrombiApiRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiApiRequests.swift; sourceTree = "<group>"; };
-		9DF0A5832214C3E700358A3E /* TagCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellViewModel.swift; sourceTree = "<group>"; };
+		9DF0A5832214C3E700358A3E /* FilterTagCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTagCellModel.swift; sourceTree = "<group>"; };
 		9DF9590821B2F74E005F024E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9DFB774622292A9A00160540 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		BBDA1B0C183DCF3EAE7FA4F1 /* Pods-Trombi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trombi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trombi/Pods-Trombi.debug.xcconfig"; sourceTree = "<group>"; };
@@ -346,12 +350,14 @@
 		9D52BB0C21F2036F00962C4D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				024C8A92246359F6003A57B5 /* FiltersSection.swift */,
 				9D52BB1021F2036F00962C4D /* FiltersCollectionViewHeader.xib */,
-				9D8E92EC21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift */,
-				9D8E92ED21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.xib */,
+				9D8E92EC21F3CDC2004B8E9E /* TeamTagCollectionViewCell.swift */,
+				9D8E92ED21F3CDC2004B8E9E /* TeamTagCollectionViewCell.xib */,
 				9DCF1FD121FD09BA00605CB3 /* OtherTagCollectionViewCell.swift */,
 				9DCF1FD221FD09BA00605CB3 /* OtherTagCollectionViewCell.xib */,
-				9DF0A5832214C3E700358A3E /* TagCellViewModel.swift */,
+				9DF0A5832214C3E700358A3E /* FilterTagCellModel.swift */,
+				024C8A8F24635062003A57B5 /* BottomPanel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -374,14 +380,6 @@
 				9D9E7774236795FF0075FD25 /* SearchService.swift */,
 			);
 			path = Search;
-			sourceTree = "<group>";
-		};
-		9D69B61E22A5B6B6008ED9B5 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				9D69B61F22A5B6F1008ED9B5 /* EmployeeSectionModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		9D92F22C2228A179005C605B /* Views */ = {
@@ -430,6 +428,7 @@
 				9D15A8DD22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib */,
 				9D55DF5621C9205C009A983F /* EmployeeCollectionViewCell.swift */,
 				9D55DF5721C9205C009A983F /* EmployeeCollectionViewCell.xib */,
+				9D69B61F22A5B6F1008ED9B5 /* EmployeeSectionModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -518,7 +517,6 @@
 				9D59316023119635004448A2 /* Search */,
 				9D52BAFE21F2034100962C4D /* Filters */,
 				9DAC758421BC463C00BA791D /* Views */,
-				9D69B61E22A5B6B6008ED9B5 /* ViewModels */,
 				9DF9590821B2F74E005F024E /* HomeViewController.swift */,
 				9DAC758921BC4B3000BA791D /* HomeViewViewModel.swift */,
 				9DAC757721BC3C9700BA791D /* Home.storyboard */,
@@ -618,7 +616,7 @@
 				9DA1BBB323A66DCF0032E6CD /* LastSearchTableViewCell.xib in Resources */,
 				9D52BB2F21F2036F00962C4D /* FiltersCollectionViewHeader.xib in Resources */,
 				9D55DF5921C9205C009A983F /* EmployeeCollectionViewCell.xib in Resources */,
-				9D8E92EF21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.xib in Resources */,
+				9D8E92EF21F3CDC2004B8E9E /* TeamTagCollectionViewCell.xib in Resources */,
 				9DEEF2ED21D2693B00509063 /* Muli-Bold.ttf in Resources */,
 				4BA3CFB821A6DA6E003358E6 /* Main.storyboard in Resources */,
 				9DEEF2EE21D2693E00509063 /* Muli-ExtraBold.ttf in Resources */,
@@ -711,12 +709,13 @@
 				9D4936B923CA4C2100805B22 /* UIView+FindFirstTextField.swift in Sources */,
 				9DAFB58C21B332CC0038C680 /* UsefulLink.swift in Sources */,
 				9D9E7775236795FF0075FD25 /* SearchService.swift in Sources */,
-				9D8E92EE21F3CDC2004B8E9E /* DepartmentTagCollectionViewCell.swift in Sources */,
+				9D8E92EE21F3CDC2004B8E9E /* TeamTagCollectionViewCell.swift in Sources */,
 				9D06DDBB21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift in Sources */,
 				9D52BB3921F2036F00962C4D /* FiltersPanelViewController.swift in Sources */,
 				9D1C06B12308642600D20470 /* JSONDecoder+TrombiAPI.swift in Sources */,
 				9DF9590921B2F74E005F024E /* HomeViewController.swift in Sources */,
 				9DAC757D21BC409400BA791D /* UIStoryboard+StoryboardsList.swift in Sources */,
+				024C8A9024635062003A57B5 /* BottomPanel.swift in Sources */,
 				9DAC758C21BC4C2F00BA791D /* MainTabBarViewViewModel.swift in Sources */,
 				02F70558244CC57200287902 /* UINavigationBar+configurate.swift in Sources */,
 				9D52BAF821F1FF5700962C4D /* LayoutAlignment.swift in Sources */,
@@ -725,10 +724,11 @@
 				9D110BA521B5E91200AB0A36 /* TrombiAPI.swift in Sources */,
 				9D3D0C40233FBA2A00CF2590 /* TrombiSearchBar.swift in Sources */,
 				9DA1BBB223A66DCF0032E6CD /* LastSearchTableViewCell.swift in Sources */,
+				024C8A93246359F6003A57B5 /* FiltersSection.swift in Sources */,
 				9D52BAFA21F1FF5700962C4D /* TagCellLayout.swift in Sources */,
 				9D8E92E921F38197004B8E9E /* FiltersViewViewModel.swift in Sources */,
 				9DCF1FD321FD09BA00605CB3 /* OtherTagCollectionViewCell.swift in Sources */,
-				9DF0A5842214C3E700358A3E /* TagCellViewModel.swift in Sources */,
+				9DF0A5842214C3E700358A3E /* FilterTagCellModel.swift in Sources */,
 				4BA3CFB321A6DA6E003358E6 /* AppDelegate.swift in Sources */,
 				9D59316423119699004448A2 /* SearchViewViewModel.swift in Sources */,
 				9D92F22E2228A187005C605B /* TrombiTopRoundedView.swift in Sources */,
@@ -881,16 +881,17 @@
 			baseConfigurationReference = BBDA1B0C183DCF3EAE7FA4F1 /* Pods-Trombi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H3C7AJLC6V;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = MHVMCXP785;
 				INFOPLIST_FILE = Trombi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ChristianRusin.Trombi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ChristianRusin.Trombi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Trombi provisioning profile";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -901,16 +902,17 @@
 			baseConfigurationReference = E4FBF017B55BED3E63668F77 /* Pods-Trombi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H3C7AJLC6V;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = MHVMCXP785;
 				INFOPLIST_FILE = Trombi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ChristianRusin.Trombi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ChristianRusin.Trombi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Trombi provisioning profile";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,5 +1,5 @@
 //
-//  EmployeeSectionModel.swift
+//  EmployeeSection.swift
 //  Trombi
 //
 //  Created by Chris Rusin on 6/3/19.
@@ -13,9 +13,7 @@ struct EmployeesSection: SectionModelType {
     typealias Item = EmployeeCellModel
     
     var header: String
-    
     let rightSideImage: UIImage?
-    
     var items: [Item]
 
     init(original: EmployeesSection, items: [Item]) {
