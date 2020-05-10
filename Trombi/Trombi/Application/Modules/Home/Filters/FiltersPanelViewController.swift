@@ -1,25 +1,12 @@
 //
-//  DashboardBottomBarViewController.swift
-//  Legrand
+//  FiletersPanelViewController.swift
+//  Trombi
 //
 //  Created by Christian Rusin  on 13/09/2018.
-//  Copyright © 2018 Netatmo. All rights reserved.
+//  Copyright © 2018 Chris Rusin. All rights reserved.
 //
 
 import UIKit
-
-protocol BottomPanel {
-    var panelIdentifier: String? { get set }
-    
-    var widthOfPanel: CGFloat { get set }
-    var heightOfPanel: CGFloat { get }
-    
-    var bottomPanelDelegate: BottomPanelDelegate? { get set }
-}
-
-protocol BottomPanelDelegate: class {
-    func bottomPanel(_ dashboardBottomPanel: BottomPanel, willChange height: CGFloat, animated: Bool)
-}
 
 extension FiltersPanelViewController {
     // MARK: - Constants
@@ -165,10 +152,10 @@ final class FiltersPanelViewController: UIViewController {
     }
 }
 
-// MARK: - DasboardBottomBarSizingDelegate
+// MARK: - BottomPanelDelegate
 extension FiltersPanelViewController: BottomPanelDelegate {
     
-    func bottomPanel(_ dashboardBottomBar: BottomPanel, willChange height: CGFloat, animated: Bool) {
+    func bottomPanel(_ bottomPanel: BottomPanel, willChange height: CGFloat, animated: Bool) {
         let animationDuration = animated ? Defaults.updateAnimationDuration : 0.0
 
         UIView.animate(withDuration: animationDuration) {

@@ -46,3 +46,14 @@ struct Employee: Codable {
         return "\(name) \(surname)"
     }
 }
+
+extension Employee {
+    fileprivate enum Defaults {
+        static let secondsInDay = 3600.0 * 24.0
+        static let newcomerInterval: TimeInterval = 30.0 * secondsInDay
+    }
+
+    var isNewcomer: Bool {
+        return arrival > Date().addingTimeInterval(-Defaults.newcomerInterval)
+    }
+}

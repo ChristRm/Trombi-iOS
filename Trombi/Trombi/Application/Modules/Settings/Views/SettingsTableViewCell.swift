@@ -2,7 +2,7 @@
 //  SettingsTableViewCell.swift
 //  Trombi
 //
-//  Created by Pret Netatmo on 30/03/2020.
+//  Created by Christian Rusin on 30/03/2020.
 //  Copyright © 2020 Christian Rusin . All rights reserved.
 //
 

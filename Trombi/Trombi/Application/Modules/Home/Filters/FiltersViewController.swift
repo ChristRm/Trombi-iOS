@@ -1,13 +1,14 @@
 //
 //  FiltersViewController.swift
-//  Legrand
+//  Trombi
 //
-//  Created by Christian Rusin  on 28/08/2018.
-//  Copyright © 2018 Netatmo. All rights reserved.
+//  Created by Christian Rusin on 26/02/2019.
+//  Copyright © 2019 Christian Rusin. All rights reserved.
 //
 
 import UIKit
 import RxSwift
+import RxDataSources
 
 final class FiltersViewController: UIViewController, BottomPanel {
 
@@ -19,10 +20,10 @@ final class FiltersViewController: UIViewController, BottomPanel {
     @IBOutlet private weak var filtersCollectionViewHeightConstraint: NSLayoutConstraint?
     @IBOutlet private weak var bottomViewHeightConstraint: NSLayoutConstraint?
 
-    @IBOutlet weak var resetButton: UIButton?
-    @IBOutlet weak var applyButton: UIButton?
+    @IBOutlet private weak var resetButton: UIButton?
+    @IBOutlet private weak var applyButton: UIButton?
 
-    // MARK: - DasboardBottomBar
+    // MARK: - Bottom panel
     var panelIdentifier: String?
     
     var widthOfPanel: CGFloat = 375.0
@@ -50,6 +51,60 @@ final class FiltersViewController: UIViewController, BottomPanel {
     // MARK: - RxSwift
 
     private let disposeBag = DisposeBag()
+    
+    private let filtersCollectionViewDataSource: RxCollectionViewSectionedReloadDataSource<FiltersSection> = {
+        let dataSource =
+            RxCollectionViewSectionedReloadDataSource<FiltersSection>(configureCell: { (_, collectionView, indexPath, cellModel)
+                -> UICollectionViewCell in
+                
+                // to select items from model
+                if cellModel.selected {
+                    collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                } else {
+                    collectionView.deselectItem(at: indexPath, animated: false)
+                }
+                
+                switch cellModel.type {
+                case .newcomers:
+                    let otherTagCell: OtherTagCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+                    otherTagCell.titleLabel?.text = cellModel.title
+                    otherTagCell.isSelected = cellModel.selected
+                    
+                    return otherTagCell
+                case .team(_):
+                    let teamCell: TeamTagCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+                    
+                    teamCell.titleLabel?.text = cellModel.title
+                    teamCell.isSelected = cellModel.selected
+                    
+                    return teamCell
+                }
+            })
+        
+        dataSource.configureSupplementaryView = { (dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
+            switch kind {
+            case UICollectionView.elementKindSectionHeader:
+                let reusableHeader =
+                    collectionView.dequeueReusableSupplementaryView(
+                        ofKind: UICollectionView.elementKindSectionHeader,
+                        withReuseIdentifier: "FiltersCollectionViewHeader",
+                        for: indexPath
+                )
+                
+                guard let descriptionLabel = reusableHeader.viewWithTag(1) as? UILabel else {
+                    fatalError("could not find description label")
+                }
+                
+                descriptionLabel.text = dataSource.sectionModels[indexPath.section].header
+                
+                return reusableHeader
+                
+            default: fatalError("Unexpected element kind")
+            }
+        }
+        
+        return dataSource
+    }()
 
     // MARK: - Lifecycle
     
@@ -61,35 +116,47 @@ final class FiltersViewController: UIViewController, BottomPanel {
         }
     }
 
-    // MARK: - IBAction
-
-    @IBAction func doneButtonTouched(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func resetButtonTouched(_ sender: Any) {
-
-    }
-
     // MARK: - binding ViewModel
     private func bindViewModel(_ viewModel: FiltersViewViewModel) {
-        viewModel.sectionsTags.drive(onNext: { [weak self] (_) in
-            self?.filtersCollectionView?.reloadData()
-        }).disposed(by: disposeBag)
-
+        
         guard let resetButton = resetButton else { print("Reset button is not set up") ; return }
+        
+        guard let applyButton = applyButton else { print("Apply button is not set up") ; return }
+        
+        guard let filtersCollectionView = filtersCollectionView else {
+            print("Filters collection view is not set up") ; return
+        }
+        
         viewModel.filtered.drive(resetButton.rx.isSelected).disposed(by: disposeBag)
-
+        
         resetButton.rx.controlEvent(.touchUpInside).bind { [weak self] in
             self?.viewModel?.resetFilters()
         }.disposed(by: disposeBag)
+        
+        applyButton.rx.controlEvent(.touchUpInside).bind { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }.disposed(by: disposeBag)
+
+        viewModel.filtersSections.drive(
+            filtersCollectionView.rx.items(dataSource: filtersCollectionViewDataSource)
+        ).disposed(by: disposeBag)
+        
+        filtersCollectionView.rx.modelSelected(FilterTagCellModel.self).map({ tag -> FilterTagCellModel in
+            var newTag = tag
+            newTag.selected = true
+            return newTag
+        }).bind(to: viewModel.lastUpdatedTagCell).disposed(by: disposeBag)
+        
+        filtersCollectionView.rx.modelDeselected(FilterTagCellModel.self).map({ tag -> FilterTagCellModel in
+            var newTag = tag
+            newTag.selected = false
+            return newTag
+        }).bind(to: viewModel.lastUpdatedTagCell).disposed(by: disposeBag)
     }
 
     // MARK: - Private methods
 
-    func configureFiltersCollectionView() {
-        filtersCollectionView?.delegate = self
-        filtersCollectionView?.dataSource = self
+    private func configureFiltersCollectionView() {
         filtersCollectionView?.allowsSelection = true
         filtersCollectionView?.allowsMultipleSelection = true
 
@@ -98,110 +165,17 @@ final class FiltersViewController: UIViewController, BottomPanel {
             withReuseIdentifier: "FiltersCollectionViewHeader")
 
         filtersCollectionView?.registerReusableCell(type: OtherTagCollectionViewCell.self)
-        filtersCollectionView?.registerReusableCell(type: DepartmentTagCollectionViewCell.self)
+        filtersCollectionView?.registerReusableCell(type: TeamTagCollectionViewCell.self)
 
         let tagCellLayout = TagCellLayout(alignment: .left, delegate: self)
         filtersCollectionView?.collectionViewLayout = tagCellLayout
     }
 }
 
-// MARK: - UICollectionViewDataSource
-extension FiltersViewController: UICollectionViewDataSource {
-
-    // MARK: - Collection View Data Source
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return viewModel?.numberOfSections ?? 0
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.numberOfRows(section: section) ?? 0
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let viewModel = viewModel else {
-            fatalError("View model is nil but collection view is not empty")
-        }
-
-        let tagViewModel = viewModel.viewModelForTag(indexPath)
-        switch tagViewModel.type {
-        case .other:
-            let otherTagCell: OtherTagCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-            otherTagCell.titleLabel?.text = tagViewModel.title
-            otherTagCell.isSelected = tagViewModel.selected
-
-            if tagViewModel.selected {
-                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-            } else {
-                collectionView.deselectItem(at: indexPath, animated: false)
-            }
-
-            return otherTagCell
-        case .department:
-            let departmentCell: DepartmentTagCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-            departmentCell.titleLabel?.text = tagViewModel.title
-            departmentCell.isSelected = tagViewModel.selected
-
-            if tagViewModel.selected {
-                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-            } else {
-                collectionView.deselectItem(at: indexPath, animated: false)
-            }
-
-            return departmentCell
-        }
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        viewForSupplementaryElementOfKind kind: String,
-                        at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let viewModel = viewModel else {
-            fatalError("View model is nil but collection view is not empty")
-        }
-
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            let reusableHeader =
-                collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                withReuseIdentifier: "FiltersCollectionViewHeader",
-                                                                for: indexPath)
-
-            guard let descriptionLabel = reusableHeader.viewWithTag(1) as? UILabel else {
-                fatalError("could not find description label")
-            }
-
-            descriptionLabel.text = viewModel.tagSectionTitles[indexPath.section]
-
-            return reusableHeader
-
-        default: fatalError("Unexpected element kind")
-        }
-    }
-}
-
-// MARK: - UICollectionViewDelegate
-extension FiltersViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel?.didChangeTagAt(indexPath, selected: true)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        viewModel?.didChangeTagAt(indexPath, selected: false)
-    }
-}
-
 extension FiltersViewController: TagCellLayoutDelegate {
     func tagCellLayoutTagSize(layout: TagCellLayout, at indexPath: IndexPath) -> CGSize {
-        guard let viewModel = viewModel else {
-            fatalError("View model is nil but collection view is not empty")
-        }
-
-        let tagViewModel = viewModel.viewModelForTag(indexPath)
-        var width: CGFloat = min(calculateWidthOfText(tagViewModel.title), maximumTagWidth)
+        let tagModel = filtersCollectionViewDataSource.sectionModels[indexPath.section].items[indexPath.row]
+        var width: CGFloat = min(calculateWidthOfText(tagModel.title), maximumTagWidth)
         width = max(minimumTagWidth, width)
 
         return CGSize(width: width, height: 50.0)

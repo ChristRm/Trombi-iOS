@@ -18,10 +18,10 @@
 	<string>0.1</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>CFPlugInDynamicRegisterFunction</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -29,6 +29,10 @@
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>For being able to set persons date of birth reminder</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Fuck you</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Fuck off</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Muli-Bold.ttf</string>
@@ -50,11 +54,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
-	<key>CFPlugInDynamicRegisterFunction</key>
-	<string></string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Fuck off</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Fuck you</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

@@ -1,5 +1,5 @@
 //
-//  DepartmentTagCollectionViewCell.swift
+//  TeamTagCollectionViewCell.swift
 //  Trombi
 //
 //  Created by Chris Rusin on 1/19/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DepartmentTagCollectionViewCell: UICollectionViewCell {
+class TeamTagCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel?
 
     override func awakeFromNib() {

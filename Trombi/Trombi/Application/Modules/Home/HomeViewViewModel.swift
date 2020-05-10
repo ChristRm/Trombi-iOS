@@ -1,5 +1,5 @@
 //
-//  EmployeesViewViewModel.swift
+//  HomeViewViewModel.swift
 //  Trombi
 //
 //  Created by Chris Rusin on 12/8/18.
@@ -12,10 +12,6 @@ import RxSwift
 
 // MARK: - Constants
 extension HomeViewViewModel {
-    fileprivate enum Defaults {
-        static let secondsInDay = 3600.0 * 24.0
-        static let newcomerInterval: TimeInterval = 30.0 * secondsInDay
-    }
 }
 
 final class HomeViewViewModel {
@@ -31,70 +27,46 @@ final class HomeViewViewModel {
     var applicationData: ApplicationData = ApplicationData() {
         didSet {
             filtersViewViewModel.teams = applicationData.teams
-            _employeesSections.accept(getEemployeesSections())
+            // subscribe to updates from filter panel and genrerate filtered data
+            Observable.combineLatest(
+                filtersViewViewModel.filteredTeams.asObservable(),
+                filtersViewViewModel.newcomersFilterSelected.asObservable()
+            ).map({ (filteredTeams, newcomersFilterSelected) -> [EmployeesSection] in
+                return self.getEemployeesSections(filteredTeams: filteredTeams, sortByNewcomers: newcomersFilterSelected)
+                }).bind(to: _employeesSections).disposed(by: disposeBag)
         }
     }
-
+    // MARK: - Output
     var employeesSections: Driver<[EmployeesSection]> { return _employeesSections.asDriver() }
 
     // MARK: - Private properties
 
     private let _employeesSections = BehaviorRelay<[EmployeesSection]>(value: [])
-    private var filteredTeams: Set<Team> = Set<Team>() {
-        didSet {
-            _employeesSections.accept(getEemployeesSections())
-        }
-    }
-
-    private var sortByNewcomers: Bool = false {
-        didSet {
-            _employeesSections.accept(getEemployeesSections())
-        }
-    }
-
-    // MARK: - Public interface
-
-    init() {
-        filtersViewViewModel.filteredTeams.drive(onNext: { teams in
-            self.filteredTeams = Set<Team>(teams)
-        }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
-
-        filtersViewViewModel.newcomersFilterSelected.drive(onNext: { newcomers in
-            self.sortByNewcomers = newcomers
-        }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
-    }
-
-    func numberOfEmployeesSections() -> Int {
-        return _employeesSections.value.count
-    }
-
-    func employeeSectionAtIndex(_ index: Int) -> EmployeesSection {
-        return _employeesSections.value[index]
-    }
 }
 
 // MARK: - Private interface
 extension HomeViewViewModel {
 
-    private typealias SortedEmployees = (section: String, employees: [Employee])
-
-    fileprivate func getEemployeesSections() -> [EmployeesSection] {
-        let filteredEmployees = filterEmployees(applicationData.employees)
-        let sortedEmployees = sortEmployeesBySections(filteredEmployees)
+    fileprivate func getEemployeesSections(
+        filteredTeams: Set<Team>,
+        sortByNewcomers: Bool
+    ) -> [EmployeesSection] {
+        let filteredEmployees = filterEmployees(applicationData.employees, filteredTeams: filteredTeams)
+        let sortedEmployees = sortEmployeesBySections(filteredEmployees, sortByNewcomers: sortByNewcomers)
 
         return sortedEmployees
     }
 
-    private func sortEmployeesBySections(_ employees: [Employee]) -> [EmployeesSection] {
+    private func sortEmployeesBySections(_ employees: [Employee], sortByNewcomers: Bool) -> [EmployeesSection] {
         var result: [EmployeesSection] = []
 
         if sortByNewcomers {
-            let newcomers = employees.filter { isEmployeeNewcomer($0) }
+            let newcomers = employees.filter { $0.isNewcomer }
             result.append(
                 EmployeesSection(
-                    title: "Newcomers",
+                    header: "Newcomers",
                     rightSideImage: UIImage(named: "sayHi") ?? nil,
-                    cells: newcomers.map({ employeeInfo($0) }))
+                    items: newcomers.map({ employeeInfo($0) }))
             )
         }
 
@@ -102,7 +74,7 @@ extension HomeViewViewModel {
 
             var employeesStartedWithLetter = employees.filter {
                 //do not include newcomers as they if they are filtered to another section already
-                if sortByNewcomers && isEmployeeNewcomer($0) {
+                if sortByNewcomers && $0.isNewcomer {
                     return false
                 } else {
                     return $0.surname.first == letter
@@ -112,22 +84,25 @@ extension HomeViewViewModel {
 
             // return from loop closure if there is no employee starting with this letter
             guard !employeesStartedWithLetter.isEmpty else { return }
+            let employeesSection = EmployeesSection(
+                header: String(letter),
+                rightSideImage: nil,
+                items: employeesStartedWithLetter.map({ employeeInfo($0) })
+            )
 
-            result.append(EmployeesSection(title: String(letter),
-                                           rightSideImage: nil,
-                                           cells: employeesStartedWithLetter.map({ employeeInfo($0) })))
+            result.append(employeesSection)
         }
 
         return result
     }
 
-    private func filterEmployees(_ employees: [Employee]) -> [Employee] {
+    private func filterEmployees(_ employees: [Employee], filteredTeams: Set<Team>) -> [Employee] {
         var filteredEmployees: [Employee] = employees
 
         if !filteredTeams.isEmpty {
             filteredEmployees = filteredEmployees.filter({
                 if let teamOfEmployee = self.applicationData.teamOfEmployee($0) {
-                    return self.filteredTeams.contains(teamOfEmployee)
+                    return filteredTeams.contains(teamOfEmployee)
                 } else {
                     return false
                 }
@@ -142,10 +117,6 @@ extension HomeViewViewModel {
             employee: employee,
             team: applicationData.teamOfEmployee(employee)
         )
-    }
-
-    private func isEmployeeNewcomer(_ employee: Employee) -> Bool {
-        return employee.arrival > Date().addingTimeInterval(-Defaults.newcomerInterval)
     }
 
     private var alphabet: [Character] {
