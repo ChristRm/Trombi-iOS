@@ -33,7 +33,7 @@ class UsefulLinkTableViewCell: UITableViewCell {
         if model.imageUrl.isEmpty {
             linkImageView?.image = UIImage(named: "defaultLink")
         } else {
-            linkImageView?.sd_setImage(with: URL(string: model.imageUrl), completed: nil)
+            linkImageView?.sd_setImage(with: URL(string: model.imageUrl), placeholderImage: UIImage(named: "defaultLink"), completed: nil)
         }
 
         titleLabel?.text = model.title

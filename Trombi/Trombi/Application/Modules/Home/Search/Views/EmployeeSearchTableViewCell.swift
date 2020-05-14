@@ -44,7 +44,11 @@ final class EmployeeSearchTableViewCell: UITableViewCell {
 
     func setModel(_ model: EmployeeSearchCellModel) {
         let avatarUrl = TrombiApiRequests.baseUrl + model.imageUrl
-        avatarImageView?.sd_setImage(with: URL(string: avatarUrl), completed: nil)
+        avatarImageView?.sd_setImage(
+            with: URL(string: avatarUrl),
+            placeholderImage: UIImage(named: "imgPlaceholder3"),
+            completed: nil
+        )
 
         nameLabel?.text = model.nameText
         teamLabel?.text = model.teamNameText

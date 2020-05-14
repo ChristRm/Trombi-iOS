@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,13 +19,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icSplash" translatesAutoresizingMaskIntoConstraints="NO" id="bln-j9-4x0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLogoTrombi" translatesAutoresizingMaskIntoConstraints="NO" id="rnc-QF-ue8">
+                                <rect key="frame" x="117" y="260.5" width="141" height="146"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bln-j9-4x0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="F4u-zX-dvz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bln-j9-4x0" secondAttribute="trailing" id="Kkg-5J-u1D"/>
-                            <constraint firstAttribute="bottom" secondItem="bln-j9-4x0" secondAttribute="bottom" id="c2z-k5-Jki"/>
-                            <constraint firstItem="bln-j9-4x0" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="d6x-lw-ehq"/>
+                            <constraint firstItem="bln-j9-4x0" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="P7M-Sz-r6g"/>
+                            <constraint firstItem="bln-j9-4x0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="giK-Dm-Rsg"/>
+                            <constraint firstItem="rnc-QF-ue8" firstAttribute="centerX" secondItem="bln-j9-4x0" secondAttribute="centerX" id="gig-rS-Qz5"/>
+                            <constraint firstItem="bln-j9-4x0" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="jqN-En-oPH"/>
+                            <constraint firstItem="rnc-QF-ue8" firstAttribute="centerY" secondItem="bln-j9-4x0" secondAttribute="centerY" id="ksm-2h-acD"/>
+                            <constraint firstItem="bln-j9-4x0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wjy-DW-eIR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +41,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icSplash" width="1125" height="2436"/>
+        <image name="icLogoTrombi" width="141" height="146"/>
+        <image name="icSplash" width="375" height="812"/>
     </resources>
 </document>

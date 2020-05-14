@@ -57,19 +57,19 @@ final class SplashViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
 
-    @IBOutlet private weak var backgroundGradientView: UIView!
+//    @IBOutlet private weak var backgroundGradientView: UIView!
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = [#colorLiteral(red: 0.9803921569, green: 0.6705882353, blue: 0.0862745098, alpha: 1).cgColor, #colorLiteral(red: 1, green: 0.4274509804, blue: 0.1137254902, alpha: 1).cgColor]
-
-        gradientLayer.shouldRasterize = true
-
-        backgroundGradientView.layer.addSublayer(gradientLayer)
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.frame = view.bounds
+//        gradientLayer.colors = [#colorLiteral(red: 0.9803921569, green: 0.6705882353, blue: 0.0862745098, alpha: 1).cgColor, #colorLiteral(red: 1, green: 0.4274509804, blue: 0.1137254902, alpha: 1).cgColor]
+//
+//        gradientLayer.shouldRasterize = true
+//
+//        backgroundGradientView.layer.addSublayer(gradientLayer)
         activityIndicatorView.startAnimating()
     }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nrq-ZS-9kC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nrq-ZS-9kC">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,26 +38,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjV-bN-rdS">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icSplash" translatesAutoresizingMaskIntoConstraints="NO" id="wNV-l8-bLH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLogoTrombi" translatesAutoresizingMaskIntoConstraints="NO" id="Upm-gx-WN0">
-                                <rect key="frame" x="117" y="260.5" width="141" height="146"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Y8K-At-pop">
-                                <rect key="frame" x="177.5" y="426.5" width="20" height="20"/>
+                                <rect key="frame" x="167.5" y="426.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="BoU-0t-MwJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="Vo0-ee-10K"/>
+                                </constraints>
                             </activityIndicatorView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLogoTrombi" translatesAutoresizingMaskIntoConstraints="NO" id="3np-Rh-xWR">
+                                <rect key="frame" x="117" y="260.5" width="141" height="146"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Upm-gx-WN0" firstAttribute="centerY" secondItem="jaC-bD-B2g" secondAttribute="centerY" id="2ij-Bu-pJi"/>
-                            <constraint firstItem="Y8K-At-pop" firstAttribute="centerX" secondItem="SjV-bN-rdS" secondAttribute="centerX" id="3gs-NR-Vhp"/>
-                            <constraint firstItem="jaC-bD-B2g" firstAttribute="bottom" secondItem="SjV-bN-rdS" secondAttribute="bottom" id="6Oy-Ow-RL9"/>
-                            <constraint firstItem="Upm-gx-WN0" firstAttribute="centerX" secondItem="jaC-bD-B2g" secondAttribute="centerX" id="b7W-kv-vqA"/>
-                            <constraint firstItem="jaC-bD-B2g" firstAttribute="trailing" secondItem="SjV-bN-rdS" secondAttribute="trailing" id="lxL-TG-la8"/>
-                            <constraint firstItem="SjV-bN-rdS" firstAttribute="top" secondItem="1un-6a-vKQ" secondAttribute="top" id="oUD-Qa-Dv2"/>
-                            <constraint firstItem="SjV-bN-rdS" firstAttribute="leading" secondItem="jaC-bD-B2g" secondAttribute="leading" id="qUJ-xP-Q8Y"/>
-                            <constraint firstItem="Y8K-At-pop" firstAttribute="top" secondItem="Upm-gx-WN0" secondAttribute="bottom" constant="20" id="xcc-hr-Sdk"/>
+                            <constraint firstItem="wNV-l8-bLH" firstAttribute="top" secondItem="1un-6a-vKQ" secondAttribute="top" id="1he-LT-FwE"/>
+                            <constraint firstItem="3np-Rh-xWR" firstAttribute="centerY" secondItem="wNV-l8-bLH" secondAttribute="centerY" id="IEu-fM-BJk"/>
+                            <constraint firstAttribute="bottom" secondItem="wNV-l8-bLH" secondAttribute="bottom" id="JCc-I8-xZk"/>
+                            <constraint firstItem="wNV-l8-bLH" firstAttribute="leading" secondItem="jaC-bD-B2g" secondAttribute="leading" id="OKx-sv-ifV"/>
+                            <constraint firstItem="Y8K-At-pop" firstAttribute="centerX" secondItem="wNV-l8-bLH" secondAttribute="centerX" id="Qnr-Jb-vSC"/>
+                            <constraint firstItem="Y8K-At-pop" firstAttribute="top" secondItem="3np-Rh-xWR" secondAttribute="bottom" constant="20" id="W6d-fT-APn"/>
+                            <constraint firstItem="3np-Rh-xWR" firstAttribute="centerX" secondItem="wNV-l8-bLH" secondAttribute="centerX" id="cYH-Jz-DtX"/>
+                            <constraint firstItem="jaC-bD-B2g" firstAttribute="trailing" secondItem="wNV-l8-bLH" secondAttribute="trailing" id="lTO-Rk-y02"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jaC-bD-B2g"/>
                     </view>
@@ -65,12 +69,11 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="Y8K-At-pop" id="Rtg-qq-Wby"/>
-                        <outlet property="backgroundGradientView" destination="SjV-bN-rdS" id="ceB-dH-yHB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJc-sQ-s69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="-143"/>
+            <point key="canvasLocation" x="540" y="-143.47826086956522"/>
         </scene>
         <!--Home-->
         <scene sceneID="5Hu-Eq-pkO">
@@ -195,6 +198,10 @@
                     <navigationItem key="navigationItem" id="OG1-5D-joF"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XhW-EM-XOi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLogoTrombi" id="1eW-f8-EFb">
+                    <rect key="frame" x="0.0" y="0.0" width="141" height="146"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </objects>
             <point key="canvasLocation" x="-1395" y="1115"/>
         </scene>
@@ -206,6 +213,7 @@
         <image name="icLinksActive" width="25" height="25"/>
         <image name="icLogoTrombi" width="141" height="146"/>
         <image name="icSettings" width="25" height="25"/>
+        <image name="icSplash" width="375" height="812"/>
         <image name="icTeams" width="25" height="25"/>
         <image name="icTeamsActive" width="25" height="25"/>
     </resources>

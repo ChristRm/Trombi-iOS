@@ -53,7 +53,12 @@ final class EmployeeCollectionViewCell: UICollectionViewCell {
 
     func setModel(_ model: EmployeeCellModel) {
         let avatarUrl = TrombiApiRequests.baseUrl + model.imageUrl
-        imageView?.sd_setImage(with: URL(string: avatarUrl), completed: nil)
+
+        imageView?.sd_setImage(
+            with: URL(string: avatarUrl),
+            placeholderImage: UIImage(named: "imgPlaceholder1"),
+            completed: nil
+        )
 
         nameLabel?.text = model.nameText
         teamLabel?.text = model.teamNameText
