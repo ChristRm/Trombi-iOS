@@ -62,12 +62,14 @@ extension HomeViewViewModel {
 
         if sortByNewcomers {
             let newcomers = employees.filter { $0.isNewcomer }
-            result.append(
-                EmployeesSection(
-                    header: "Newcomers",
-                    rightSideImage: UIImage(named: "sayHi") ?? nil,
-                    items: newcomers.map({ employeeInfo($0) }))
-            )
+            if !newcomers.isEmpty {
+                result.append(
+                    EmployeesSection(
+                        header: "Newcomers",
+                        rightSideImage: UIImage(named: "sayHi") ?? nil,
+                        items: newcomers.map({ employeeInfo($0) }))
+                )
+            }
         }
 
         alphabet.forEach { letter in
