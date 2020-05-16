@@ -28,11 +28,7 @@
 		<true/>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string>For being able to set persons date of birth reminder</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Fuck you</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Fuck off</string>
+	<string>For being able to set persons date of birth event</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Muli-Bold.ttf</string>
