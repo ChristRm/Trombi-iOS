@@ -17,7 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EmployeesCollectionViewHeader" id="BpN-ab-1u5">
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EmployeesCollectionViewHeader" id="BpN-ab-1u5" customClass="EmployeesCollectionViewHeader" customModule="Trombi" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
@@ -69,6 +69,10 @@
                 <constraint firstItem="bcQ-8Y-mPe" firstAttribute="leading" secondItem="gZW-7A-XK1" secondAttribute="trailing" id="xrP-68-h22"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="CeZ-Db-FJx"/>
+            <connections>
+                <outlet property="descriptionLeftLabel" destination="ClL-gp-Anm" id="VWg-JX-1sC"/>
+                <outlet property="rightSideimageView" destination="jnb-ln-gJU" id="8i2-EX-MO2"/>
+            </connections>
             <point key="canvasLocation" x="351.19999999999999" y="53.973013493253376"/>
         </collectionReusableView>
     </objects>

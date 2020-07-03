@@ -33,6 +33,7 @@
 		9D2071E323B151BF00082181 /* UsefulLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2071E123B151BF00082181 /* UsefulLinkTableViewCell.xib */; };
 		9D297E3A24154190008E1A00 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D297E3924154190008E1A00 /* Settings.storyboard */; };
 		9D297E3C24154263008E1A00 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D297E3B24154263008E1A00 /* SettingsViewController.swift */; };
+		9D2F8D9824AF57FA00EC277C /* EmployeesCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F8D9724AF57FA00EC277C /* EmployeesCollectionViewHeader.swift */; };
 		9D3967B421CEE07A0087CEA7 /* UIColor+Trombi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3967B321CEE07A0087CEA7 /* UIColor+Trombi.swift */; };
 		9D3967B821CEE12E0087CEA7 /* UIColor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3967B721CEE12E0087CEA7 /* UIColor+Convenience.swift */; };
 		9D3D0C40233FBA2A00CF2590 /* TrombiSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D0C3F233FBA2A00CF2590 /* TrombiSearchBar.swift */; };
@@ -126,6 +127,7 @@
 		9D29BBFD21D2604000EDBCA0 /* Muli-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraBold.ttf"; sourceTree = "<group>"; };
 		9D29BBFE21D2604000EDBCA0 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
 		9D29BBFF21D2604000EDBCA0 /* Muli-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-SemiBold.ttf"; sourceTree = "<group>"; };
+		9D2F8D9724AF57FA00EC277C /* EmployeesCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesCollectionViewHeader.swift; sourceTree = "<group>"; };
 		9D3967B321CEE07A0087CEA7 /* UIColor+Trombi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Trombi.swift"; sourceTree = "<group>"; };
 		9D3967B721CEE12E0087CEA7 /* UIColor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Convenience.swift"; sourceTree = "<group>"; };
 		9D3D0C3F233FBA2A00CF2590 /* TrombiSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiSearchBar.swift; sourceTree = "<group>"; };
@@ -426,8 +428,9 @@
 			isa = PBXGroup;
 			children = (
 				9D15A8DD22BFE0FF007E1C73 /* EmployeesCollectionViewHeader.xib */,
-				9D55DF5621C9205C009A983F /* EmployeeCollectionViewCell.swift */,
+				9D2F8D9724AF57FA00EC277C /* EmployeesCollectionViewHeader.swift */,
 				9D55DF5721C9205C009A983F /* EmployeeCollectionViewCell.xib */,
+				9D55DF5621C9205C009A983F /* EmployeeCollectionViewCell.swift */,
 				9D69B61F22A5B6F1008ED9B5 /* EmployeeSectionModel.swift */,
 			);
 			path = Views;
@@ -695,6 +698,7 @@
 				9D69B62022A5B6F1008ED9B5 /* EmployeeSectionModel.swift in Sources */,
 				9D59316223119668004448A2 /* SearchViewController.swift in Sources */,
 				9D8E92E521F35A6F004B8E9E /* UIView+RoundCorners.swift in Sources */,
+				9D2F8D9824AF57FA00EC277C /* EmployeesCollectionViewHeader.swift in Sources */,
 				9D2071DC23B1484A00082181 /* UsefulLinksViewViewModel.swift in Sources */,
 				9D2071E223B151BF00082181 /* UsefulLinkTableViewCell.swift in Sources */,
 				9D52BAF721F1FF5700962C4D /* LayoutInfo.swift in Sources */,

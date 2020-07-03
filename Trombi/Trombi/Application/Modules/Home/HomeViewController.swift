@@ -95,24 +95,13 @@ final class HomeViewController: UIViewController {
         dataSource.configureSupplementaryView = { (dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
             switch kind {
             case UICollectionView.elementKindSectionHeader:
-                let reusableHeader =
-                    collectionView.dequeueReusableSupplementaryView(
-                        ofKind: UICollectionView.elementKindSectionHeader,
-                        withReuseIdentifier: "EmployeesCollectionViewHeader",
-                        for: indexPath
-                )
-                
-                guard let descriptionLabel = reusableHeader.viewWithTag(1) as? UILabel else {
-                    fatalError("could not find the description label")
-                }
-                
-                guard let rightSideImageView = reusableHeader.viewWithTag(2) as? UIImageView else {
-                    fatalError("could not find the image")
-                }
-                
+                let reusableHeader: EmployeesCollectionViewHeader =
+                    collectionView.dequeueReusableHeader(for: indexPath)
+
                 let section = dataSource.sectionModels[indexPath.section]
-                descriptionLabel.text = section.header
-                rightSideImageView.image = section.rightSideImage
+
+                reusableHeader.setDescriptionLeftLabel(section.header)
+                reusableHeader.setRightSideImage(section.rightSideImage)
                 
                 return reusableHeader
             default: fatalError("Unexpected element kind")
@@ -130,15 +119,8 @@ final class HomeViewController: UIViewController {
 
     private func setupCollectionView() {
         collectionView?.registerReusableCell(type: EmployeeCollectionViewCell.self)
-        collectionView?.register(
-            UINib(
-                nibName: "EmployeesCollectionViewHeader",
-                bundle: nil
-            ),
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: "EmployeesCollectionViewHeader"
-        )
-        
+        collectionView?.registerReusableHeader(type: EmployeesCollectionViewHeader.self)
+
         collectionView?.rx.modelSelected(EmployeeCellModel.self).subscribe(
             onNext: { [weak self] cell in
                 self?.performSegue(

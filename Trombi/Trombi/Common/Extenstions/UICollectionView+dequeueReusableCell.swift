@@ -22,4 +22,24 @@ extension UICollectionView {
 
         return cell
     }
+
+    func registerReusableHeader<T: UICollectionReusableView>(type: T.Type) {
+        register(
+            UINib(nibName: T.staticReuseIdentifier, bundle: nil),
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: T.staticReuseIdentifier
+        )
+    }
+
+    func dequeueReusableHeader<T: UICollectionReusableView>(for indexPath: IndexPath) -> T {
+        guard let reusableHeader = dequeueReusableSupplementaryView(
+            ofKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: T.staticReuseIdentifier,
+            for: indexPath
+            ) as? T else {
+                fatalError("Unable to Dequeue Reusable Table View Header")
+        }
+
+        return reusableHeader
+    }
 }
