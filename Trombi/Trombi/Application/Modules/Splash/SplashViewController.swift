@@ -43,8 +43,8 @@ final class SplashViewController: UIViewController {
 
         activityIndicatorView.isHidden = false
 
-        observable.subscribe({ [weak self] event in
-            DispatchQueue.main.async {
+        observable.observeOn(MainScheduler.instance)
+            .subscribe({ [weak self] event in
                 self?.activityIndicatorView.isHidden = true
                 switch event {
                 case .next(let applicationData):
@@ -53,7 +53,6 @@ final class SplashViewController: UIViewController {
                     self?.handleError(error as NSError)
                 default: break
                 }
-            }
         }).disposed(by: disposeBag)
     }
 
@@ -93,48 +92,43 @@ final class SplashViewController: UIViewController {
     }
     
     private func showSetBaseUrlAlert() {
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            
-            let alert = BaseUrlAlertController(currentBaseUrl: TrombiApiRequests.baseUrl)
-            alert.acceptedWithBaseUrl.asObservable().filter({ baseUrl -> Bool in
-                return baseUrl != nil
-            }).subscribe({ event in
-                switch event {
-                case .next(_):
-                    strongSelf.getApplicationData()
-                default:
-                    break
-                }
-            }).disposed(by: strongSelf.disposeBag)
-            
-            alert.canceledWithBaseUrl.asObservable().filter({ baseUrl -> Bool in
-                return baseUrl != nil
-            }).subscribe({ event in
-                switch event {
-                case .next(let value):
-                    strongSelf.getApplicationData()
-                default:
-                    break
-                }
-            }).disposed(by: strongSelf.disposeBag)
-            self?.present(alert, animated: true, completion: nil)
-        }
+        let alert = BaseUrlAlertController(currentBaseUrl: TrombiApiRequests.baseUrl)
+        alert.acceptedWithBaseUrl.asObservable().filter({ baseUrl -> Bool in
+            return baseUrl != nil
+        }).subscribe({ [weak self] event in
+            switch event {
+            case .next(_):
+                self?.getApplicationData()
+            default:
+                break
+            }
+        }).disposed(by: disposeBag)
+
+        alert.canceledWithBaseUrl.asObservable().filter({ baseUrl -> Bool in
+            return baseUrl != nil
+        }).subscribe({ [weak self] event in
+            switch event {
+            case .next(let value):
+                self?.getApplicationData()
+            default:
+                break
+            }
+        }).disposed(by: disposeBag)
+
+        present(alert, animated: true, completion: nil)
     }
     
     private func showErrorAlert(description: String) {
-        DispatchQueue.main.async { [weak self] in
-            let alert = UIAlertController(
-                title: "Error",
-                message: description,
-                preferredStyle: .alert
-            )
+        let alert = UIAlertController(
+            title: "Error",
+            message: description,
+            preferredStyle: .alert
+        )
 
-            alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { [weak self] _ in
-                self?.getApplicationData()
-            }))
+        alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { [weak self] _ in
+            self?.getApplicationData()
+        }))
 
-            self?.present(alert, animated: true, completion: nil)
-        }
+        self.present(alert, animated: true, completion: nil)
     }
 }
