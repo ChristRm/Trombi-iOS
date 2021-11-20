@@ -252,7 +252,6 @@
 				F9D38C6169D2C0A894BC4803 /* Pods-Trombi.debug.xcconfig */,
 				EF641BDFB69056756631271F /* Pods-Trombi.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -887,6 +886,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = MHVMCXP785;
 				INFOPLIST_FILE = Trombi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -894,6 +894,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChristianRusin.Trombi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Trombi provisioning profile";
@@ -908,6 +909,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = MHVMCXP785;
 				INFOPLIST_FILE = Trombi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -915,6 +917,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChristianRusin.Trombi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Trombi provisioning profile";
