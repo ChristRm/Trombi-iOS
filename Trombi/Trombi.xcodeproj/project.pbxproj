@@ -15,6 +15,7 @@
 		02C318282431F052009CB2F4 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C318262431F052009CB2F4 /* SettingsTableViewCell.xib */; };
 		02C3182A2432411D009CB2F4 /* SettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C318292432411D009CB2F4 /* SettingsViewViewModel.swift */; };
 		02F70558244CC57200287902 /* UINavigationBar+configurate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F70557244CC57200287902 /* UINavigationBar+configurate.swift */; };
+		118492F5429998B2F936E9AE /* libPods-Trombi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0154AAA732CFCBB9555EB9E5 /* libPods-Trombi.a */; };
 		4BA3CFB321A6DA6E003358E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB221A6DA6E003358E6 /* AppDelegate.swift */; };
 		4BA3CFB821A6DA6E003358E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB621A6DA6E003358E6 /* Main.storyboard */; };
 		4BA3CFBA21A6DA6F003358E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */; };
@@ -91,10 +92,10 @@
 		9DF0A5842214C3E700358A3E /* FilterTagCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF0A5832214C3E700358A3E /* FilterTagCellModel.swift */; };
 		9DF9590921B2F74E005F024E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9590821B2F74E005F024E /* HomeViewController.swift */; };
 		9DFB774722292A9A00160540 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB774622292A9A00160540 /* CircleImageView.swift */; };
-		FE975D3EDB857291C4B33C91 /* libPods-Trombi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A3D3B164CBEE12469D7207 /* libPods-Trombi.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0154AAA732CFCBB9555EB9E5 /* libPods-Trombi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Trombi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02473C122434963400E2E3AF /* BaseUrlAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlAlertController.swift; sourceTree = "<group>"; };
 		02473C142434964600E2E3AF /* BaseUrlAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlAlertViewModel.swift; sourceTree = "<group>"; };
 		024C8A8F24635062003A57B5 /* BottomPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPanel.swift; sourceTree = "<group>"; };
@@ -109,7 +110,6 @@
 		4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BA3CFBC21A6DA6F003358E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BA3CFBE21A6DA6F003358E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52A3D3B164CBEE12469D7207 /* libPods-Trombi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Trombi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D06DDBA21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeueReusableCell.swift"; sourceTree = "<group>"; };
 		9D110BA421B5E91200AB0A36 /* TrombiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiAPI.swift; sourceTree = "<group>"; };
 		9D128258234129C000261AB6 /* EmployeeSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeSearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -182,8 +182,8 @@
 		9DF0A5832214C3E700358A3E /* FilterTagCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTagCellModel.swift; sourceTree = "<group>"; };
 		9DF9590821B2F74E005F024E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9DFB774622292A9A00160540 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
-		BBDA1B0C183DCF3EAE7FA4F1 /* Pods-Trombi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trombi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trombi/Pods-Trombi.debug.xcconfig"; sourceTree = "<group>"; };
-		E4FBF017B55BED3E63668F77 /* Pods-Trombi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trombi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trombi/Pods-Trombi.release.xcconfig"; sourceTree = "<group>"; };
+		EF641BDFB69056756631271F /* Pods-Trombi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trombi.release.xcconfig"; path = "Target Support Files/Pods-Trombi/Pods-Trombi.release.xcconfig"; sourceTree = "<group>"; };
+		F9D38C6169D2C0A894BC4803 /* Pods-Trombi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trombi.debug.xcconfig"; path = "Target Support Files/Pods-Trombi/Pods-Trombi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE975D3EDB857291C4B33C91 /* libPods-Trombi.a in Frameworks */,
+				118492F5429998B2F936E9AE /* libPods-Trombi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,8 +221,8 @@
 			children = (
 				4BA3CFB121A6DA6E003358E6 /* Trombi */,
 				4BA3CFB021A6DA6E003358E6 /* Products */,
-				92B1D4A8E0F82941C3F59AA4 /* Pods */,
-				BB02F9D70BF22F699EDFE6C2 /* Frameworks */,
+				775D4545808F2476CDC03A4A /* Pods */,
+				D4D3842528730A7F9876C6DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,13 +246,14 @@
 			path = Trombi;
 			sourceTree = "<group>";
 		};
-		92B1D4A8E0F82941C3F59AA4 /* Pods */ = {
+		775D4545808F2476CDC03A4A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BBDA1B0C183DCF3EAE7FA4F1 /* Pods-Trombi.debug.xcconfig */,
-				E4FBF017B55BED3E63668F77 /* Pods-Trombi.release.xcconfig */,
+				F9D38C6169D2C0A894BC4803 /* Pods-Trombi.debug.xcconfig */,
+				EF641BDFB69056756631271F /* Pods-Trombi.release.xcconfig */,
 			);
 			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		9D187E8D23B409A20080033E /* Splash */ = {
@@ -527,10 +528,10 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		BB02F9D70BF22F699EDFE6C2 /* Frameworks */ = {
+		D4D3842528730A7F9876C6DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				52A3D3B164CBEE12469D7207 /* libPods-Trombi.a */,
+				0154AAA732CFCBB9555EB9E5 /* libPods-Trombi.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -542,7 +543,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BA3CFC121A6DA6F003358E6 /* Build configuration list for PBXNativeTarget "Trombi" */;
 			buildPhases = (
-				AB395DE11C586C9FD745E94C /* [CP] Check Pods Manifest.lock */,
+				224C69204F5166C21EA7B772 /* [CP] Check Pods Manifest.lock */,
 				4BA3CFAB21A6DA6E003358E6 /* Sources */,
 				4BA3CFAC21A6DA6E003358E6 /* Frameworks */,
 				4BA3CFAD21A6DA6E003358E6 /* Resources */,
@@ -630,25 +631,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9D57279121B2D5B100F9AC38 /* Swiftlint run script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Swiftlint run script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect --config \".swiftlint.auto.yml\"\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		AB395DE11C586C9FD745E94C /* [CP] Check Pods Manifest.lock */ = {
+		224C69204F5166C21EA7B772 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -669,6 +652,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9D57279121B2D5B100F9AC38 /* Swiftlint run script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swiftlint run script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect --config \".swiftlint.auto.yml\"\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -882,7 +883,7 @@
 		};
 		4BA3CFC221A6DA6F003358E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBDA1B0C183DCF3EAE7FA4F1 /* Pods-Trombi.debug.xcconfig */;
+			baseConfigurationReference = F9D38C6169D2C0A894BC4803 /* Pods-Trombi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -903,7 +904,7 @@
 		};
 		4BA3CFC321A6DA6F003358E6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4FBF017B55BED3E63668F77 /* Pods-Trombi.release.xcconfig */;
+			baseConfigurationReference = EF641BDFB69056756631271F /* Pods-Trombi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;

@@ -9,9 +9,9 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.4.2):
     - RxAtomic (>= 4.4.2, ~> 4.4)
-  - SDWebImage (4.4.7):
-    - SDWebImage/Core (= 4.4.7)
-  - SDWebImage/Core (4.4.7)
+  - SDWebImage (4.4.8):
+    - SDWebImage/Core (= 4.4.8)
+  - SDWebImage/Core (4.4.8)
 
 DEPENDENCIES:
   - RxCocoa (~> 4.4.0)
@@ -20,7 +20,7 @@ DEPENDENCIES:
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Differentiator
     - RxAtomic
     - RxCocoa
@@ -34,8 +34,8 @@ SPEC CHECKSUMS:
   RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
-  SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
+  SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
 
 PODFILE CHECKSUM: e4ad74b65c368390ff918f6de599d4fb669cb597
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.11.2
