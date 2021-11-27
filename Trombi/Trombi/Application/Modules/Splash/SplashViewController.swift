@@ -97,7 +97,7 @@ final class SplashViewController: UIViewController {
             return baseUrl != nil
         }).subscribe({ [weak self] event in
             switch event {
-            case .next(_):
+            case .next:
                 self?.getApplicationData()
             default:
                 break
@@ -108,7 +108,7 @@ final class SplashViewController: UIViewController {
             return baseUrl != nil
         }).subscribe({ [weak self] event in
             switch event {
-            case .next(let value):
+            case .next:
                 self?.getApplicationData()
             default:
                 break

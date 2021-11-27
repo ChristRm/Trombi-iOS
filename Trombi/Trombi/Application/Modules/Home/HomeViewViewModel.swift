@@ -10,19 +10,23 @@ import Foundation
 import RxCocoa
 import RxSwift
 
+protocol HomeViewViewModelInterface: ApplicationDataInjecting {
+    // MARK: - Output
+    var employeesSections: Driver<[EmployeesSection]> { get }
+    var filtersViewViewModel: FiltersViewViewModel { get }
+}
+
 // MARK: - Constants
 extension HomeViewViewModel {
 }
 
-final class HomeViewViewModel {
+final class HomeViewViewModel: HomeViewViewModelInterface {
 
     // MARK: - RxSwift
 
     private let disposeBag = DisposeBag()
 
     // MARK: - Properties
-
-    var filtersViewViewModel: FiltersViewViewModel = FiltersViewViewModel(teams: [])
 
     var applicationData: ApplicationData = ApplicationData() {
         didSet {
@@ -38,7 +42,8 @@ final class HomeViewViewModel {
     }
     // MARK: - Output
     var employeesSections: Driver<[EmployeesSection]> { return _employeesSections.asDriver() }
-
+    var filtersViewViewModel: FiltersViewViewModel = FiltersViewViewModel(teams: [])
+    
     // MARK: - Private properties
 
     private let _employeesSections = BehaviorRelay<[EmployeesSection]>(value: [])
@@ -75,7 +80,7 @@ extension HomeViewViewModel {
         alphabet.forEach { letter in
 
             var employeesStartedWithLetter = employees.filter {
-                //do not include newcomers as they if they are filtered to another section already
+                // do not include newcomers as they if they are filtered to another section already
                 if sortByNewcomers && $0.isNewcomer {
                     return false
                 } else {

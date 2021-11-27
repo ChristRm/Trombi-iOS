@@ -20,6 +20,7 @@
 		4BA3CFB821A6DA6E003358E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB621A6DA6E003358E6 /* Main.storyboard */; };
 		4BA3CFBA21A6DA6F003358E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */; };
 		4BA3CFBD21A6DA6F003358E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFBB21A6DA6F003358E6 /* LaunchScreen.storyboard */; };
+		4F9AA99A27497C1500EE12E9 /* ApplicationDataInjecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9AA99927497C1500EE12E9 /* ApplicationDataInjecting.swift */; };
 		9D06DDBB21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D06DDBA21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift */; };
 		9D110BA521B5E91200AB0A36 /* TrombiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D110BA421B5E91200AB0A36 /* TrombiAPI.swift */; };
 		9D12825A234129C100261AB6 /* EmployeeSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D128258234129C000261AB6 /* EmployeeSearchTableViewCell.xib */; };
@@ -110,6 +111,7 @@
 		4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BA3CFBC21A6DA6F003358E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BA3CFBE21A6DA6F003358E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F9AA99927497C1500EE12E9 /* ApplicationDataInjecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDataInjecting.swift; sourceTree = "<group>"; };
 		9D06DDBA21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeueReusableCell.swift"; sourceTree = "<group>"; };
 		9D110BA421B5E91200AB0A36 /* TrombiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiAPI.swift; sourceTree = "<group>"; };
 		9D128258234129C000261AB6 /* EmployeeSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeSearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -244,6 +246,14 @@
 				4BA3CFBE21A6DA6F003358E6 /* Info.plist */,
 			);
 			path = Trombi;
+			sourceTree = "<group>";
+		};
+		4F9AA99827497BFF00EE12E9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4F9AA99927497C1500EE12E9 /* ApplicationDataInjecting.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		775D4545808F2476CDC03A4A /* Pods */ = {
@@ -458,6 +468,7 @@
 		9DE90CCA21A9F9C300AF8DF3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4F9AA99827497BFF00EE12E9 /* Protocols */,
 				9D5429DE23AFE49C000C3721 /* Structures */,
 				9D92F22C2228A179005C605B /* Views */,
 				9DAC757921BC3EF100BA791D /* Extenstions */,
@@ -668,7 +679,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect --config \".swiftlint.auto.yml\"\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -696,6 +707,7 @@
 				9DAC758121BC453500BA791D /* ReusableView.swift in Sources */,
 				9D5429E023AFE4AA000C3721 /* Stack.swift in Sources */,
 				9D69B62022A5B6F1008ED9B5 /* EmployeeSectionModel.swift in Sources */,
+				4F9AA99A27497C1500EE12E9 /* ApplicationDataInjecting.swift in Sources */,
 				9D59316223119668004448A2 /* SearchViewController.swift in Sources */,
 				9D8E92E521F35A6F004B8E9E /* UIView+RoundCorners.swift in Sources */,
 				9D2F8D9824AF57FA00EC277C /* EmployeesCollectionViewHeader.swift in Sources */,

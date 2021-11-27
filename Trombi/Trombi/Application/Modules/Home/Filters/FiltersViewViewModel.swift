@@ -10,17 +10,32 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class FiltersViewViewModel {
+protocol FiltersViewViewModelInterface {
+    
+    // MARK: - Input
+    var lastUpdatedTagCell: BehaviorRelay<FilterTagCellModel?> { get }
+    
+    var resetFilters: PublishRelay<Void> { get }
+    
+    // MARK: - Output
+    var filtersSections: Driver<[FiltersSection]> { get }
+    var filteredTeams: Driver<Set<Team> > { get }
+    var newcomersFilterSelected: Driver<Bool> { get }
+    
+    var filtered: Driver<Bool> { get }
+}
+
+final class FiltersViewViewModel: FiltersViewViewModelInterface {
 
     // MARK: - RxSwift
 
     private let disposeBag = DisposeBag()
 
-    // MARK: - Input
+    // MARK: - FiltersViewViewModelInterface
     
     private(set) var lastUpdatedTagCell: BehaviorRelay<FilterTagCellModel?> = BehaviorRelay<FilterTagCellModel?>(value: nil)
+    private(set) var resetFilters = PublishRelay<Void>()
     
-    // MARK: - Output
     var filtersSections: Driver<[FiltersSection]> { return _filtersSections.asDriver() }
     var filteredTeams: Driver<Set<Team> > { return _filteredTeams.asDriver() }
     var newcomersFilterSelected: Driver<Bool> { return _newcomersFilterSelected.asDriver() }
@@ -60,7 +75,7 @@ final class FiltersViewViewModel {
             }
             
             switch tagCell.type {
-            case .team(_):
+            case .team:
                 return strongSelf._newcomersFilterSelected.value
             case .newcomers:
                 return tagCell.selected
@@ -92,12 +107,16 @@ final class FiltersViewViewModel {
             }
         }).bind(to: _filteredTeams).disposed(by: disposeBag)
 
+        resetFilters.subscribe(onNext: { [weak self] in
+            self?.resetAllFilters()
+        }).disposed(by: disposeBag)
+        
         setupTags()
     }
 
     // MARK: - Public interface
 
-    func resetFilters() {
+    private func resetAllFilters() {
         _filteredTeams.accept(Set<Team>())
         _newcomersFilterSelected.accept(false)
     }

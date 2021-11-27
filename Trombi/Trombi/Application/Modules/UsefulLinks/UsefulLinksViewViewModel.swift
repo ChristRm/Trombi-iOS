@@ -9,24 +9,19 @@
 import RxSwift
 import RxCocoa
 
-final class UsefulLinksViewViewModel {
+protocol UsefulLinksViewViewModelInterface: ApplicationDataInjecting {
+    // MARK: - Input
+    var selectedItem: BehaviorRelay<Int?> { get }
+
+    // MARK: - Output
+    var usefulLinksTable: Driver<[UsefulLinkCellModel]> { get }
+    var openUrl: Signal<String> { get }
+}
+
+final class UsefulLinksViewViewModel: UsefulLinksViewViewModelInterface {
 
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
-    
-    var applicationData: ApplicationData = ApplicationData() {
-        didSet {
-            let usefulLinkCellsModels = applicationData.usefuleLinks.map({ usefulLink in
-                return UsefulLinkCellModel(
-                    imageUrl: usefulLink.imageUrl,
-                    title: usefulLink.title,
-                    description: usefulLink.description
-                )
-            })
-
-            _usefulLinksTable.accept(usefulLinkCellsModels)
-        }
-    }
 
     init() {
         selectedItem.subscribe { [weak self] event in
@@ -41,12 +36,25 @@ final class UsefulLinksViewViewModel {
         }.disposed(by: disposeBag)
     }
 
-    // MARK: - Input
+    // MARK: - UsefulLinksViewViewModelInterface
     private(set) var selectedItem: BehaviorRelay<Int?> = BehaviorRelay<Int?>(value: nil)
 
-    // MARK: - Output
     var usefulLinksTable: Driver<[UsefulLinkCellModel]> { return _usefulLinksTable.asDriver() }
     var openUrl: Signal<String> { return _openUrl.asSignal(onErrorJustReturn: "") }
+    
+    public var applicationData: ApplicationData = ApplicationData() {
+        didSet {
+            let usefulLinkCellsModels = applicationData.usefuleLinks.map({ usefulLink in
+                return UsefulLinkCellModel(
+                    imageUrl: usefulLink.imageUrl,
+                    title: usefulLink.title,
+                    description: usefulLink.description
+                )
+            })
+
+            _usefulLinksTable.accept(usefulLinkCellsModels)
+        }
+    }
 
     // MARK: - Private properties
     private let _usefulLinksTable = BehaviorRelay<[UsefulLinkCellModel]>(value: [])

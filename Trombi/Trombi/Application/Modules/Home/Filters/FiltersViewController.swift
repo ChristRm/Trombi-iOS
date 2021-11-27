@@ -46,7 +46,7 @@ final class FiltersViewController: UIViewController, BottomPanel {
     weak var bottomPanelDelegate: BottomPanelDelegate?
     
     // MARK: - ViewModel
-    var viewModel: FiltersViewViewModel?
+    var viewModel: FiltersViewViewModelInterface?
 
     // MARK: - RxSwift
 
@@ -71,7 +71,7 @@ final class FiltersViewController: UIViewController, BottomPanel {
                     otherTagCell.isSelected = cellModel.selected
                     
                     return otherTagCell
-                case .team(_):
+                case .team:
                     let teamCell: TeamTagCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
                     
                     teamCell.titleLabel?.text = cellModel.title
@@ -117,7 +117,7 @@ final class FiltersViewController: UIViewController, BottomPanel {
     }
 
     // MARK: - binding ViewModel
-    private func bindViewModel(_ viewModel: FiltersViewViewModel) {
+    private func bindViewModel(_ viewModel: FiltersViewViewModelInterface) {
         
         guard let resetButton = resetButton else { print("Reset button is not set up") ; return }
         
@@ -130,7 +130,7 @@ final class FiltersViewController: UIViewController, BottomPanel {
         viewModel.filtered.drive(resetButton.rx.isSelected).disposed(by: disposeBag)
         
         resetButton.rx.controlEvent(.touchUpInside).bind { [weak self] in
-            self?.viewModel?.resetFilters()
+            self?.viewModel?.resetFilters.accept(Void())
         }.disposed(by: disposeBag)
         
         applyButton.rx.controlEvent(.touchUpInside).bind { [weak self] in

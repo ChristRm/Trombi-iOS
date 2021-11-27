@@ -10,7 +10,18 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-fileprivate extension SettingsViewViewModel {
+protocol SettingsViewViewModelInterface {
+    // MARK: - Input
+    var selectedItem: BehaviorRelay<Int?> { get }
+    var finishedWithBaseUrl: BehaviorRelay<String?> { get }
+    
+    // MARK: - Output
+    var settingsTable: Driver<[String]> { get }
+    var openAlertWithCurrentBaseUrl: Signal<String?> { get }
+    var sendEmailToAdress: Signal<String?> { get }
+}
+
+extension SettingsViewViewModel: SettingsViewViewModelInterface {
 
     enum Defaults {
         static let helpUrl: String = "christianrusinm@gmail.com"
@@ -27,11 +38,10 @@ final class SettingsViewViewModel {
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
     
-    // MARK: - Input
+    // MARK: - SettingsViewViewModelInterface
     private(set) var selectedItem: BehaviorRelay<Int?> = BehaviorRelay<Int?>(value: nil)
     private(set) var finishedWithBaseUrl: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     
-    // MARK: - Output
     let settingsTable: Driver<[String]> = {
         BehaviorRelay<[String]>(value: SettingsRow.allCases.compactMap({ return $0.rawValue })).asDriver()
     }()

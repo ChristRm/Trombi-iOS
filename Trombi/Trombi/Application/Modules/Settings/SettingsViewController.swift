@@ -16,7 +16,7 @@ class SettingsViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
     // MARK: - ViewModel
-    var viewModel: SettingsViewViewModel?
+    var viewModel: SettingsViewViewModelInterface?
 
     // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView?
@@ -42,7 +42,7 @@ class SettingsViewController: UIViewController {
     }
     
     // MARK: - binding ViewModel
-    private func bindViewModel(_ viewModel: SettingsViewViewModel) {
+    private func bindViewModel(_ viewModel: SettingsViewViewModelInterface) {
         guard let tableView = tableView else {
             print("Table view is not set up")
             return

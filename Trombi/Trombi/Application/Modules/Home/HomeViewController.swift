@@ -14,7 +14,7 @@ import RxDataSources
 final class HomeViewController: UIViewController {
 
     // MARK: - ViewModel
-    var viewModel: HomeViewViewModel?
+    var viewModel: HomeViewViewModelInterface?
 
     // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView?
@@ -77,7 +77,7 @@ final class HomeViewController: UIViewController {
     }
 
     // MARK: - binding ViewModel
-    private func bindViewModel(_ viewModel: HomeViewViewModel) {
+    private func bindViewModel(_ viewModel: HomeViewViewModelInterface) {
         guard let collectionView = collectionView else {
             print("collectionView is not set up")
             return

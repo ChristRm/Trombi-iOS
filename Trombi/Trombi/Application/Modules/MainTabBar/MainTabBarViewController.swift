@@ -17,7 +17,7 @@ final class MainTabBarViewController: UITabBarController {
 
     // MARK: - Properties
 
-    var viewModel: MainTabBarViewViewModel?
+    var viewModel: MainTabBarViewViewModelInterface?
 
     private var splashViewController: SplashViewController?
 
@@ -42,7 +42,7 @@ final class MainTabBarViewController: UITabBarController {
             self.splashViewController = splashViewController
             self.splashViewController?.applicationData.asObservable().subscribe({ [weak self] event in
                 switch event {
-                case .completed, .error(_):
+                case .completed, .error:
                     break
                 case .next(let applicationData):
                     if let safeApplicationData = applicationData {
@@ -73,7 +73,7 @@ final class MainTabBarViewController: UITabBarController {
                         return baseUrl != nil
                     }).subscribe({ [weak self] event in
                         switch event {
-                        case .next(_):
+                        case .next:
                             if let splashViewController = self?.splashViewController {
                                 self?.present(splashViewController, animated: false, completion: nil)
                             } else {

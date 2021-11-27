@@ -71,7 +71,7 @@ final class EmployeeProfileViewController: UIViewController {
             fatalError("Employee and Team is not setup in EmployeeProfileViewController")
         }
         
-        //TODO: missing manager
+        // TODO: missing manager
         managerRedirectButton?.setTitle("Missing", for: .normal)
         teamRedirectButton?.setTitle(team.name, for: .normal)
         nameLabel?.text = employee.name + " " + employee.surname
@@ -186,7 +186,7 @@ extension EmployeeProfileViewController: UITableViewDataSource {
         var rows: [UserProfileRow] {
             switch self {
             case .userInfo:
-                return [.email]//, .skype, .phone]
+                return [.email]// , .skype, .phone]
             case .additionalInfo:
                 return [.birthday, .arrival]
             }

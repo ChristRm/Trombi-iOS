@@ -17,7 +17,7 @@ final class UsefulLinksViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
     // MARK: - ViewModel
-    var viewModel: UsefulLinksViewViewModel?
+    var viewModel: UsefulLinksViewViewModelInterface?
 
     // MARK: - IBOutlets
 
@@ -39,7 +39,7 @@ final class UsefulLinksViewController: UIViewController {
     }
 
     // MARK: - binding ViewModel
-    private func bindViewModel(_ viewModel: UsefulLinksViewViewModel) {
+    private func bindViewModel(_ viewModel: UsefulLinksViewViewModelInterface) {
         guard let tableView = tableView else {
             print("tableView is not set up")
             return

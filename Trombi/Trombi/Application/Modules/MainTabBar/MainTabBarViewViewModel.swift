@@ -10,7 +10,13 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class MainTabBarViewViewModel {
+protocol MainTabBarViewViewModelInterface {
+    var homeViewViewModel: HomeViewViewModelInterface { get set }
+    var usefulLinksViewViewModel: UsefulLinksViewViewModelInterface { get set }
+    var settingsViewViewModel: SettingsViewViewModelInterface { get set }
+}
+
+final class MainTabBarViewViewModel: MainTabBarViewViewModelInterface {
 
     // MARK: - RxSwift
 
@@ -18,7 +24,7 @@ final class MainTabBarViewViewModel {
 
     // MARK: - Properties
 
-    private(set) var homeViewViewModel: HomeViewViewModel = HomeViewViewModel()
-    private(set) var usefulLinksViewViewModel: UsefulLinksViewViewModel = UsefulLinksViewViewModel()
-    private(set) var settingsViewViewModel: SettingsViewViewModel = SettingsViewViewModel()
+    var homeViewViewModel: HomeViewViewModelInterface = HomeViewViewModel()
+    var usefulLinksViewViewModel: UsefulLinksViewViewModelInterface = UsefulLinksViewViewModel()
+    var settingsViewViewModel: SettingsViewViewModelInterface = SettingsViewViewModel()
 }

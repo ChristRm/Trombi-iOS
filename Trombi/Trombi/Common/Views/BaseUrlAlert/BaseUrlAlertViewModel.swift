@@ -33,7 +33,7 @@ class BaseUrlAlertViewModel {
     private func setup() {
         enteredBaseUrl.map({ baseUrl -> Bool in
             guard let baseUrl = baseUrl, !baseUrl.isEmpty,
-                let _ = URL(string: baseUrl + EndpointsHelper.Resource.getPersons) else {
+                URL(string: baseUrl + EndpointsHelper.Resource.getPersons) != nil else {
                     return false
             }
             

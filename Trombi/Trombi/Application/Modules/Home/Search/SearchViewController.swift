@@ -22,7 +22,7 @@ final class SearchViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
     // MARK: - ViewModel
-    var viewModel: SearchViewViewModel?
+    var viewModel: SearchViewViewModelInterface?
 
     // MARK: - Properties
     private lazy var trombiSearchBar = TrombiSearchBar(frame: .zero)
@@ -58,7 +58,7 @@ final class SearchViewController: UIViewController {
     }
 
     // MARK: - binding ViewModel
-    private func bindViewModel(_ viewModel: SearchViewViewModel) {
+    private func bindViewModel(_ viewModel: SearchViewViewModelInterface) {
         viewModel.searchTable
             .asObservable()
             .bind(to: tableView.rx.items) { (tableView, row, searchDataModel) -> UITableViewCell in
@@ -88,7 +88,7 @@ final class SearchViewController: UIViewController {
         trombiSearchBar.rx.searchButtonClicked.subscribe { [weak self] _ in
             self?.trombiSearchBar.resignFirstResponder()
             if let text = self?.trombiSearchBar.text {
-                self?.viewModel?.addLastSearch(text)
+                self?.viewModel?.lastSearch.onNext(text)
             }
         }.disposed(by: disposeBag)
 

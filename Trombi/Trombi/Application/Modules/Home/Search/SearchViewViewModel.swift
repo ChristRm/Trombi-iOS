@@ -11,7 +11,22 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-final class SearchViewViewModel {
+protocol SearchViewViewModelInterface {
+    // MARK: - Input
+    var enteredSearch: BehaviorRelay<String> { get }
+    var selectedItem: BehaviorRelay<Int?> { get }
+    
+    var lastSearch: PublishSubject<String> { get }
+
+    // MARK: - Output
+    var noResultsIsHidden: Driver<Bool> { get }
+    var searchTable: Driver<[SearchTableElementModel]> { get }
+    var openEmployee: Signal<(Employee, Team)?> { get }
+
+    var forcedSearchText: Driver<String?> { get }
+}
+
+final class SearchViewViewModel: SearchViewViewModelInterface {
 
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
@@ -19,11 +34,12 @@ final class SearchViewViewModel {
     // MARK: - Properties
     let applicationData: ApplicationData
 
-    // MARK: - Input
-    private(set) var enteredSearch: BehaviorRelay = BehaviorRelay<String>(value: "")
+    // MARK: - SearchViewViewModelInterface
+    private(set) var enteredSearch: BehaviorRelay<String> = BehaviorRelay<String>(value: "")
     private(set) var selectedItem: BehaviorRelay<Int?> = BehaviorRelay<Int?>(value: nil)
+    
+    private(set) var lastSearch: PublishSubject<String> = PublishSubject<String>()
 
-    // MARK: - Output
     var noResultsIsHidden: Driver<Bool> { return _noResultsIsHidden.asDriver() }
     var searchTable: Driver<[SearchTableElementModel]> { return _searchTable.asDriver() }
     var openEmployee: Signal<(Employee, Team)?> { return _openEmployee.asSignal(onErrorJustReturn: nil) }
@@ -76,7 +92,7 @@ final class SearchViewViewModel {
             case .next(let row):
                 if let row = row, let tableModel = self?._searchTable.value[row] {
                     switch tableModel {
-                    case .employee(_):
+                    case .employee:
                         if let selectedFoundEmployee = self?.foundEmployees[row],
                             let team = self?.applicationData.teamOfEmployee(selectedFoundEmployee) {
                             self?._openEmployee.accept((selectedFoundEmployee, team))
@@ -88,6 +104,11 @@ final class SearchViewViewModel {
             default: break
             }
         }.disposed(by: disposeBag)
+        
+        lastSearch.subscribe(onNext: { [weak self] lastSearch in
+            self?.addLastSearch(lastSearch)
+        })
+        .disposed(by: disposeBag)
     }
 
     private func searchEmployee(searchFragment: String) -> [EmployeeSearchCellModel] {
@@ -104,9 +125,7 @@ final class SearchViewViewModel {
         )
     }
 
-    // MARK: - Public interface
-
-    func addLastSearch(_ lastSearch: String) {
+    private func addLastSearch(_ lastSearch: String) {
         let lastSearches = UserDefaults.lastSearches
 
         var queue = Queue<String>(maximumSize: 3, incomingOrder: lastSearches)
