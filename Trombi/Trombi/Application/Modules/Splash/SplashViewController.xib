@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashViewController" customModule="Trombi" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicatorView" destination="d4C-f5-r90" id="2WD-3K-09m"/>
+                <outlet property="view" destination="rdG-ff-hQq" id="YDy-Zk-R6N"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="rdG-ff-hQq">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icSplash" translatesAutoresizingMaskIntoConstraints="NO" id="wEc-To-2fz">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="d4C-f5-r90">
+                    <rect key="frame" x="187" y="541" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="aNd-Sf-BJW"/>
+                        <constraint firstAttribute="width" constant="40" id="wpi-9b-jVE"/>
+                    </constraints>
+                </activityIndicatorView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLogoTrombi" translatesAutoresizingMaskIntoConstraints="NO" id="DGC-2S-oot">
+                    <rect key="frame" x="136.5" y="375" width="141" height="146"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="IHC-8j-TXA"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="wEc-To-2fz" firstAttribute="top" secondItem="rdG-ff-hQq" secondAttribute="top" id="AHR-aF-ANr"/>
+                <constraint firstItem="DGC-2S-oot" firstAttribute="centerX" secondItem="wEc-To-2fz" secondAttribute="centerX" id="GEz-LX-qrz"/>
+                <constraint firstItem="wEc-To-2fz" firstAttribute="leading" secondItem="IHC-8j-TXA" secondAttribute="leading" id="Iho-nX-2Jl"/>
+                <constraint firstItem="IHC-8j-TXA" firstAttribute="trailing" secondItem="wEc-To-2fz" secondAttribute="trailing" id="Nn6-0m-JdL"/>
+                <constraint firstAttribute="bottom" secondItem="wEc-To-2fz" secondAttribute="bottom" id="Ymo-8R-Lzr"/>
+                <constraint firstItem="DGC-2S-oot" firstAttribute="centerY" secondItem="wEc-To-2fz" secondAttribute="centerY" id="and-Cj-cKz"/>
+                <constraint firstItem="d4C-f5-r90" firstAttribute="top" secondItem="DGC-2S-oot" secondAttribute="bottom" constant="20" id="cSe-0b-Oym"/>
+                <constraint firstItem="d4C-f5-r90" firstAttribute="centerX" secondItem="wEc-To-2fz" secondAttribute="centerX" id="jUe-dC-58c"/>
+            </constraints>
+            <point key="canvasLocation" x="-561" y="-216"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icLogoTrombi" width="141" height="146"/>
+        <image name="icSplash" width="375" height="812"/>
+    </resources>
+</document>

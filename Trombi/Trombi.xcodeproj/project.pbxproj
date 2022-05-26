@@ -20,7 +20,16 @@
 		4BA3CFB821A6DA6E003358E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB621A6DA6E003358E6 /* Main.storyboard */; };
 		4BA3CFBA21A6DA6F003358E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */; };
 		4BA3CFBD21A6DA6F003358E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3CFBB21A6DA6F003358E6 /* LaunchScreen.storyboard */; };
+		4F3FDE91283FC30C008A5082 /* MainTabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FDE90283FC30C008A5082 /* MainTabbarCoordinator.swift */; };
+		4F3FDE94283FC95B008A5082 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FDE93283FC95B008A5082 /* ApplicationCoordinator.swift */; };
+		4F3FDE96283FCB1E008A5082 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FDE95283FCB1E008A5082 /* CoordinatorFactory.swift */; };
+		4F3FDE98283FCF73008A5082 /* Resultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FDE97283FCF73008A5082 /* Resultable.swift */; };
+		4F3FDE9C283FD4F4008A5082 /* UIViewController+xib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FDE9B283FD4F4008A5082 /* UIViewController+xib.swift */; };
+		4F3FDE9E283FD537008A5082 /* NSObject+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FDE9D283FD537008A5082 /* NSObject+Bundle.swift */; };
+		4F3FDEA2283FD93C008A5082 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F3FDEA0283FD93C008A5082 /* SplashViewController.xib */; };
 		4F9AA99A27497C1500EE12E9 /* ApplicationDataInjecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9AA99927497C1500EE12E9 /* ApplicationDataInjecting.swift */; };
+		4FDDD84F283FB7DC00F60E34 /* RxBaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDD84E283FB7DC00F60E34 /* RxBaseCoordinator.swift */; };
+		4FDDD851283FBD4300F60E34 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDD850283FBD4300F60E34 /* DeepLink.swift */; };
 		9D06DDBB21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D06DDBA21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift */; };
 		9D110BA521B5E91200AB0A36 /* TrombiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D110BA421B5E91200AB0A36 /* TrombiAPI.swift */; };
 		9D12825A234129C100261AB6 /* EmployeeSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D128258234129C000261AB6 /* EmployeeSearchTableViewCell.xib */; };
@@ -111,7 +120,16 @@
 		4BA3CFB921A6DA6F003358E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BA3CFBC21A6DA6F003358E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BA3CFBE21A6DA6F003358E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F3FDE90283FC30C008A5082 /* MainTabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarCoordinator.swift; sourceTree = "<group>"; };
+		4F3FDE93283FC95B008A5082 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		4F3FDE95283FCB1E008A5082 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		4F3FDE97283FCF73008A5082 /* Resultable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resultable.swift; sourceTree = "<group>"; };
+		4F3FDE9B283FD4F4008A5082 /* UIViewController+xib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+xib.swift"; sourceTree = "<group>"; };
+		4F3FDE9D283FD537008A5082 /* NSObject+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Bundle.swift"; sourceTree = "<group>"; };
+		4F3FDEA0283FD93C008A5082 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		4F9AA99927497C1500EE12E9 /* ApplicationDataInjecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDataInjecting.swift; sourceTree = "<group>"; };
+		4FDDD84E283FB7DC00F60E34 /* RxBaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBaseCoordinator.swift; sourceTree = "<group>"; };
+		4FDDD850283FBD4300F60E34 /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
 		9D06DDBA21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeueReusableCell.swift"; sourceTree = "<group>"; };
 		9D110BA421B5E91200AB0A36 /* TrombiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrombiAPI.swift; sourceTree = "<group>"; };
 		9D128258234129C000261AB6 /* EmployeeSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeSearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -248,12 +266,30 @@
 			path = Trombi;
 			sourceTree = "<group>";
 		};
+		4F3FDE8F283FC2FB008A5082 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4F3FDE90283FC30C008A5082 /* MainTabbarCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		4F9AA99827497BFF00EE12E9 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				4F9AA99927497C1500EE12E9 /* ApplicationDataInjecting.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4FDDD84D283FB7C200F60E34 /* Architecture */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDD84E283FB7DC00F60E34 /* RxBaseCoordinator.swift */,
+				4FDDD850283FBD4300F60E34 /* DeepLink.swift */,
+				4F3FDE97283FCF73008A5082 /* Resultable.swift */,
+			);
+			path = Architecture;
 			sourceTree = "<group>";
 		};
 		775D4545808F2476CDC03A4A /* Pods */ = {
@@ -269,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				9D187E8E23B409C20080033E /* SplashViewController.swift */,
+				4F3FDEA0283FD93C008A5082 /* SplashViewController.xib */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -408,6 +445,7 @@
 		9DAC757421BC3BE700BA791D /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				4F3FDE8F283FC2FB008A5082 /* Coordinator */,
 				9DAC757521BC3C7800BA791D /* MainTabBarViewController.swift */,
 				9DAC758B21BC4C2F00BA791D /* MainTabBarViewViewModel.swift */,
 			);
@@ -419,9 +457,11 @@
 			children = (
 				9DAC757B21BC409400BA791D /* UIStoryboard+StoryboardsList.swift */,
 				9DAC757A21BC409400BA791D /* UIViewController+Storyboards.swift */,
+				4F3FDE9B283FD4F4008A5082 /* UIViewController+xib.swift */,
 				9DAC758221BC458900BA791D /* UITableView+dequeueReusableCell.swift */,
 				9D06DDBA21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift */,
 				02F70557244CC57200287902 /* UINavigationBar+configurate.swift */,
+				4F3FDE9D283FD537008A5082 /* NSObject+Bundle.swift */,
 				9DAC758021BC453500BA791D /* ReusableView.swift */,
 				9D3967B321CEE07A0087CEA7 /* UIColor+Trombi.swift */,
 				9DBA8CA421D2640A009FF7B5 /* UIFont+Trombi.swift */,
@@ -468,6 +508,7 @@
 		9DE90CCA21A9F9C300AF8DF3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4FDDD84D283FB7C200F60E34 /* Architecture */,
 				4F9AA99827497BFF00EE12E9 /* Protocols */,
 				9D5429DE23AFE49C000C3721 /* Structures */,
 				9D92F22C2228A179005C605B /* Views */,
@@ -492,6 +533,8 @@
 			children = (
 				4BA3CFBB21A6DA6F003358E6 /* LaunchScreen.storyboard */,
 				4BA3CFB221A6DA6E003358E6 /* AppDelegate.swift */,
+				4F3FDE93283FC95B008A5082 /* ApplicationCoordinator.swift */,
+				4F3FDE95283FCB1E008A5082 /* CoordinatorFactory.swift */,
 				4BA3CFB621A6DA6E003358E6 /* Main.storyboard */,
 				9DF9590421B2F459005F024E /* Modules */,
 				9DF9590221B2F25B005F024E /* Models */,
@@ -634,6 +677,7 @@
 				9DEEF2ED21D2693B00509063 /* Muli-Bold.ttf in Resources */,
 				4BA3CFB821A6DA6E003358E6 /* Main.storyboard in Resources */,
 				9DEEF2EE21D2693E00509063 /* Muli-ExtraBold.ttf in Resources */,
+				4F3FDEA2283FD93C008A5082 /* SplashViewController.xib in Resources */,
 				9DBDAC6523C67B74006FE076 /* Teams.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -699,9 +743,11 @@
 				9DAC757621BC3C7800BA791D /* MainTabBarViewController.swift in Sources */,
 				9DAC757C21BC409400BA791D /* UIViewController+Storyboards.swift in Sources */,
 				02473C132434963400E2E3AF /* BaseUrlAlertController.swift in Sources */,
+				4F3FDE91283FC30C008A5082 /* MainTabbarCoordinator.swift in Sources */,
 				9D52BB2721F2036F00962C4D /* FiltersPresentationController.swift in Sources */,
 				9D83E3172235774A0042DC0B /* CircleView.swift in Sources */,
 				9DC28358221041B80024263A /* UserInfoTableViewCell.swift in Sources */,
+				4F3FDE96283FCB1E008A5082 /* CoordinatorFactory.swift in Sources */,
 				9DE90CCD21A9FB5400AF8DF3 /* TrombiApiRequests.swift in Sources */,
 				9D12825B234129C100261AB6 /* EmployeeSearchTableViewCell.swift in Sources */,
 				9DAC758121BC453500BA791D /* ReusableView.swift in Sources */,
@@ -715,6 +761,7 @@
 				9D2071E223B151BF00082181 /* UsefulLinkTableViewCell.swift in Sources */,
 				9D52BAF721F1FF5700962C4D /* LayoutInfo.swift in Sources */,
 				02473C152434964600E2E3AF /* BaseUrlAlertViewModel.swift in Sources */,
+				4F3FDE98283FCF73008A5082 /* Resultable.swift in Sources */,
 				9D52BB3321F2036F00962C4D /* FiltersViewController.swift in Sources */,
 				9D3967B421CEE07A0087CEA7 /* UIColor+Trombi.swift in Sources */,
 				9D3967B821CEE12E0087CEA7 /* UIColor+Convenience.swift in Sources */,
@@ -729,17 +776,21 @@
 				9D06DDBB21CEA32C0006E676 /* UICollectionView+dequeueReusableCell.swift in Sources */,
 				9D52BB3921F2036F00962C4D /* FiltersPanelViewController.swift in Sources */,
 				9D1C06B12308642600D20470 /* JSONDecoder+TrombiAPI.swift in Sources */,
+				4F3FDE9C283FD4F4008A5082 /* UIViewController+xib.swift in Sources */,
 				9DF9590921B2F74E005F024E /* HomeViewController.swift in Sources */,
+				4FDDD851283FBD4300F60E34 /* DeepLink.swift in Sources */,
 				9DAC757D21BC409400BA791D /* UIStoryboard+StoryboardsList.swift in Sources */,
 				024C8A9024635062003A57B5 /* BottomPanel.swift in Sources */,
 				9DAC758C21BC4C2F00BA791D /* MainTabBarViewViewModel.swift in Sources */,
 				02F70558244CC57200287902 /* UINavigationBar+configurate.swift in Sources */,
 				9D52BAF821F1FF5700962C4D /* LayoutAlignment.swift in Sources */,
 				9DAC759721BC6B0600BA791D /* ApplicationData.swift in Sources */,
+				4F3FDE9E283FD537008A5082 /* NSObject+Bundle.swift in Sources */,
 				9DAFB58D21B332CC0038C680 /* Employee.swift in Sources */,
 				9D110BA521B5E91200AB0A36 /* TrombiAPI.swift in Sources */,
 				9D3D0C40233FBA2A00CF2590 /* TrombiSearchBar.swift in Sources */,
 				9DA1BBB223A66DCF0032E6CD /* LastSearchTableViewCell.swift in Sources */,
+				4F3FDE94283FC95B008A5082 /* ApplicationCoordinator.swift in Sources */,
 				024C8A93246359F6003A57B5 /* FiltersSection.swift in Sources */,
 				9D52BAFA21F1FF5700962C4D /* TagCellLayout.swift in Sources */,
 				9D8E92E921F38197004B8E9E /* FiltersViewViewModel.swift in Sources */,
@@ -747,6 +798,7 @@
 				9DF0A5842214C3E700358A3E /* FilterTagCellModel.swift in Sources */,
 				4BA3CFB321A6DA6E003358E6 /* AppDelegate.swift in Sources */,
 				9D59316423119699004448A2 /* SearchViewViewModel.swift in Sources */,
+				4FDDD84F283FB7DC00F60E34 /* RxBaseCoordinator.swift in Sources */,
 				9D92F22E2228A187005C605B /* TrombiTopRoundedView.swift in Sources */,
 				9DAC758A21BC4B3000BA791D /* HomeViewViewModel.swift in Sources */,
 				02C3182A2432411D009CB2F4 /* SettingsViewViewModel.swift in Sources */,
@@ -909,7 +961,7 @@
 				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChristianRusin.Trombi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Trombi provisioning profile";
+				PROVISIONING_PROFILE_SPECIFIER = Trombi;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -932,7 +984,7 @@
 				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChristianRusin.Trombi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Trombi provisioning profile";
+				PROVISIONING_PROFILE_SPECIFIER = Trombi;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

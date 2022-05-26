@@ -7,27 +7,41 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-    var mainViewModel: MainTabBarViewViewModelInterface = MainTabBarViewViewModel()
+    private var applicationCoordinator: ApplicationCoordinator?
+//    var mainViewModel: MainTabBarViewViewModelInterface = MainTabBarViewViewModel()
 
+    let bag = DisposeBag()
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         prepareUiElementsProxies()
         prepareTabBarProxy()
 
-        guard let mainTabBarViewController =
-            UIStoryboard.main.instantiateInitialViewController() as? MainTabBarViewController else {
-                fatalError("Could not load MainTabBarViewViewModel")
-        }
+//        guard let mainTabBarViewController =
+//            UIStoryboard.main.instantiateInitialViewController() as? MainTabBarViewController else {
+//                fatalError("Could not load MainTabBarViewViewModel")
+//        }
 
-        window = UIWindow(frame: UIScreen.main.bounds)
-        mainTabBarViewController.viewModel = mainViewModel
-        window?.rootViewController = mainTabBarViewController
-        window?.makeKeyAndVisible()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window = window
+        
+        // This is UNNotificationResponse
+//        if let notificationResponse = connectionOptions.notificationResponse?.notification {
+//            appDelegate.launchDeepLink = DeepLinkBaseImpl(notification: notificationResponse)
+//        } else if let universalLink = connectionOptions.userActivities.first?.webpageURL {
+//            appDelegate.launchDeepLink = DeepLinkBaseImpl(universalLinkUrl: universalLink)
+//        }
+        
+        applicationCoordinator = ApplicationCoordinator(window: window, coordinatorFactory: CoordinatorFactory())
+        applicationCoordinator?.start(with: nil)
+            .subscribe()
+            .disposed(by: bag)
 
         return true
     }

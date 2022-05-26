@@ -18,6 +18,7 @@ final class MainTabBarViewController: UITabBarController {
     // MARK: - Properties
 
     var viewModel: MainTabBarViewViewModelInterface?
+    var applicationData: ApplicationData?
 
     private var splashViewController: SplashViewController?
 
@@ -31,28 +32,33 @@ final class MainTabBarViewController: UITabBarController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if splashViewController == nil {
-            performSegue(withIdentifier: "Splash", sender: nil)
+//        if splashViewController == nil {
+//            performSegue(withIdentifier: "Splash", sender: nil)
+//        }
+        
+        if let safeApplicationData = self.applicationData {
+            viewModel?.homeViewViewModel.applicationData = safeApplicationData
+            viewModel?.usefulLinksViewViewModel.applicationData = safeApplicationData
         }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if let splashViewController = segue.destination as? SplashViewController {
-            self.splashViewController = splashViewController
-            self.splashViewController?.applicationData.asObservable().subscribe({ [weak self] event in
-                switch event {
-                case .completed, .error:
-                    break
-                case .next(let applicationData):
-                    if let safeApplicationData = applicationData {
-                        self?.viewModel?.homeViewViewModel.applicationData = safeApplicationData
-                        self?.viewModel?.usefulLinksViewViewModel.applicationData = safeApplicationData
-                        self?.splashViewController?.dismiss(animated: false, completion: nil)
-                    }
-                }
-            }).disposed(by: disposeBag)
-        }
+//        if let splashViewController = segue.destination as? SplashViewController {
+//            self.splashViewController = splashViewController
+//            self.splashViewController?.applicationData.asObservable().subscribe({ [weak self] event in
+//                switch event {
+//                case .completed, .error:
+//                    break
+//                case .next(let applicationData):
+//                    if let safeApplicationData = applicationData {
+//                        self?.viewModel?.homeViewViewModel.applicationData = safeApplicationData
+//                        self?.viewModel?.usefulLinksViewViewModel.applicationData = safeApplicationData
+//                        self?.splashViewController?.dismiss(animated: false, completion: nil)
+//                    }
+//                }
+//            }).disposed(by: disposeBag)
+//        }
     }
 
     // MARK: - Tabs init
