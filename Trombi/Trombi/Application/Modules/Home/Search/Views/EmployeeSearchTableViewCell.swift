@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct EmployeeSearchCellModel {
+public struct EmployeeSearchCellModel {
     let imageUrl: String
     let nameText: String
     let positionText: String

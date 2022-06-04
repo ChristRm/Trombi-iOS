@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hae-0R-Onj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,70 +13,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Home View Controller-->
-        <scene sceneID="EA6-u0-K0b">
-            <objects>
-                <viewController title="Home" id="hae-0R-Onj" userLabel="Home View Controller" customClass="HomeViewController" customModule="Trombi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ce2-6I-KQj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l6C-iP-O7m">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="CqA-Zv-GDq">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="l6C-iP-O7m" firstAttribute="leading" secondItem="RtR-gT-WnG" secondAttribute="leading" id="4Db-Gw-fWU"/>
-                            <constraint firstItem="RtR-gT-WnG" firstAttribute="bottom" secondItem="l6C-iP-O7m" secondAttribute="bottom" id="7RI-yL-lqd"/>
-                            <constraint firstItem="l6C-iP-O7m" firstAttribute="top" secondItem="RtR-gT-WnG" secondAttribute="top" id="aOM-mf-crI"/>
-                            <constraint firstItem="RtR-gT-WnG" firstAttribute="trailing" secondItem="l6C-iP-O7m" secondAttribute="trailing" id="qWg-Ux-418"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="RtR-gT-WnG"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Home" id="Dg6-Xa-FPW">
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" id="zTn-sC-W5e">
-                                <connections>
-                                    <action selector="filterButtonTouched:" destination="hae-0R-Onj" id="DwZ-7e-RYd"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="icSearch" id="hyq-44-RHF">
-                                <color key="tintColor" red="0.18431372549019609" green="0.19215686274509802" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="searchButtonTouched:" destination="hae-0R-Onj" id="Qnt-X9-jr3"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="collectionView" destination="l6C-iP-O7m" id="Hec-cC-tJW"/>
-                        <outlet property="filterBarButtonItem" destination="zTn-sC-W5e" id="HY4-Ux-b2P"/>
-                        <segue destination="2jr-an-iZc" kind="presentation" identifier="FiltersPanelViewController" id="vLC-va-ej5"/>
-                        <segue destination="wru-cy-RTN" kind="presentation" identifier="SearchViewController" id="WMX-xE-dcq"/>
-                        <segue destination="K6g-J1-7Jd" kind="show" identifier="EmployeeProfileViewController" id="afQ-dn-xTz"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q3i-yE-OMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1126" y="32"/>
-        </scene>
-        <!--UserProfile-->
-        <scene sceneID="c0s-LV-fFB">
-            <objects>
-                <viewControllerPlaceholder storyboardName="UserProfile" id="K6g-J1-7Jd" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DVC-xh-TFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1126" y="652"/>
-        </scene>
         <!--Filters View Controller-->
         <scene sceneID="jkZ-8D-an5">
             <objects>
@@ -131,7 +67,7 @@
                                         <state key="selected" image="icRestoreActive"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2k-A8-ZD4">
-                                        <rect key="frame" x="158.5" y="7.5" width="58.5" height="25.5"/>
+                                        <rect key="frame" x="160.5" y="8.5" width="54.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -160,6 +96,7 @@
                                 <cells/>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="1Oy-Y7-RFX"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uCR-qJ-ZB7" firstAttribute="trailing" secondItem="1Oy-Y7-RFX" secondAttribute="trailing" id="7oA-46-MZw"/>
@@ -172,7 +109,6 @@
                             <constraint firstItem="1Oy-Y7-RFX" firstAttribute="trailing" secondItem="ejV-rT-rfj" secondAttribute="trailing" id="kW5-ta-YaK"/>
                             <constraint firstItem="ejV-rT-rfj" firstAttribute="top" secondItem="VHg-JB-YWQ" secondAttribute="bottom" id="pMb-QC-tFP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="1Oy-Y7-RFX"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="350"/>
@@ -189,18 +125,10 @@
             </objects>
             <point key="canvasLocation" x="1973.5999999999999" y="739.43028485757122"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="k6T-Cu-pcd">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Search" id="wru-cy-RTN" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gX0-fW-8oF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1734" y="-497"/>
-        </scene>
         <!--Filters Panel View Controller-->
         <scene sceneID="rV5-GE-5yR">
             <objects>
-                <viewController id="2jr-an-iZc" customClass="FiltersPanelViewController" customModule="Trombi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FiltersPanelViewController" id="2jr-an-iZc" customClass="FiltersPanelViewController" customModule="Trombi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="T45-dg-7iT"/>
                         <viewControllerLayoutGuide type="bottom" id="hx2-Jj-2Xd"/>
@@ -243,13 +171,13 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="5sV-dt-woN"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="hx2-Jj-2Xd" firstAttribute="top" secondItem="Oh6-0c-7i7" secondAttribute="bottom" id="0aQ-9x-MMb"/>
                             <constraint firstItem="Oh6-0c-7i7" firstAttribute="height" secondItem="ZYE-0H-6XL" secondAttribute="height" id="EFn-4w-Em0"/>
                             <constraint firstItem="Oh6-0c-7i7" firstAttribute="centerX" secondItem="5sV-dt-woN" secondAttribute="centerX" id="hQR-l6-cTB"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="5sV-dt-woN"/>
                         <connections>
                             <action selector="cancelAreaTouched:" destination="2jr-an-iZc" eventType="touchUpInside" id="ctu-sa-7kQ"/>
                         </connections>
@@ -272,6 +200,5 @@
         <image name="icDone" width="25" height="25"/>
         <image name="icRestore" width="25" height="25"/>
         <image name="icRestoreActive" width="25" height="25"/>
-        <image name="icSearch" width="25" height="25"/>
     </resources>
 </document>

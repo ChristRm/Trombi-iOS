@@ -8,13 +8,13 @@
 
 import RxDataSources
 
-struct FiltersSection: SectionModelType {
-    typealias Item = FilterTagCellModel
+public struct FiltersSection: SectionModelType {
+    public typealias Item = FilterTagCellModel
     
-    var header: String
-    var items: [Item]
+    public var header: String
+    public var items: [Item]
 
-    init(original: FiltersSection, items: [Item]) {
+    public init(original: FiltersSection, items: [Item]) {
         self = original
         self.items = items
     }

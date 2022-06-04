@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-struct EmployeeCellModel {
+public struct EmployeeCellModel {
 
     let employee: Employee
     let team: Team?

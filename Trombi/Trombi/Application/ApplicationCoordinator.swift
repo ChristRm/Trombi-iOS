@@ -11,15 +11,15 @@ import RxSwift
 
 class ApplicationCoordinator: RxBaseCoordinator<Void> {
     var window: UIWindow
-//    private let coordinatorFactory: CoordinatorFactory
+    private let coordinatorFactory: CoordinatorFactory
 
     init(window: UIWindow, coordinatorFactory: CoordinatorFactory) {
-//        self.coordinatorFactory = coordinatorFactory
+        self.coordinatorFactory = coordinatorFactory
         self.window = window
         
         window.makeKeyAndVisible()
         
-        super.init()
+        super.init(router: CoordinatorFactory.router(nil))
     }
 
     override func start(with option: DeepLinkBase? = nil) -> Single<Void> {
@@ -36,8 +36,9 @@ class ApplicationCoordinator: RxBaseCoordinator<Void> {
         showSplashScreen()
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onSuccess: { [weak self] applicationData in
-            self?.runMainFlow(applicationData: applicationData)
-        })
+                self?.runMainFlow(applicationData: applicationData)
+            })
+            .disposed(by: bag)
     }
     
     func showSplashScreen() -> Single<ApplicationData> {
@@ -47,12 +48,15 @@ class ApplicationCoordinator: RxBaseCoordinator<Void> {
     }
     
     func runMainFlow(applicationData: ApplicationData) {
-        guard let mainTabBarViewController =
-                UIStoryboard.main.instantiateInitialViewController() as? MainTabBarViewController else {
-            fatalError("Could not load MainTabBarViewViewModel")
-        }
-        mainTabBarViewController.applicationData = applicationData
-
-        window.rootViewController = mainTabBarViewController
+        let mainTabbarCoordinator = MainTabbarCoordinator(coordinatorFactory: coordinatorFactory,
+                                                          applicationData: applicationData)
+        coordinate(to: mainTabbarCoordinator)
+            .subscribe(onSuccess: { [weak self] _ in
+                self?.runApplicationFlow(option: nil)
+            })
+            .disposed(by: bag)
+        
+        window.rootViewController = mainTabbarCoordinator.tabbarController.toPresent()
+        window.makeKeyAndVisible()
     }
 }

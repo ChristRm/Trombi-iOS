@@ -11,22 +11,31 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-protocol SearchViewViewModelInterface {
-    // MARK: - Input
+public protocol SearchViewViewModelInterface: Resultable {
+    // MARK: - Output
     var enteredSearch: BehaviorRelay<String> { get }
     var selectedItem: BehaviorRelay<Int?> { get }
     
     var lastSearch: PublishSubject<String> { get }
 
-    // MARK: - Output
+    // MARK: - Input
     var noResultsIsHidden: Driver<Bool> { get }
     var searchTable: Driver<[SearchTableElementModel]> { get }
-    var openEmployee: Signal<(Employee, Team)?> { get }
+    var openEmployee: PublishSubject<EmployeeAndTeam?> { get }
 
     var forcedSearchText: Driver<String?> { get }
 }
 
 final class SearchViewViewModel: SearchViewViewModelInterface {
+    public var modelResult: Single<Any> {
+        _modelResult
+            .take(1)
+            .asSingle()
+    }
+    
+    private var _modelResult = PublishRelay<Any>()
+
+    typealias ValueType = Any
 
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
@@ -42,7 +51,6 @@ final class SearchViewViewModel: SearchViewViewModelInterface {
 
     var noResultsIsHidden: Driver<Bool> { return _noResultsIsHidden.asDriver() }
     var searchTable: Driver<[SearchTableElementModel]> { return _searchTable.asDriver() }
-    var openEmployee: Signal<(Employee, Team)?> { return _openEmployee.asSignal(onErrorJustReturn: nil) }
 
     var forcedSearchText: Driver<String?> { return _forcedSearchText.asDriver() }
 
@@ -54,7 +62,7 @@ final class SearchViewViewModel: SearchViewViewModelInterface {
     private let _searchTable =
         BehaviorRelay<[SearchTableElementModel]>(value: [])
 
-    private let _openEmployee = BehaviorRelay<(Employee, Team)?>(value: nil)
+    let openEmployee = PublishSubject<EmployeeAndTeam?>()
     private let _forcedSearchText =
         BehaviorRelay<String?>(value: nil)
 
@@ -95,7 +103,7 @@ final class SearchViewViewModel: SearchViewViewModelInterface {
                     case .employee:
                         if let selectedFoundEmployee = self?.foundEmployees[row],
                             let team = self?.applicationData.teamOfEmployee(selectedFoundEmployee) {
-                            self?._openEmployee.accept((selectedFoundEmployee, team))
+                            self?.openEmployee.onNext((selectedFoundEmployee, team))
                         }
                     case .lastSearch(let lastSearch):
                         self?._forcedSearchText.accept(lastSearch)

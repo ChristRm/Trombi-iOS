@@ -9,7 +9,7 @@
 import RxSwift
 import RxCocoa
 
-protocol UsefulLinksViewViewModelInterface: ApplicationDataInjecting {
+public protocol UsefulLinksViewViewModelInterface: ApplicationDataInjecting {
     // MARK: - Input
     var selectedItem: BehaviorRelay<Int?> { get }
 
@@ -18,12 +18,21 @@ protocol UsefulLinksViewViewModelInterface: ApplicationDataInjecting {
     var openUrl: Signal<String> { get }
 }
 
-final class UsefulLinksViewViewModel: UsefulLinksViewViewModelInterface {
+public final class UsefulLinksViewViewModel: UsefulLinksViewViewModelInterface {
 
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
+    
+    public var modelResult: Single<Any> {
+        _modelResult
+            .take(1)
+            .asSingle()
+    }
+    
+    private var _modelResult = PublishRelay<Any>()
 
-    init() {
+    init(applicationData: ApplicationData) {
+        self.applicationData = applicationData
         selectedItem.subscribe { [weak self] event in
             switch event {
             case .next(let index):
@@ -34,26 +43,31 @@ final class UsefulLinksViewViewModel: UsefulLinksViewViewModelInterface {
                 break
             }
         }.disposed(by: disposeBag)
+        refresh()
     }
 
     // MARK: - UsefulLinksViewViewModelInterface
-    private(set) var selectedItem: BehaviorRelay<Int?> = BehaviorRelay<Int?>(value: nil)
+    private(set) public var selectedItem: BehaviorRelay<Int?> = BehaviorRelay<Int?>(value: nil)
 
-    var usefulLinksTable: Driver<[UsefulLinkCellModel]> { return _usefulLinksTable.asDriver() }
-    var openUrl: Signal<String> { return _openUrl.asSignal(onErrorJustReturn: "") }
+    public var usefulLinksTable: Driver<[UsefulLinkCellModel]> { return _usefulLinksTable.asDriver() }
+    public var openUrl: Signal<String> { return _openUrl.asSignal(onErrorJustReturn: "") }
     
     public var applicationData: ApplicationData = ApplicationData() {
         didSet {
-            let usefulLinkCellsModels = applicationData.usefuleLinks.map({ usefulLink in
-                return UsefulLinkCellModel(
-                    imageUrl: usefulLink.imageUrl,
-                    title: usefulLink.title,
-                    description: usefulLink.description
-                )
-            })
-
-            _usefulLinksTable.accept(usefulLinkCellsModels)
+            refresh()
         }
+    }
+    
+    func refresh() {
+        let usefulLinkCellsModels = applicationData.usefuleLinks.map({ usefulLink in
+            return UsefulLinkCellModel(
+                imageUrl: usefulLink.imageUrl,
+                title: usefulLink.title,
+                description: usefulLink.description
+            )
+        })
+
+        _usefulLinksTable.accept(usefulLinkCellsModels)
     }
 
     // MARK: - Private properties

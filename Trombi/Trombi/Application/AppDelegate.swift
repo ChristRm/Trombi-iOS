@@ -14,7 +14,6 @@ import RxSwift
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var applicationCoordinator: ApplicationCoordinator?
-//    var mainViewModel: MainTabBarViewViewModelInterface = MainTabBarViewViewModel()
 
     let bag = DisposeBag()
     
@@ -23,20 +22,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         prepareUiElementsProxies()
         prepareTabBarProxy()
 
-//        guard let mainTabBarViewController =
-//            UIStoryboard.main.instantiateInitialViewController() as? MainTabBarViewController else {
-//                fatalError("Could not load MainTabBarViewViewModel")
-//        }
-
         let window = UIWindow(frame: UIScreen.main.bounds)
-//        self.window = window
-        
-        // This is UNNotificationResponse
-//        if let notificationResponse = connectionOptions.notificationResponse?.notification {
-//            appDelegate.launchDeepLink = DeepLinkBaseImpl(notification: notificationResponse)
-//        } else if let universalLink = connectionOptions.userActivities.first?.webpageURL {
-//            appDelegate.launchDeepLink = DeepLinkBaseImpl(universalLinkUrl: universalLink)
-//        }
         
         applicationCoordinator = ApplicationCoordinator(window: window, coordinatorFactory: CoordinatorFactory())
         applicationCoordinator?.start(with: nil)

@@ -22,7 +22,12 @@ open class RxBaseCoordinator<ResultType>: NSObject, DeepLinkOptionProcessCapable
 
     public var bag = DisposeBag()
 
+    public private(set) var router: Router
 
+    public init(router: Router) {
+        self.router = router
+    }
+    
     @discardableResult
     open func coordinate<T>(to coordinator: RxBaseCoordinator<T>, with option: DeepLinkBase? = nil) -> Single<T> {
         store(coordinator: coordinator)

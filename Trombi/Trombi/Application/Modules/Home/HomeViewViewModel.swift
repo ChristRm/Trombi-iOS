@@ -10,14 +10,14 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-protocol HomeViewViewModelInterface: ApplicationDataInjecting {
+public protocol HomeViewViewModelInterface: ApplicationDataInjecting, Resultable {
     // MARK: - Output
     var employeesSections: Driver<[EmployeesSection]> { get }
     var filtersViewViewModel: FiltersViewViewModel { get }
-}
-
-// MARK: - Constants
-extension HomeViewViewModel {
+    
+    // MARK: - Input
+    var openSearch: PublishSubject<Void> { get }
+    var openEmployee: PublishSubject<EmployeeAndTeam?> { get }
 }
 
 final class HomeViewViewModel: HomeViewViewModelInterface {
@@ -25,25 +25,48 @@ final class HomeViewViewModel: HomeViewViewModelInterface {
     // MARK: - RxSwift
 
     private let disposeBag = DisposeBag()
+    
+    public var modelResult: Single<Any> {
+        _modelResult
+            .take(1)
+            .asSingle()
+    }
+    
+    var openSearch = PublishSubject<Void>()
+    var openEmployee = PublishSubject<EmployeeAndTeam?>()
+    
+    public var bag = DisposeBag()
+    
+    private var _modelResult = PublishRelay<Any>()
 
+    init(applicationData: ApplicationData) {
+        self.applicationData = applicationData
+        refresh()
+    }
+    
     // MARK: - Properties
 
-    var applicationData: ApplicationData = ApplicationData() {
+    var applicationData: ApplicationData {
         didSet {
-            filtersViewViewModel.teams = applicationData.teams
-            // subscribe to updates from filter panel and genrerate filtered data
-            Observable.combineLatest(
-                filtersViewViewModel.filteredTeams.asObservable(),
-                filtersViewViewModel.newcomersFilterSelected.asObservable()
-            ).map({ (filteredTeams, newcomersFilterSelected) -> [EmployeesSection] in
-                return self.getEemployeesSections(filteredTeams: filteredTeams, sortByNewcomers: newcomersFilterSelected)
-                }).bind(to: _employeesSections).disposed(by: disposeBag)
+            refresh()
         }
     }
+    
+    func refresh() {
+        filtersViewViewModel.teams = applicationData.teams
+        // subscribe to updates from filter panel and genrerate filtered data
+        Observable.combineLatest(
+            filtersViewViewModel.filteredTeams.asObservable(),
+            filtersViewViewModel.newcomersFilterSelected.asObservable()
+        ).map({ (filteredTeams, newcomersFilterSelected) -> [EmployeesSection] in
+            return self.getEemployeesSections(filteredTeams: filteredTeams, sortByNewcomers: newcomersFilterSelected)
+            }).bind(to: _employeesSections).disposed(by: disposeBag)
+    }
+    
     // MARK: - Output
     var employeesSections: Driver<[EmployeesSection]> { return _employeesSections.asDriver() }
     var filtersViewViewModel: FiltersViewViewModel = FiltersViewViewModel(teams: [])
-    
+
     // MARK: - Private properties
 
     private let _employeesSections = BehaviorRelay<[EmployeesSection]>(value: [])

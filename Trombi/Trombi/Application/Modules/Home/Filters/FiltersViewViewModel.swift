@@ -10,7 +10,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-protocol FiltersViewViewModelInterface {
+public protocol FiltersViewViewModelInterface {
     
     // MARK: - Input
     var lastUpdatedTagCell: BehaviorRelay<FilterTagCellModel?> { get }
@@ -25,7 +25,7 @@ protocol FiltersViewViewModelInterface {
     var filtered: Driver<Bool> { get }
 }
 
-final class FiltersViewViewModel: FiltersViewViewModelInterface {
+public final class FiltersViewViewModel: FiltersViewViewModelInterface {
 
     // MARK: - RxSwift
 
@@ -33,15 +33,15 @@ final class FiltersViewViewModel: FiltersViewViewModelInterface {
 
     // MARK: - FiltersViewViewModelInterface
     
-    private(set) var lastUpdatedTagCell: BehaviorRelay<FilterTagCellModel?> = BehaviorRelay<FilterTagCellModel?>(value: nil)
-    private(set) var resetFilters = PublishRelay<Void>()
+    private(set) public var lastUpdatedTagCell: BehaviorRelay<FilterTagCellModel?> = BehaviorRelay<FilterTagCellModel?>(value: nil)
+    private(set) public var resetFilters = PublishRelay<Void>()
     
-    var filtersSections: Driver<[FiltersSection]> { return _filtersSections.asDriver() }
-    var filteredTeams: Driver<Set<Team> > { return _filteredTeams.asDriver() }
-    var newcomersFilterSelected: Driver<Bool> { return _newcomersFilterSelected.asDriver() }
+    public var filtersSections: Driver<[FiltersSection]> { return _filtersSections.asDriver() }
+    public var filteredTeams: Driver<Set<Team> > { return _filteredTeams.asDriver() }
+    public var newcomersFilterSelected: Driver<Bool> { return _newcomersFilterSelected.asDriver() }
 
     // 2 combineLatests in order to make a bindings instead
-    var filtered: Driver<Bool> {
+    public var filtered: Driver<Bool> {
         return Observable.combineLatest(
             filteredTeams.asObservable(),
             _newcomersFilterSelected.asObservable()

@@ -59,6 +59,7 @@ final class SplashViewController: UIViewController, Resultable {
             })
         
         observable
+            .observeOn(MainScheduler.asyncInstance)
             .do(onNext: { [weak self] _ in
                 self?.activityIndicatorView.isHidden = true
             }, onError: { [weak self] error in

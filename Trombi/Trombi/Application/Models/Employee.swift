@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Employee: Codable {
+public struct Employee: Codable {
 
     enum CodingKeys: String, CodingKey {
         case identifier = "id"
@@ -47,7 +47,7 @@ struct Employee: Codable {
     }
 }
 
-extension Employee {
+public extension Employee {
     fileprivate enum Defaults {
         static let secondsInDay = 3600.0 * 24.0
         static let newcomerInterval: TimeInterval = 30.0 * secondsInDay
