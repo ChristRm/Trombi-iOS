@@ -9,3 +9,7 @@ It is based on https://github.com/Mogmi95/Trombi API.
 * Display only the new persons
 * Links aggregator
 * Person profile
+
+## Tech aspect
+
+Mobile application is build with MVVM+Coordinator architecture
