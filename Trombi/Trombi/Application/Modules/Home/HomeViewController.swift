@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  Trombi
 //
-//  Created by Christian Rusin  on 22/11/2018.
+//  Created by Christian Rusin on 22/11/2018.
 //  Copyright © 2018 Christian Rusin . All rights reserved.
 //
 
@@ -11,73 +11,67 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-final class HomeViewController: UIViewController {
+public final class HomeViewController<ViewModel: HomeViewViewModelInterface>: UIViewController, UICollectionViewDelegateFlowLayout {
 
     // MARK: - ViewModel
-    var viewModel: HomeViewViewModelInterface?
-
+    public var viewModel: ViewModel
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: HomeViewController.identifier, bundle: HomeViewController.bundle)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView?
-    @IBOutlet private weak var filterBarButtonItem: UIBarButtonItem?
+    
+    private var filterBarButtonItem: UIBarButtonItem?
+    private var searchBarButtonItem: UIBarButtonItem?
 
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
 
     // MARK: - Lifecycle
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.configurate()
-        
-        if let viewModel = viewModel {
-            bindViewModel(viewModel)
-        } else {
-            print("UsefulLinksViewViewModel is not set up")
-        }
+
+        setupNavigationTitle()
         
         setupCollectionView()
+        setupNavigationItems()
+        bindViewModel()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-
-        guard let viewModel = viewModel else { return }
-
-        if segue.identifier == String(describing: FiltersPanelViewController.self) {
-            if let filtersPanelViewController = segue.destination as? FiltersPanelViewController {
-                filtersPanelViewController.filtersViewViewModel = viewModel.filtersViewViewModel
-            }
-        } else if segue.identifier == String(describing: EmployeeProfileViewController.self) {
-            if let userProfileViewController = segue.destination as? EmployeeProfileViewController {
-                if let employeeInfo = sender as? EmployeeCellModel {
-                    userProfileViewController.team = employeeInfo.team
-                    userProfileViewController.employee = employeeInfo.employee
-                }
-            }
-        } else if segue.identifier == String(describing: SearchViewController.self) {
-            if let navigationController = segue.destination as? UINavigationController,
-                let searchViewController = navigationController.viewControllers.first as? SearchViewController {
-                searchViewController.viewModel = SearchViewViewModel(applicationData: viewModel.applicationData)
-            }
-        }
-    }
-
-    // MARK: - IBAction
-
-    @IBAction func searchButtonTouched(_ sender: Any) {
-        performSegue(withIdentifier: String(describing: SearchViewController.self), sender: nil)
-    }
-
-    @IBAction func filterButtonTouched(_ sender: Any) {
-        performSegue(withIdentifier: String(describing: FiltersPanelViewController.self), sender: nil)
-    }
-
     // MARK: - binding ViewModel
-    private func bindViewModel(_ viewModel: HomeViewViewModelInterface) {
+    private func bindViewModel() {
+        bindCollectionView()
+        
+        searchBarButtonItem?
+            .rx
+            .tap
+            .bind(to: viewModel.openSearch)
+            .disposed(by: disposeBag)
+        
+        filterBarButtonItem?
+            .rx
+            .tap
+            .subscribe(onNext: { [weak self] in
+                self?.openFilters()
+            })
+            .disposed(by: disposeBag)
+    }
+
+    // MARK: - Private methods
+    
+    private func bindCollectionView() {
         guard let collectionView = collectionView else {
             print("collectionView is not set up")
             return
@@ -115,85 +109,115 @@ final class HomeViewController: UIViewController {
         }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
     }
 
-    // MARK: - Private methods
-
+    private func setupNavigationTitle() {
+        navigationController?.navigationBar.configurate()
+        navigationItem.title = "Home"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     private func setupCollectionView() {
         collectionView?.registerReusableCell(type: EmployeeCollectionViewCell.self)
         collectionView?.registerReusableHeader(type: EmployeesCollectionViewHeader.self)
 
-        collectionView?.rx.modelSelected(EmployeeCellModel.self).subscribe(
+        collectionView?.rx.modelSelected(EmployeeCellModel.self)
+            .subscribe(
             onNext: { [weak self] cell in
-                self?.performSegue(
-                    withIdentifier: String(describing: EmployeeProfileViewController.self),
-                    sender: cell
-                )
-        }, onError: nil,
-           onCompleted: nil,
-           onDisposed: nil
-        ).disposed(by: disposeBag)
-        
+                guard let team = cell.team else { return }
+                
+                self?.viewModel
+                    .openEmployee
+                    .onNext(EmployeeAndTeam(cell.employee, team))
+        }).disposed(by: disposeBag)
+    
         collectionView?.rx.setDelegate(self).disposed(by: disposeBag)
     }
-}
-
-// MARK: - Constants
-
-extension HomeViewController {
-    fileprivate enum Defaults {
-
-        static let itemTopMarginRatio: CGFloat = CGFloat(20.0/775.0)
-        static let itemSideMarginRatio: CGFloat = CGFloat(25.0/375.0)
-        static let itemSpacingRatio: CGFloat = CGFloat(15.0/375.0)
-
-        static let itemWidthToHeightRatio = CGFloat(155.0/231.0)
-
-        static let headerHeight = CGFloat(40.0)
-
-        static let additionalMargin = CGFloat(15.0)
+    
+    func setupNavigationItems() {
+        filterBarButtonItem = UIBarButtonItem(image: UIImage(named: "icFilter"), style: .plain, target: nil, action: nil)
+        filterBarButtonItem?.rx.tap.subscribe(onNext: {
+            print("tap")
+        }).disposed(by: disposeBag)
+        
+        searchBarButtonItem = UIBarButtonItem(image: UIImage(named: "icSearch"), style: .plain, target: nil, action: nil)
+        searchBarButtonItem?.tintColor = UIColor.mainBlackColor
+        
+        self.navigationItem.rightBarButtonItems = [filterBarButtonItem!, searchBarButtonItem!]
     }
-}
 
-// MARK: - HorizontalFloatingHeaderLayoutDelegate
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    private func sideMargin() -> CGFloat {
+        let margin = view.bounds.width * HomeDefaults.itemSideMarginRatio
+        return margin
+    }
 
+    private func itemWidth() -> CGFloat {
+        let width = view.bounds.width - sideMargin() * 2.0
+        return width / CGFloat(2.0) - (view.bounds.width * HomeDefaults.itemSpacingRatio) / 2.0
+    }
+
+    private func itemHeight() -> CGFloat {
+        return itemWidth() * (1.0 / HomeDefaults.itemWidthToHeightRatio)
+    }
+    
+    private func openFilters() {
+        let filtersStoryboard =
+            UIStoryboard(name: "Filters",
+                         bundle: FiltersPanelViewController.bundle)
+        
+        guard let filtersPanelViewController =
+            filtersStoryboard.instantiateViewController(withIdentifier:
+                                                            FiltersPanelViewController.storyboardIdentifier) as? FiltersPanelViewController else {
+            print("Failed to load FiltersPanelViewController")
+            return
+        }
+        
+        filtersPanelViewController.filtersViewViewModel = viewModel.filtersViewViewModel
+        present(filtersPanelViewController, animated: true)
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    @objc(collectionView:layout:referenceSizeForHeaderInSection:)
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.bounds.width, height: Defaults.headerHeight)
+        return CGSize(width: view.bounds.width, height: HomeDefaults.headerHeight)
     }
 
+    @objc(collectionView:layout:sizeForItemAtIndexPath:)
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: itemWidth(), height: itemHeight())
     }
 
+    @objc(collectionView:layout:insetForSectionAtIndex:)
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: Defaults.itemTopMarginRatio * view.bounds.height,
+        return UIEdgeInsets(top: HomeDefaults.itemTopMarginRatio * view.bounds.height,
                             left: sideMargin(),
                             bottom: 0.0,
                             right: sideMargin())
     }
 
+    @objc(collectionView:layout:minimumLineSpacingForSectionAtIndex:)
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return view.bounds.height * Defaults.itemTopMarginRatio
-    }
-
-    private func sideMargin() -> CGFloat {
-        let margin = view.bounds.width * Defaults.itemSideMarginRatio
-        return margin
-    }
-
-    private func itemWidth() -> CGFloat {
-        let width = view.bounds.width - sideMargin() * 2.0
-        return width / CGFloat(2.0) - (view.bounds.width * Defaults.itemSpacingRatio) / 2.0
-    }
-
-    private func itemHeight() -> CGFloat {
-        return itemWidth() * (1.0 / Defaults.itemWidthToHeightRatio)
+        return view.bounds.height * HomeDefaults.itemTopMarginRatio
     }
 }
+
+// MARK: - Constants
+fileprivate enum HomeDefaults {
+    
+    static let itemTopMarginRatio: CGFloat = CGFloat(20.0/775.0)
+    static let itemSideMarginRatio: CGFloat = CGFloat(25.0/375.0)
+    static let itemSpacingRatio: CGFloat = CGFloat(15.0/375.0)
+    
+    static let itemWidthToHeightRatio = CGFloat(155.0/231.0)
+    
+    static let headerHeight = CGFloat(40.0)
+    
+    static let additionalMargin = CGFloat(15.0)
+}
+

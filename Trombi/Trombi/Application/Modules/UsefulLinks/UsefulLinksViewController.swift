@@ -11,31 +11,35 @@ import SafariServices
 import RxSwift
 import RxCocoa
 
-final class UsefulLinksViewController: UIViewController {
+final class UsefulLinksViewController<ViewModel: UsefulLinksViewViewModelInterface>: UIViewController {
 
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
 
     // MARK: - ViewModel
-    var viewModel: UsefulLinksViewViewModelInterface?
-
+    let viewModel: ViewModel
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: UsefulLinksViewController.identifier, bundle: UsefulLinksViewController.bundle)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - IBOutlets
 
-    @IBOutlet weak var tableView: UITableView?
+    @IBOutlet private weak var tableView: UITableView?
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.configurate()
+        setupNavigationTitle()
         
-        if let viewModel = viewModel {
-            bindViewModel(viewModel)
-        } else {
-            print("UsefulLinksViewViewModel is not set up")
-        }
-
         tableView?.registerReusableCell(type: UsefulLinkTableViewCell.self)
+        bindViewModel(viewModel)
     }
 
     // MARK: - binding ViewModel
@@ -72,5 +76,12 @@ final class UsefulLinksViewController: UIViewController {
                 break
             }
         }.disposed(by: disposeBag)
+    }
+    
+    // MARK: - Private methods
+    private func setupNavigationTitle() {
+        navigationController?.navigationBar.configurate()
+        navigationItem.title = "Useful links"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }

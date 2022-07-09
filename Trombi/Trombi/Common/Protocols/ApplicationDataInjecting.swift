@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ApplicationDataInjecting {
+public protocol ApplicationDataInjecting {
     var applicationData: ApplicationData { get set }
 }

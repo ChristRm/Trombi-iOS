@@ -9,14 +9,14 @@
 import UIKit
 import RxDataSources
 
-struct EmployeesSection: SectionModelType {
-    typealias Item = EmployeeCellModel
+public struct EmployeesSection: SectionModelType {
+    public typealias Item = EmployeeCellModel
     
-    var header: String
-    let rightSideImage: UIImage?
-    var items: [Item]
+    public var header: String
+    public let rightSideImage: UIImage?
+    public var items: [Item]
 
-    init(original: EmployeesSection, items: [Item]) {
+    public init(original: EmployeesSection, items: [Item]) {
         self = original
         self.items = items
     }

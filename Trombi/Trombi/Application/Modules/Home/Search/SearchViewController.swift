@@ -11,18 +11,26 @@ import RxCocoa
 import RxSwift
 import RxAtomic
 
-enum SearchTableElementModel {
+public enum SearchTableElementModel {
     case employee(EmployeeSearchCellModel)
     case lastSearch(String)
 }
 
-final class SearchViewController: UIViewController {
+final class SearchViewController<ViewModel: SearchViewViewModelInterface>: UIViewController {
 
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
 
     // MARK: - ViewModel
-    var viewModel: SearchViewViewModelInterface?
+    var viewModel: ViewModel
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: SearchViewController.identifier, bundle: SearchViewController.bundle)
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Properties
     private lazy var trombiSearchBar = TrombiSearchBar(frame: .zero)
@@ -40,11 +48,7 @@ final class SearchViewController: UIViewController {
         trombiSearchBar.trombiDelegate = self
         navigationItem.titleView = trombiSearchBar
 
-        if let viewModel = viewModel {
-            bindViewModel(viewModel)
-        } else {
-            print("SearchViewViewModel is not set up")
-        }
+        bindViewModel(viewModel)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -58,7 +62,7 @@ final class SearchViewController: UIViewController {
     }
 
     // MARK: - binding ViewModel
-    private func bindViewModel(_ viewModel: SearchViewViewModelInterface) {
+    private func bindViewModel(_ viewModel: ViewModel) {
         viewModel.searchTable
             .asObservable()
             .bind(to: tableView.rx.items) { (tableView, row, searchDataModel) -> UITableViewCell in
@@ -88,7 +92,7 @@ final class SearchViewController: UIViewController {
         trombiSearchBar.rx.searchButtonClicked.subscribe { [weak self] _ in
             self?.trombiSearchBar.resignFirstResponder()
             if let text = self?.trombiSearchBar.text {
-                self?.viewModel?.lastSearch.onNext(text)
+                self?.viewModel.lastSearch.onNext(text)
             }
         }.disposed(by: disposeBag)
 
@@ -101,26 +105,9 @@ final class SearchViewController: UIViewController {
         viewModel.forcedSearchText.drive(onNext: { [weak self] forceSearchText in
             guard let forceSearchText = forceSearchText else { return }
             self?.trombiSearchBar.text = forceSearchText
-            self?.viewModel?.enteredSearch.accept(forceSearchText)
+            self?.viewModel.enteredSearch.accept(forceSearchText)
         }, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
-
-        viewModel.openEmployee.asObservable().subscribe { [weak self] event in
-            switch event {
-            case .next(let employeeAndTeam):
-                if let employee = employeeAndTeam?.0, let team = employeeAndTeam?.1 {
-                    let employeeViewController =
-                        EmployeeProfileViewController.modal(
-                            employee: employee,
-                            team: team,
-                            onDismiss: nil)
-
-                    self?.present(employeeViewController, animated: true, completion: nil)
-                }
-            default:
-                break
-            }
-            }.disposed(by: disposeBag)
     }
 }
 

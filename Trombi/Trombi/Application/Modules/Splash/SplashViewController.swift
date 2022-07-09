@@ -10,17 +10,34 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class SplashViewController: UIViewController {
+final class SplashViewController: UIViewController, Resultable {
+    
+    typealias ValueType = ApplicationData
+
+    var modelResult: Single<ApplicationData> {
+        _modelResult
+            .take(1)
+            .asSingle()
+    }
+    
+    public var bag = DisposeBag()
+    
+    private var _modelResult = PublishRelay<ApplicationData>()
 
     // MARK: - RxSwift
 
     private let disposeBag = DisposeBag()
 
-    var applicationData: Driver<ApplicationData?> {
-        return _applicationData.asDriver()
+    private let _applicationData = BehaviorRelay<ApplicationData?>(value: nil)
+    
+    init() {
+        super.init(nibName: SplashViewController.identifier, bundle: SplashViewController.bundle)
+        hidesBottomBarWhenPushed = true
     }
 
-    private let _applicationData = BehaviorRelay<ApplicationData?>(value: nil)
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
 
     private func getApplicationData() {
         let getEmployees = TrombiAPI.sharedAPI.getEmployees()
@@ -39,36 +56,39 @@ final class SplashViewController: UIViewController {
                 )
 
                 return applicationData
-        })
-
-        activityIndicatorView.isHidden = false
-
-        observable.observeOn(MainScheduler.instance)
-            .subscribe({ [weak self] event in
+            })
+        
+        observable
+            .observeOn(MainScheduler.asyncInstance)
+            .do(onNext: { [weak self] _ in
                 self?.activityIndicatorView.isHidden = true
-                switch event {
-                case .next(let applicationData):
-                    self?._applicationData.accept(applicationData)
-                case .error(let error):
-                    self?.handleError(error as NSError)
-                default: break
-                }
-        }).disposed(by: disposeBag)
+            }, onError: { [weak self] error in
+                self?.handleError(error as NSError)
+            })
+            .subscribe(onNext: { [weak self] applicationData in
+                self?._modelResult.accept(applicationData)
+            })
+            .disposed(by: disposeBag)
+
+//        activityIndicatorView.isHidden = false
+//
+//        observable.observeOn(MainScheduler.instance)
+//            .subscribe({ [weak self] event in
+//                self?.activityIndicatorView.isHidden = true
+//                switch event {
+//                case .next(let applicationData):
+//                    self?._applicationData.accept(applicationData)
+//                case .error(let error):
+//                    self?.handleError(error as NSError)
+//                default: break
+//                }
+//        }).disposed(by: disposeBag)
     }
 
-//    @IBOutlet private weak var backgroundGradientView: UIView!
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        let gradientLayer = CAGradientLayer()
-//        gradientLayer.frame = view.bounds
-//        gradientLayer.colors = [#colorLiteral(red: 0.9803921569, green: 0.6705882353, blue: 0.0862745098, alpha: 1).cgColor, #colorLiteral(red: 1, green: 0.4274509804, blue: 0.1137254902, alpha: 1).cgColor]
-//
-//        gradientLayer.shouldRasterize = true
-//
-//        backgroundGradientView.layer.addSublayer(gradientLayer)
         activityIndicatorView.startAnimating()
     }
 

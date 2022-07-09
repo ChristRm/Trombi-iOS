@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Team: Codable, Equatable, Hashable {
+public struct Team: Codable, Equatable, Hashable {
 
     enum CodingKeys: String, CodingKey {
 

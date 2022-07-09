@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FilterTagCellModel {
+public struct FilterTagCellModel {
     enum CellType {
         case newcomers
         case team(Team)

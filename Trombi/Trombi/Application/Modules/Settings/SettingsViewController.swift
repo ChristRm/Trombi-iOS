@@ -10,13 +10,22 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SettingsViewController: UIViewController {
+class SettingsViewController<ViewModel: SettingsViewViewModelInterface>: UIViewController {
 
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
 
     // MARK: - ViewModel
-    var viewModel: SettingsViewViewModelInterface?
+    let viewModel: ViewModel
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: SettingsViewController.identifier, bundle: SettingsViewController.bundle)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView?
@@ -34,15 +43,11 @@ class SettingsViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.registerReusableCell(type: SettingsTableViewCell.self)
     
-        if let viewModel = viewModel {
-            bindViewModel(viewModel)
-        } else {
-            print("SearchViewViewModel is not set up")
-        }
+        bindViewModel()
     }
     
     // MARK: - binding ViewModel
-    private func bindViewModel(_ viewModel: SettingsViewViewModelInterface) {
+    private func bindViewModel() {
         guard let tableView = tableView else {
             print("Table view is not set up")
             return
@@ -85,13 +90,9 @@ class SettingsViewController: UIViewController {
             switch event {
             case .next(let currentBaseUrl):
                 let alert = BaseUrlAlertController(currentBaseUrl: currentBaseUrl)
-                guard let viewModel = strongSelf.viewModel else {
-                    return
-                }
 
                 alert.acceptedWithBaseUrl
-                    .asObservable()
-                    .bind(to: viewModel.finishedWithBaseUrl)
+                    .bind(to: strongSelf.viewModel.newUrlSelected)
                     .disposed(by: strongSelf.disposeBag)
 
                 strongSelf.present(alert, animated: true, completion: nil)

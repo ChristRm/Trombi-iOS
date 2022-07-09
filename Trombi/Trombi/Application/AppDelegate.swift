@@ -7,27 +7,27 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-    var mainViewModel: MainTabBarViewViewModelInterface = MainTabBarViewViewModel()
+    private var applicationCoordinator: ApplicationCoordinator?
 
+    let bag = DisposeBag()
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         prepareUiElementsProxies()
         prepareTabBarProxy()
 
-        guard let mainTabBarViewController =
-            UIStoryboard.main.instantiateInitialViewController() as? MainTabBarViewController else {
-                fatalError("Could not load MainTabBarViewViewModel")
-        }
-
-        window = UIWindow(frame: UIScreen.main.bounds)
-        mainTabBarViewController.viewModel = mainViewModel
-        window?.rootViewController = mainTabBarViewController
-        window?.makeKeyAndVisible()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        
+        applicationCoordinator = ApplicationCoordinator(window: window, coordinatorFactory: CoordinatorFactory())
+        applicationCoordinator?.start(with: nil)
+            .subscribe()
+            .disposed(by: bag)
 
         return true
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ApplicationData {
+public class ApplicationData {
 
     init(employees: [Employee] = [], teams: [Team] = [], usefuleLinks: [UsefulLink] = []) {
         self.employees = employees

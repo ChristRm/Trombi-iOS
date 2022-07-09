@@ -10,10 +10,10 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol SettingsViewViewModelInterface {
+public protocol SettingsViewViewModelInterface: Resultable {
     // MARK: - Input
     var selectedItem: BehaviorRelay<Int?> { get }
-    var finishedWithBaseUrl: BehaviorRelay<String?> { get }
+    var newUrlSelected: PublishRelay<String?> { get }
     
     // MARK: - Output
     var settingsTable: Driver<[String]> { get }
@@ -23,6 +23,8 @@ protocol SettingsViewViewModelInterface {
 
 extension SettingsViewViewModel: SettingsViewViewModelInterface {
 
+    public typealias ValueType = String?
+    
     enum Defaults {
         static let helpUrl: String = "christianrusinm@gmail.com"
     }
@@ -38,9 +40,17 @@ final class SettingsViewViewModel {
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
     
+    public var modelResult: Single<String?> {
+        _modelResult
+            .take(1)
+            .asSingle()
+    }
+    
+    private var _modelResult = PublishRelay<String?>()
+    
     // MARK: - SettingsViewViewModelInterface
     private(set) var selectedItem: BehaviorRelay<Int?> = BehaviorRelay<Int?>(value: nil)
-    private(set) var finishedWithBaseUrl: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
+    private(set) var newUrlSelected = PublishRelay<String?>()
     
     let settingsTable: Driver<[String]> = {
         BehaviorRelay<[String]>(value: SettingsRow.allCases.compactMap({ return $0.rawValue })).asDriver()
@@ -54,6 +64,7 @@ final class SettingsViewViewModel {
     private let _sendEmailToAdress = BehaviorRelay<String?>(value: nil)
     
     init() {
+        newUrlSelected.bind(to: _modelResult).disposed(by: disposeBag)
         setup()
     }
     

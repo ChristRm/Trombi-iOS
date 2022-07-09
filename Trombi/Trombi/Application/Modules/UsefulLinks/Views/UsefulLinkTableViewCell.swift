@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct UsefulLinkCellModel {
+public struct UsefulLinkCellModel {
     let imageUrl: String
 
     let title: String
